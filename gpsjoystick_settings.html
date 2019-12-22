@@ -118,7 +118,34 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   width: 50%;
   height: auto;
 }
+/* faq accordion */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  transition: 0.4s;
+  font-family:'Prompt';
+}
 
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  color: #0074d0;
+  font-size: 13px;
+  font-family:'Prompt';
+}
 </style>
 </head>
 <body>
@@ -130,114 +157,133 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 
 <div style="padding-left:16px">
 
-<h1><font color="#0074d0">GPS JOYSTICK SETTINGS</font></h1>
-Various settings for gps joystick
-<hr>
+  <h1><font color="#0074d0">GPS JOYSTICK SETTINGS</font></h1>
+  Various settings for GPS Joystick fake gps app.
+  <hr>
 
-<h2><font color="#f70040">PRE-MARCH 2017 ASP:</font></h2>
+<button class="accordion"><b>PRE-MARCH 2017 ASP</b></button>
+<div class="panel">
+  <b>PHONE:</b>
+  <br>  
+  <ol>
+  <li>developer options> mock location app (urfakegpsapp)</li>
+  <li><font color=red>set gps to high accuracy</font></li>
+  <li>reboot phone</li>
+  </ol>  
+  <b>GPS Location - GPS Joystick:</b>
+  <br>  
+  <ol>
+      <li>enable suspended mocking=OFF</li>
+      <li>enable auto suspend location=OFF</li>
+      <li><font color=red>enable indirect mocking=<b>ON</b></font></li>
+      <li>enable system mode=OFF</li>
+      <li>disable location=OFF</li>
+      <li>enable a-gps reset=OFF</li>
+  </ol>
+</div>
 
-<b>PHONE:</b>
-<br>
-
-<ol>
-<li>developer options> mock location app (urfakegpsapp)</li>
-<li>set gps to high accuracy</li>
-<li>reboot phone</li>
-</ol>
-
-<b>GPS Location - GPS JoyStick:</b>
-<br>
-
-<ol>
-    <li>enable suspended mocking=OFF</li>
-    <li>enable auto suspend location=OFF</li>
-    <li>enable indirect mocking=<b>ON</b></li>
-    <li>enable system mode=OFF</li>
-    <li>disable location=OFF</li>
-    <li>enable a-gps reset=OFF</li>
-</ol>
-<hr>
-
-<h2><font color="#f70040">ROOTED - SYSTEMIZED:</h2></font>
-
-<b>PHONE:</b>
-<br>
-
-<ol>
-<li>developer options> mock location app (urfakegpsapp)</li>
-<li>set gps to device/ phone only</li>
-<li>reboot phone</li>
-</ol>
-
-<b>GPS Location - GPS JoyStick:</b>
-<br>
-
-<ol>
-    <li>enable suspended mocking=OFF</li>
-    <li>enable auto suspend location=OFF</li>
-    <li>enable indirect mocking=OFF</li>
-    <li>enable system mode=<b>ON</b></li>
-    <li>disable location=OFF</li>
-    <li>enable a-gps reset=OFF</li>
-</ol>
-<hr>
-
-
-<h2><font color="#f70040">DOWNGRADED GPLAY SERVICES:</h2></font>
-
-</ol>
-
-<b>PHONE:</b>
-<br>
-
-<ol>
-<li>developer options> mock location app (urfakegpsapp)</li>
-<li>set gps to high accuracy</li>
-<li>reboot phone</li>
-</ol>
-
-<b>GPS Location - GPS JoyStick:</b>
-<br>
-
-<ol>
-    <li>enable suspended mocking=OFF</li>
-    <li>enable auto suspend location=<b>ON</b></li>
-    <li>enable indirect mocking=OFF</li>
-    <li>enable system mode=OFF</li>
-    <li>disable location=OFF</li>
-    <li>enable a-gps reset=OFF</li>
-</ol>
-
-<hr>
-
- <h2><font color="#f70040">ROOTED - SMALI:</h2></font>
-    
+<button class="accordion"><b>ROOTED - SYSTEMIZED</b></button>
+<div class="panel">
   <b>PHONE:</b>
   <br>
   
   <ol>
   <li>developer options> mock location app (urfakegpsapp)</li>
-  <li>set gps to device/ phone only</li>
+  <li><font color=red>set gps to device/ phone only</font></li>
   <li>reboot phone</li>
   </ol>
   
-  <b>GPS Location - GPS JoyStick:</b>
+  <b>GPS Location - GPS Joystick:</b>
   <br>
   
   <ol>
-      <li>enable suspended mocking=<b>OFF</b></li>
-      <li>enable auto suspend location=<b>OFF</b></li>
-      <li>enable indirect mocking=<b>OFF</b></li>
-      <li>enable system mode=<b>OFF</b></li>
-      <li>disable location=<b>OFF</b></li>
-      <li>enable a-gps reset=<b>OFF</b></li>
+      <li>enable suspended mocking=OFF</li>
+      <li>enable auto suspend location=OFF</li>
+      <li>enable indirect mocking=OFF</li>
+      <li><font color=red>enable system mode=<b>ON</b></font></li>
+      <li>disable location=OFF</li>
+      <li>enable a-gps reset=OFF</li>
+  </ol>  
+</div>
+
+<button class="accordion"><b>ROOTED - SMALI</b></button>
+<div class="panel">
+  <b>PHONE:</b>
+  <br>
+  
+  <ol>
+  <li>developer options> mock location app (urfakegpsapp)</li>
+  <li><font color=red>set gps to device/ phone only</font></li>
+  <li>reboot phone</li>
   </ol>
+  
+  <b>GPS Location - GPS Joystick:</b>
+  <br>
+  
+  <ol>
+    <li>enable suspended mocking=<b>OFF</b></li>
+    <li>enable auto suspend location=<b>OFF</b></li>
+    <li>enable indirect mocking=<b>OFF</b></li>
+    <li>enable system mode=<b>OFF</b></li>
+    <li>disable location=<b>OFF</b></li>
+    <li>enable a-gps reset=<b>OFF</b></li>
+  </ol>  
+</div>
+
+<button class="accordion"><b>DOWNGRADED GPLAY SERVICES</b></button>
+<div class="panel">  
+<b>PHONE:</b>
+<br>
+
+<ol>
+<li>developer options> mock location app (urfakegpsapp)</li>
+<li><font color=red>set gps to high accuracy</font></li>
+<li>reboot phone</li>
+</ol>
+
+<b>GPS Location - GPS Joystick:</b>
+<br>
+
+<ol>
+    <li>enable suspended mocking=OFF</li>
+    <li><font color=red>enable auto suspend location=<b>ON</b></font></li>
+    <li>enable indirect mocking=OFF</li>
+    <li>enable system mode=OFF</li>
+    <li>disable location=OFF</li>
+    <li>enable a-gps reset=OFF</li>
+</ol>
+</div>
+
 
 <hr>
-<b><font size="4" color="#f70040">NOTE:</font></b> If your experiencing rubberbanding, try to test different options under <b>QUICK OPTIONS> FIX GPS JUMP TO REAL LOCATION.</b>
-<br>
-<br>
+<h2><font color="red">FAQ:</font></h2>
+
+<button class="accordion"><b>Error:</b> ........ </button>
+<div class="panel">
+  <p>boooooooooom!</p>
 </div>
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
