@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>smali patcher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
+<style>
+
+body {margin:0; font-family:'Prompt'; font-size:14px}
+
+.topnav {
+  overflow: hidden;
+  background-color: #002d4c;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #004882;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+/* responsive img */
+.responsive {
+  width: 50%;
+  height: auto;
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+</div>
+
+
+<div style="padding-left:16px">
+
+<h1><font color="#0074d0">MAGISK MODULE: SMALI PATCHER</font></h1>
+<b>Smali patcher</b> is a utility program designed to patch services.jar on an android system to spoof location, disable signature verification, signature spoofing and allow screenshots in secure apps. It is developed by XDA user fOmey. This tool works on all versions of Android and all android phones.
+<hr>
+
+
+<h3>PATCHES:</h3>
+<ul>
+    <li><b>Mock locations</b> - Hide mock locations status, allowing apps like Pokemon GO to treat them as genuine location updates.</li>
+    <li><b>Secure flag</b> - Allow screenshots/screensharing in secure apps.</li>
+    <li><b>Signature verification</b> - Disable signature verification allowing modification/execution of signed system apps.</li>
+    <li><b>Signature spoofing</b> - Enable signature spoofing app permission.</li>
+    <li><b>Magisk reboot (Galaxy S10)</b> - Reboot directly back into magisk from powermenu.</li>
+    <li><b>High volume warning</b> - Disable high volume popup dialog.</li>
+  </ul>
+
+  <h3>NOTE:</h3>
+  GPS SPOOFERS / FUSEDLOCATION / RUBBERBANDING:
+  FusedLocation API GPS spoofers are NOT compatible with the mock location patch.You are required to use a traditional GPS spoofer! Spoofed location updates will be fed into fusedlocation all the same, meaning you don't need to disable the service.. which means while your not spoofing you still gain the benefit of fusedlocation which is all around more accurate location updates!
+
+  <h3>REQUIREMENTS:</h3>
+
+  <ul>
+    <li>PC with at least 3GB+ of RAM.</li>
+    <li>
+        Framework 4.7.1 or later installed.
+        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=55170" target="_blank"> <i class="fa fa-download" style="font-size:24px;color: #0074d0"></i></a>
+        <br>
+    <li>Java installed.
+        <a href="https://www.java.com/en/" target="_blank"> <i class="fa fa-download" style="font-size:24px;color: #0074d0"></i></a>
+        <br>
+    <li>Android device running 6.0 or above.</li>
+  </ul>
+  
+  <h3>INSTRUCTIONS (ADB METHOD/AUTOMATED - RECOMMENDED!)</h3>
+  <ol>
+    <li>Backup device.. safety first kids.<br></li>
+    <li>Enable USB debugging in <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">DEVELOPER SETTINGS</a> on your device and connect via USB to your PC.<br></li>
+    <li>Run "SmaliPatcher.exe", First startup will automatically download the latest necessary binary's.<br></li>
+    <li>Select your desired patches, but certainly check <b>[Mock locations]</b>.<br></li>
+     <li>Hit "ADB PATCH" button.<br></li>
+    <li>Once the process has completed, magisk module will be generated in the same directory as <b>"SmaliPatcher.exe"</b> named: <b>"SmaliPatcherModule-X.X.X.X-fOmey@XDA.zip"</b>.<br></li>
+    <li>Install the generated zip file as a module in Magisk Manager.<br></li>
+    <li>Reboot after that.<br></li>
+  </ol>
+
+<br>
+
+<hr>
+<h3>XDA: <a href="https://forum.xda-developers.com/apps/magisk/module-smali-patcher-0-7-t3680053" target="_blank">SMALI Patcher</a> GUIDE: <a href="https://www.youtube.com/watch?v=H9sakb26Juw" target="_blank">Video</a></h3>
+
+
+
+<font color="#f70040"><h3>FAQ:</h3></font>
+<b>1. STUCK IN A BOOTLOOP:</b>
+<ol>
+<LI>Boot into TWRP</LI>
+<li>Go to the Menu <b>"Advanced"</b>><b>"File Manager</b>".</li>
+<li>Navigate to: <b>data -> adb -> modules</b> select module directory (in this case <b>"fomey.smalipatcher"</b>) -> Folder icon (bottom right) -> Delete</li>
+<li>Reboot.</li>
+</ol>
+Alternatively you can just uninstall/ reinstall magisk to clear all your modules.
+<br>
+<br>
+<b>2. MOCK LOCATION RUBBER BANDS TO REAL LOCATION:</b>
+<ol>
+  <li>Set your gps to device only in location method settings (Settings -> Location -> Location method).</li>
+  <li>Disable improve location accuracy settings (Settings -> Location -> Improve accuracy).</li>
+  <li>If you are still experiencing rubber banding after trying everything above, try a different fake gps app.</li>
+</ol>
+
+
+
+</div>
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>

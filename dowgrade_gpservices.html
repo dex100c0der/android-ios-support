@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Downgrade Google play Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
+<style>
+
+body {margin:0; font-family:'Prompt'; font-size:14px}
+
+.topnav {
+  overflow: hidden;
+  background-color: #002d4c;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #004882;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+/* responsive img */
+.responsive {
+  width: 50%;
+  height: auto;
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+</div>
+
+
+<div style="padding-left:16px">
+  <h1><font color="#0074d0">DOWNGRADE GOOGLE PLAY SERVICES</font></h1>
+  Google Play Services is a background service that runs on Android, which in turn helps in integrating Google’s advanced functionalities to other applications. It is essentially an Application programming interface (API) for developers to enhance communication between apps. It is a bundle of a bunch of other services that aid a user.
+  
+  <hr>   
+
+  <h2>NOTE:</h2>
+    <ul>
+        <li>Anroid 9 can't spoof unless you root or dowgrade the OS (if applicable).<br></li>
+        <LI>Follow the steps below carefully.</LI>
+      </ul>
+  
+<h2>Steps:</h2>
+    <ol>
+        <li>Go to Settings> Security> Device Admins/ Device Administrators and turn off Find My Device.</li>
+          <ul>
+            <li>If you can't find device admin, search for it with the search bar.<br></li>
+            <li>Try Settings> Security> Other Security Settings> Device admin apps.</li>
+          </ul><br>
+        <li>Go to Settings> Apps and find Google Play Services.</li><br>
+        <li>Go to Storage and clear Cache and Data.</li><br>
+        <li>Download and install your fakegps app. </li><br>
+        <li>Before downgrading Google play services, take note of the version installed first, this info will be helpful when looking for the right version later.</li><br>
+        <li>Go to Settings> Apps> Google Play Services.</li>
+          
+            <b>Example:</b><br>
+              <img src="gpservices/040308-18.jpg"><br>
+            Google Play Services 18.7.19 (<font color="red"><b>040308</b></font>-262610125). The numbers in bold-red is what we need! It could also be indicated as <font color="red">"948"</font> for older versions.
+        <br>
+         <br>
+        <li>Uninstall Google Play Services updates (3dots upper right> then check again the version.</li>
+            <ul>
+              <li>If Google Services is below 12.5.29, then you can update it.</li> 
+            </ul>
+        <br>
+  
+        <li>Download and install Google Play Services <b>APK</b> <a href="gplayservices_app.html" target="_blank"> <i class="fa fa-download" style="font-size:24px;color:#0074d0"></i></a>
+        <br>            
+        <b>NOTE:</b> <font color="red">Spoofable versions of Google Play Services: <b>12.5.29</b>, <b>12.6.85</b>, <b>12.6.87</b> and <b>12.6.88</b>.<br></font><br>
+            So if i want to try 12.5.29..... i would look for the one with <b>"040308"</b>. See pic below...
+            <img src="gpservices/040308.jpg">
+        <br>
+        <br>
+        <li>Clear cache and data of Google Maps.</li><br>
+        <li>Uninstall or disable Maps.</li><br>
+        <li>Disable auto updates in the Google Play Store.</li>
+            <ul>
+              <li>Google Play Store> Settings> Auto-update apps> Set to Don't auto-update apps.</li>
+            </ul>
+    </ol>
+<br>
+
+
+<hr>
+<h3><a href="michelle.html" target="_blank">Other ways to disable google play services auto update</a></h3>
+<h3><font color="#f70040">FAQ:</font></h3>
+
+</div>
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>

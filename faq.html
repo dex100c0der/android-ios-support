@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Frequently Asked Question</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
+<style>
+
+body {margin:0; font-family:'Prompt'; font-size:14px}
+
+.topnav {
+  overflow: hidden;
+  background-color: #002d4c;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #0085e3;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+/* responsive img */
+.responsive {
+  width: 50%;
+  height: auto;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.4s;
+  font-family:'Prompt';
+}
+
+.active, .accordion:hover {
+  background-color: #0085e3; 
+  color: white;
+  
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  color: #0074d0;
+  overflow: hidden;
+  font-family:'Prompt';
+  font-size: 14px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+</div>
+
+<div style="padding-left:16px">
+
+<h1><font color="#0074d0">Frequently Asked Question (FAQ)</font></h1>
+let us know if you want to add something ;)
+
+        <button class="accordion">HOW TO SNIPE?</button>
+        <div class="panel">
+          <p>With the latest changes by Niantic, sniping is now much harder.</p>
+            <ul>
+                <li>Start by being idle (no pokestops, gyms, or catching Pokemon) for 2 hours. This includes having the app open or closed.</li>
+                <li>Assume you are at location A and there is a Pokemon spawning at location B (which is more than 1000 km away). </li>
+                <li>You can now teleport to B, encounter that Pokemon and capture it at B. Since Niantic records your encounter location now, your latest location is at B and not A anymore. </li>
+                <li>Then, you can spin Pokestops at B without being soft banned. You may return to A or snipe at another distant location C after another 2 hours of idling.</p></li>
+            </ul>
+        </div>
+        
+
+        <button class="accordion">WHAT IS COOLDOWN?</button>
+        <div class="panel">
+          <p>Cool down is the time required between teleports for certain actions. Cool down time depends on the distance teleporting. Max cool down is 2 hours!</p>
+          <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+              <th>Distance</th>
+              <th>Cooldown</th>              
+           </tr>
+           <tr>
+              <td>1 Km</td>
+              <td>1 min</td>                     
+           </tr>
+           <tr>
+            <td>2 Km</td>
+            <td>1 min</td>                     
+         </tr>
+         <tr>
+          <td>4 Km</td>
+          <td>2 mins</td>                     
+       </tr>
+       <tr>
+        <td>10 Km</td>
+        <td>8 mins</td>                     
+     </tr>
+     <tr>
+      <td>12 Km</td>
+      <td>9 mins</td>                     
+   </tr>
+   <tr>
+    <td>15 Km</td>
+    <td>11 mins</td>                     
+ </tr>
+ <tr>
+  <td>20 Km</td>
+  <td>13 mins</td>                     
+</tr>
+<tr>
+  <td>25 Km</td>
+  <td>15 mins</td>                     
+</tr>
+<tr>
+  <td>30 Km</td>
+  <td>18 mins</td>                     
+</tr>
+<tr>
+  <td>40 Km</td>
+  <td>22 mins</td>                     
+</tr>
+<tr>
+  <td>45 Km</td>
+  <td>23 mins</td>                     
+</tr>
+<tr>
+  <td>60 Km</td>
+  <td>25 mins</td>                     
+</tr>
+<tr>
+  <td>80 Km</td>
+  <td>27 mins</td>                     
+</tr>
+<tr>
+  <td>100 Km</td>
+  <td>30 mins</td>                     
+</tr>
+<tr>
+  <td>125 Km</td>
+  <td>33 mins</td>                     
+</tr>
+<tr>
+  <td>140 Km</td>
+  <td>34 mins</td>                     
+</tr>
+<tr>
+  <td>150 Km</td>
+  <td>36 mins</td>                     
+</tr>
+<tr>
+  <td>180 Km</td>
+  <td>39 mins</td>                     
+</tr>
+<tr>
+  <td>200 Km</td>
+  <td>42 mins</td>                     
+</tr>
+<tr>
+  <td>250 Km</td>
+  <td>46 mins</td>                     
+</tr>
+<tr>
+  <td>300 Km</td>
+  <td>50 mins</td>                     
+</tr>
+<tr>
+  <td>350 Km</td>
+  <td>53 mins</td>                     
+</tr>
+<tr>
+  <td>400 Km</td>
+  <td>56 mins</td>                     
+</tr>
+<tr>
+  <td>500 Km</td>
+  <td>64 mins</td>                     
+</tr>
+<tr>
+  <td>600 Km</td>
+  <td>600 Km</td>                     
+</tr>
+<tr>
+  <td>750 Km</td>
+  <td>82 mins</td>                     
+</tr>
+<tr>
+  <td>800 Km</td>
+  <td>86 mins</td>                     
+</tr>
+<tr>
+  <td>900 Km</td>
+  <td>93 mins</td>                     
+</tr>
+<tr>
+  <td>950 Km</td>
+  <td>97 mins</td>                     
+</tr>
+<tr>
+  <td>1000 Km</td>
+  <td>100 mins</td>                     
+</tr>
+<tr>
+  <td>1150 Km</td>
+  <td>111 mins</td>                     
+</tr>
+<tr>
+  <td>1200 Km</td>
+  <td>115 mins</td>                     
+</tr>
+<tr>
+  <td>1250 Km</td>
+  <td>118 mins</td>                     
+</tr>
+<tr>
+  <td>1266+ Km</td>
+  <td>120 mins</td>                     
+</tr>
+</table>
+Cooldown can be calculated with the distance calculator in #bot_commands or by waiting the maximum cooldown of 2 hours
+        </div>
+        
+
+        <button class="accordion">WHAT ACTIONS TRIGGER COOLDOWN?</button>
+        <div class="panel">
+        <b>Cooldown will reset if you do any of the following actions:</b>
+        <ul>
+          <li>Catch a Pokemon.</li>
+          <li>Accidentally drop the ball anywhere on the catch screen.</li>
+          <li>Use a berry on a Pokemon in catch screen.</li>
+          <li>Fight in a Gym.</li>
+          <li>Putting a Pokemon in a gym.</li>
+          <li>Spin a Pokestop/gym.</li>
+          <li>Using a berry on a gym Pokemon.</li>
+          <li>Finish a Raid and either feed a berry or try to catch the boss.</li>
+          <li>Catch meltans from a meltan mystery box.</li>                   
+        </ul>        
+        </div>
+        
+
+        <button class="accordion">What actions DO NOT trigger Cooldown?</button>
+        <div class="panel">
+        <b>Cool down will NOT reset if you do any of the following actions:</b>
+        <ul>
+          <li>Teleporting in general. You can teleport as much as you want, just don't DO any of the cool down .</li>
+          <li>Click on a pokemon, without doing anything after. (shiny checking).</li>
+          <li>Egg hatching.</li>
+          <li>Evolve/ power-up a Pokemon.</li>
+          <li>Using an item on a Pokemon (like TM).</li>
+          <li>Receive rewards from a quest.</li>
+          <li>Catching a quest Pokemon.</li>
+          <li>Take photos (Snapshot).</li>
+          <li>Catch Smeargle or any of the other photobomb Pokemon.</li>
+          <li>Raid and then immediately run away from the catch screen (Used in speed raiding) You have to be off cooldown when you start this</li>
+          <li>Trades</li>
+          <li>PVP Battles</li>
+          <li>Sending/Receiving gifts</li>
+          <li>Add a lure to a pokestop</li>
+          <li>Feeding berries to gym defender pokemon from a distance</li>
+          <li>Switch from tweaked app to legit app in order to buy coins and then switch back.</li>
+          If you are already on cooldown, these actions above can be done while you wait it out.
+         </ul>
+        </div>
+        
+
+        <button class="accordion">WHAT IS A SOFTBAN?</button>
+        <div class="panel">
+          <p>Soft bans are temporary and may prevent you from interacting with the game. You may be temporarily soft banned if you find that you can't interact with elements in the game. For example, you may be soft banned if Pokestops spin but nothing happens and they remain blue, if you can't spin Pokestops at all, or if you throw a pokeball at a pokemon and it hits, but the pokemon flee or you got kicked from a gym battle.</p>
+        </div>
+        
+
+        <button class="accordion">WHAT IS A SHADOWBAN?</button>
+        <div class="panel">
+          <p>A shadow ban, different than a soft ban, doesn't prevent you from playing. What it does is prevent you from seeing anything other than common spawns- Pidgey, Rattata, and the like. In other words, no rare Pokemons for you! No Eevee, no Growlithe, and certainly no Snorlax, Dragonite, or Tyranitar. You can still hatch eggs, spin stops and catch Pokemon you can see and does not affect Raids.</p>
+        </div>
+        
+
+        <button class="accordion">HOW DO I EARN COINS FROM GYMS?</button>
+        <div class="panel">
+          <p>Players get one coin for every 10 minutes a Pokemon is in a gym, for a maximum of 50 coins a day. This means one Pokemon has to be in a gym for eight hours and 20 minutes to max out on coins. The daily reset for coins happens at 12 a.m. in your local time zone. You also only get your coins after the Pokemon is defeated and returns to you. However, you won't get coins for previous days. This means if your Pokemon was in the gym for two full days, you'll only get the daily max of 50 coins.</p>
+        </div>
+        
+
+        <button class="accordion">IS THERE A DAILY/ WEEKLY CATCH LIMIT?</button>
+        <div class="panel">
+          <p>Yes! There is a daily/ weekly catch limit in the game which is 1,000 Pokemon per day or 7,000 per week. This so-called "Catch Ban" doesn't affect Shadow Pokemon. Yes, you can actually catch 1,000 Pokemon per day using Gotcha/Go Plus and playing in a bigger city for 7-8 hours.</p>
+        </div>
+        
+
+        <button class="accordion">Things you can do while on Cooldown</button>
+        <div class="panel">
+          <ul>
+            <li>eat</li>
+            <li>dance</li>
+            <li>sing</li>
+            <li>back-dive</li>
+          </ul>
+        </div>
+        
+        <button class="accordion">WHAT IS DPS?</button>
+        <div class="panel">
+          <p>DPS= Damage Per Second</p>
+          <p>DPS is the average amount of damage a Pokémon will do per second in battle.</p>
+        </div>
+        
+        <button class="accordion">WHAT IS TDO?</button>
+        <div class="panel">
+          <p>TDO= Total Damage Output</p>
+          <p>TDO is the total amount of damage a Pokémon will do before it faints.</p>
+                 
+        </div>
+
+        <button class="accordion">WHAT IS POKEMON CAMPING?</button>
+        <div class="panel">
+          <p>If a Pokemon that you're very much desired has spawned but you're still in cooldown, you can teleport to the Pokemon's location, tap on the Pokemon to enter the capture screen, but DO NOT attempt to throw the Poke Balls or feed any berry. Off the screen to let Pokemon Go app running in the background. Make sure you don't use the smartphone too much as iOS and Android may force close the game to release resources. Wait until the cool down period has passed (e.g. driving time to reach the place or max 2 hours for far flung location, then attempt to catch the Pokemon.</p>
+        </div>
+        
+
+        <button class="accordion">HOT SPOTS</button>
+        <div class="panel">
+          <ul>
+              <li>London = 51.510077,-0.123853</li>
+              <li>Paris = 48.86158451,2.28936430</li>
+              <li>California Disneyland = 33.811954,-117.919067</li>
+              <li>Santa Monica = 34.009033,-118.497279</li>
+              <li>Pier 39 = 37.808673,-122.409821</li>
+              <li>NY Central Park = 40.770418,-73.974637</li>
+              <li>SF Union Square =37.787993 ,-122.407437</li>
+              <li>Hong Kong = 22.319051,114.172118</li>
+              <li>Tokyo Disneyland = 35.631209,139.880933</li>
+              <li>Busan = 35.15396,129.05957</li>
+              <li>Sydney = -33.868820,151.209296</li>
+              <li>Copenhagen Mall = 55.6627212,12.5531362</li>
+              <li>Budapest = 47.530248,19.051257</li>
+              <li>Brazil = -23.549616,-46.655418</li>
+              <li>UK = 53.190085,-2.891558</li>
+              <li>Millennium Park Chicago = 41.886473,-87.626356</li>
+              <li>Lincoln park zoo Chicago = 41.920118,-87.633728 </li>
+              <li>Cluster spot Peru = -11.562950,-77.270210</li>
+              <li>Bornova Buyuk Park Turkey = 38.463131,27.216493</li>
+              <li>Saragossa, Spain = 41.661609,-0.894640</li>
+              <li>Taipei,Taiwan 25.044004,121.506411</li>
+          </ul>
+        </div>
+        
+
+        <button class="accordion">Pokemon Go Three-Strike Policy?</button>
+        <div class="panel">
+        <ol>
+          <li>Strike 1: <b>WARNING</b></li>
+              <ul>
+                <li>If this strike is issued, you will see a warning message within the Pokemon GO app informing you that we have detected cheating on your account.</li>
+                <li>In addition to this warning, your gameplay experience may be degraded in the following ways for the duration of the warning.</li>
+                <li>You may not be able to encounter rare Pokemon in the wild. These Pokemon may not appear on the map or on the Nearby Pokemon tracker.</li>
+                <li>You may be excluded from receiving new EX Raid Passes.</li>
+                <li>This strike will last for approximately 7 days. After this period, your gameplay experience will fully be restored.</li>
+              </ul>
+          <li>Strike 2: <b>SUSPENSION</b></li>
+              <ul>
+                <li>If your account is issued a second strike, you will temporarily lose access to your Pokemon GO account. When attempting to log into the game, you'll be presented with a message stating that your account is suspended. You will not be able to bypass this message.</li>
+                <li>This strike will last for approximately 30 days. After that period, your account access will be restored.</li>
+              </ul>
+          <li>Strike 3: <b>TERMINATION</b></li>
+              <ul>
+                <li>Failing to change your "style" of playing Pokemon Go and violating Pokemon Go Terms of Service and Trainer Guidelines will lead to a permaban.</li>
+                <li>Duration: Permanent! </li>
+              </ul>
+        </ol>
+        </div>
+        
+
+
+
+
+
+
+
+        <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+        </script>
+
+
+</div>
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>
