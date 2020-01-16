@@ -165,6 +165,49 @@ img {
     100%{   color: red;    }
 }
 
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #1974d2;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color:  whitesmoke;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: black;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color:  #1974d2;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
 
 </style>
 </head>
@@ -191,20 +234,28 @@ img {
     </div>  
   </div>
   
-  <div class="dropdown">
+    <div class="dropdown">
     <button class="dropbtn">iOS 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
         <a href="https://www.ispoofer.com/ispoofer-for-pogo-installation/" target="_blank"> <b>[iSpoofer]</b> Direct Install (OTA)</a>
           <a href="https://www.ispoofer.com/ispoofer-for-pogo/" target="_blank"> <b>[iSpoofer]</b> IPA</a>         
-          <a href="https://ipogo.app/how-to-direct-install.php#content" target="_blank"> <b>[iPoGo]</b> Direct Install (OTA)</a>
-          <a href="https://ipogo.app/how-to-impactor.php#content" target="_blank"> <b>[iPoGo]</b> IPA</a>                
-          <a href="cydia_impactor.html"><b>[Guide]</b> Cydia Impactor</a>
-          <a href="https://cydiaimpactor.online/cydia-impactor-errors/" target="_blank"><b>[Info]</b> Cydia Errors and Fixes</a>
-          <a href="revoke_cetificate.html"><b>[Guide]</b> Revoke Certificate</a>          
-          <a href="revoked_certificate_tricks.html"><b>[Guide]</b> Revoked Certificate workarounds</a>
-          <a href="xcode.html"><b>[Guide]</b> Install IPA using Xcode</a>
+          <a href="https://ipogo.app/how-to-direct-install.php#content" target="_blank"> <b>[iPogo]</b> Direct Install (OTA)</a>
+          <a href="https://ipogo.app/how-to-impactor.php#content" target="_blank"> <b>[iPogo]</b> IPA</a>         
+          <a href="revoke_cetificate.html"><b>[Guide]</b> How to Revoke Certificate</a>          
+          <a href="revoked_certificate_tricks.html"><b>[Guide]</b> Revoked Certificate workarounds</a>       
+          
+          <div class="subnav">
+            <button class="subnavbtn"><b>IPA Installation</b><i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
+              <a href="cydia_impactor.html"><b>Cydia Impactor</b></a>
+              <a href="xcode.html"><b>Xcode</b></a>
+              <a href="#bring"><b>AltStore</b></a>
+              <a href="#deliver"><b>AltDeploy</b></a>
+              <a href="#package"><b>Appdb- Rickpactor</b></a>              
+            </div>
+          </div>
     </div>  
   </div>  
 
@@ -224,7 +275,7 @@ img {
     </div>  
   </div>  
   
-  <div class="dropdown">
+<div class="dropdown">
     <button class="dropbtn">Others 
       <i class="fa fa-caret-down"></i>
     </button>
@@ -235,6 +286,7 @@ img {
           <a href="battery-saver.html"><b>[Guide]</b> Exclude certain Apps from Battery-saver mode</a>
           <a href="twrp.html"><b>[Guide]</b> Install TWRP Recovery</a>
           <a href="rb-fixes.html"><b>[Guide]</b> Rubber-banding Fixes</a>
+          <a href="https://cydiaimpactor.online/cydia-impactor-errors/" target="_blank"><b>[Info]</b> Cydia Errors and Fixes</a>
     </div>  
   </div>
   
