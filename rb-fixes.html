@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>iDroid Support - Rubber-banding Fixes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
-<style>
+  <title>Rubber-banding Fixes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+  <style> 
 
-body {margin:0; font-family:'Prompt'; font-size:14px}
+
+body {
+            margin: 0;
+            padding: 0;
+            font-family:'roboto mono';
+            font-size: 15px;
+}
+            
 
 .topnav {
   overflow: hidden;
-  background-color: #002d4c;
+  background-color: #008080;
+  font-family:'roboto mono';
+  font-size: 20px;
 }
 
 .topnav a {
@@ -26,10 +37,6 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   font-size: 17px;
 }
 
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .topnav .icon {
   display: none;
@@ -70,13 +77,13 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #0085e3;
+  background-color:  #008080;
   color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color:  #008080;
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -113,41 +120,32 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
     text-align: left;
   }
 }
-/* responsive img */
-.responsive {
-  width: 50%;
-  height: auto;
-}
 
+/* accordion */
 .accordion {
   background-color: #eee;
-  color: #444;
+  color: #1974d2;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
   text-align: left;
-  outline: none;
-  font-size: 15px;
-  font-weight: bold;
+  outline: none;  
   transition: 0.4s;
-  font-family:'Prompt';
+  font-family: 'Roboto Mono';font-size: 18px;
+          
 }
 
 .active, .accordion:hover {
-  background-color: #0085e3; 
-  color: white;
-  
+  background-color: #ccc; 
 }
 
 .panel {
   padding: 0 18px;
   display: none;
   background-color: white;
-  color: #0074d0;
   overflow: hidden;
-  font-family:'Prompt';
-  font-size: 14px;
+  font-family: 'Roboto Mono';font-size: 14px;
 }
 
 </style>
@@ -155,90 +153,89 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="index.html"><i class="fa fa-fw fa-home" style="font-size:26px"></i></a>  
 </div>
+
 
 <div style="padding-left:16px">
 
-<h1><font color="#0074d0">Possible Rubber-banding Fixes</font></h1>
-<p>As of February 2018, Google Play Services has a new update which causes random jumping. </p>
-<p>On some devices/Android versions this more prominent. To help reduce this you can try some or all of the below:</p>
+  <div style="padding-left:16px">
 
-
-        <button class="accordion">FIX 1</button>
-        <div class="panel">
-          <p>One thing you can try is to clear the Google Play Services cache/ data. Also try clearing the app cache of the app you are using (Pokemon go). You can also try denying location permissions (or all permissions if that works for you) to the Google Play Services app..</p>
-        </div>
-        
-
-        <button class="accordion">FIX 2</button>
-        <div class="panel">
-          <p>Try one of the GPS Jump fix options (gps joystick) that are visible on the Home screen.</p>
-        </div>
-        
-        <button class="accordion">FIX 3</button>
-        <div class="panel">
-        <p>Try and tweak the Process Interval in Settings. (This is advanced so be avoid if you do not know what you are doing).</p>
-        </div>
-        
-
-        <button class="accordion">FIX 4</button>
-        <div class="panel">
-        <p>Alternatively, use the app indoors where you have a low gps signal.</p>
-        </div>
-        
-
-        <button class="accordion">FIX 5</button>
-        <div class="panel">
-          <p>Go to GPS JoyStick Settings and on Select Background Thread change it to Java.</p>
-          <p>Disable battery optimization for GPS JoyStick.</p>
-          <a href="battery-saver.html" target="_blank">Guide 1</a>
-          <a href="https://support.getfindster.com/hc/en-us/articles/360000666497-Disabling-battery-optimization-on-Android-smartphones" target="_blank">Guide 2</a>
-        </div>
-        
-        
-        
-        <button class="accordion">FIX 6</button>
-        <div class="panel">
-          <p>Try the smalipatcher version 0.0.6.3. <a href="https://drive.google.com/file/d/1G7jWHXqLYxiHqXLFhXxiztgLnNLkUKhP/view" target="_blank">DOWNLOAD</a></p>
-          <p>Make sure to delete the older version and reboot your phone first before re-patching.</p>
-        </div>
-        
-
-        <button class="accordion">FIX 7</button>
-        <div class="panel">
-          <p>Set device only in location method settings (Settings -> Location -> Location method).</p>
-          <p>Disable improve location accuracy settings (Settings -> Location -> Improve accuracy).</p>
-        </div>
-        
-
-        
-
+    <h1><font color="#0074d0">Possible Rubber-banding Fixes</font></h1>
+    <p>As of February 2018, Google Play Services has a new update which causes random jumping. </p>
+    <p>On some devices/Android versions this more prominent. To help reduce this you can try some or all of the below:</p>
+    
+    
+            <button class="accordion">FIX 1</button>
+            <div class="panel">
+              <p>One thing you can try is to clear the Google Play Services cache/ data. Also try clearing the app cache of the app you are using (Pokemon go). You can also try denying location permissions (or all permissions if that works for you) to the Google Play Services app..</p>
+            </div>
+            
+    
+            <button class="accordion">FIX 2</button>
+            <div class="panel">
+              <p>Try one of the GPS Jump fix options (gps joystick) that are visible on the Home screen.</p>
+            </div>
+            
+            <button class="accordion">FIX 3</button>
+            <div class="panel">
+            <p>Try and tweak the Process Interval in Settings. (This is advanced so be avoid if you do not know what you are doing).</p>
+            </div>
+            
+    
+            <button class="accordion">FIX 4</button>
+            <div class="panel">
+            <p>Alternatively, use the app indoors where you have a low gps signal.</p>
+            </div>
+            
+    
+            <button class="accordion">FIX 5</button>
+            <div class="panel">
+              <p>Go to GPS JoyStick Settings and on Select Background Thread change it to Java.</p>
+              <p>Disable battery optimization for GPS JoyStick.</p>
+              <a href="battery-saver.html" target="_blank">Guide 1</a>
+              <a href="https://support.getfindster.com/hc/en-us/articles/360000666497-Disabling-battery-optimization-on-Android-smartphones" target="_blank">Guide 2</a>
+            </div>
+            
+            
+            
+            <button class="accordion">FIX 6</button>
+            <div class="panel">
+              <p>Try the smalipatcher version 0.0.6.3. <a href="https://drive.google.com/file/d/1G7jWHXqLYxiHqXLFhXxiztgLnNLkUKhP/view" target="_blank">DOWNLOAD</a></p>
+              <p>Make sure to delete the older version and reboot your phone first before re-patching.</p>
+            </div>
+            
+    
+            <button class="accordion">FIX 7</button>
+            <div class="panel">
+              <p>Set device only in location method settings (Settings -> Location -> Location method).</p>
+              <p>Disable improve location accuracy settings (Settings -> Location -> Improve accuracy).</p>
+            </div>
 
 
 
 
 
 
-        <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-              panel.style.display = "none";
-            } else {
-              panel.style.display = "block";
-            }
-          });
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
         }
-        </script>
+      });
+    }
+    </script>
 
 
-</div>
+
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -249,6 +246,9 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
+
+
+
+

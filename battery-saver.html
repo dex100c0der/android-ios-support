@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>iDroid Support - Battery-saver</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
-<style>
+  <title>Battery-saver Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+  <style> 
 
-body {margin:0; font-family:'Prompt'; font-size:14px}
+
+body {
+            margin: 0;
+            padding: 0;
+            font-family:'roboto mono';
+            font-size: 15px;
+}
+            
 
 .topnav {
   overflow: hidden;
-  background-color: #002d4c;
+  background-color: #008080;
+  font-family:'roboto mono';
+  font-size: 20px;
 }
 
 .topnav a {
@@ -26,10 +37,6 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   font-size: 17px;
 }
 
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .topnav .icon {
   display: none;
@@ -70,13 +77,13 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #004882;
+  background-color:  #008080;
   color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color:  #008080;
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -113,10 +120,32 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
     text-align: left;
   }
 }
-/* responsive img */
-.responsive {
-  width: 50%;
-  height: auto;
+
+/* accordion */
+.accordion {
+  background-color: #eee;
+  color: #1974d2;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;  
+  transition: 0.4s;
+  font-family: 'Roboto Mono';font-size: 18px;
+          
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  font-family: 'Roboto Mono';font-size: 14px;
 }
 
 </style>
@@ -124,13 +153,13 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="index.html"><i class="fa fa-fw fa-home" style="font-size:26px"></i></a>  
 </div>
 
 
 <div style="padding-left:16px">
 
-  <h1><font color="#0074d0">EXCLUDE CERTAIN APPS FROM BATTERY-SAVER</font></h1>
+  <h1><font color="#0074d0">EXCLUDE CERTAIN APPS FROM BATTERY-SAVER MODE</font></h1>
  
   <hr>     
   
@@ -157,12 +186,35 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 
   <hr>
 
-  <h3><font color="#f70040">FAQ:</font></h3>
+  <h2><font color="#f70040">FAQ:</font></h2>
+
+  <button class="accordion"><b>#</b></button>
+  <div class="panel">
+<p>dsafsdfsdf</p>          
+  </div>
+
+
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
     
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
 
 
 
-</div>
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -173,6 +225,9 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
+
+
+
+
