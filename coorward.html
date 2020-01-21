@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>iDroid Support - Coorward</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
-<style>
+  <title>Coorward</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icon/ios.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+  <style> 
 
-body {margin:0; font-family:'Prompt'; font-size:16px}
+
+body {
+            margin: 0;
+            padding: 0;
+            font-family:'roboto mono';
+            font-size: 15px;
+}
+            
 
 .topnav {
   overflow: hidden;
-  background-color: #002d4c;
+  background-color: #008080;
+  font-family:'roboto mono';
+  font-size: 20px;
 }
 
 .topnav a {
@@ -26,10 +37,6 @@ body {margin:0; font-family:'Prompt'; font-size:16px}
   font-size: 17px;
 }
 
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .topnav .icon {
   display: none;
@@ -70,13 +77,13 @@ body {margin:0; font-family:'Prompt'; font-size:16px}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #004882;
+  background-color:  #008080;
   color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color:  #008080;
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -114,24 +121,19 @@ body {margin:0; font-family:'Prompt'; font-size:16px}
   }
 }
 
-/* responsive img */
-.responsive {
-  width: 30%;
-  height: auto;
-}
-
-/* accordion FAQ */
+/* accordion */
 .accordion {
   background-color: #eee;
-  color: #444;
+  color: #1974d2;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
   text-align: left;
-  outline: none;
-  font-size: 15px;
+  outline: none;  
   transition: 0.4s;
+  font-family: 'Roboto Mono';font-size: 18px;
+          
 }
 
 .active, .accordion:hover {
@@ -143,6 +145,7 @@ body {margin:0; font-family:'Prompt'; font-size:16px}
   display: none;
   background-color: white;
   overflow: hidden;
+  font-family: 'Roboto Mono';font-size: 14px;
 }
 
 </style>
@@ -150,74 +153,77 @@ body {margin:0; font-family:'Prompt'; font-size:16px}
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="index.html"><i class="fa fa-home" style="font-size:20px;color: #0094fd"></i> Home</a>
+  <a href="index.html"><i class="fa fa-fw fa-home" style="font-size:26px"></i></a>  
 </div>
 
 <div style="padding-left:16px">
+ 
 
   <h1><font color="#0074d0">Coorward</font></h1>
-  Open coordinates links and automatically forwards GPS coordinates to GPS mocking app.
+  <p>Open coordinates links and automatically forwards GPS coordinates to GPS mocking app.</p>
+
   <hr>     
   
   <h2>Supported GPS mocking app/s:</h2>
-  Latest Fake GPS Location - GPS JoyStick (The App Ninjas) v4.1.2
-
+  <p>Latest GPS JoyStick ((appninjas) v4.1.2</p>
 
   <h2>How to set-up:</h2>
   <ol>
-    <li>download/ install app below.</li>     
+    <li>Download/ install app below.</li>     
       <b>-enable location permission:</b> settings> apps> coorward> permission
       <br> <br>
-    <li>run app> tap <b>SETTINGS</b> (scroll down) or <b>3dots menu</b> (upper right), tap <b>select app to load after teleport</b> (select <b>POKEMON GO</b>), enable <b>automatically teleport</b>, close app.</li>
+    <li>Run app> tap <b>SETTINGS</b> (scroll down) or <b>3dots menu</b> (upper right), tap <b>select app to load after teleport</b> (select <b>POKEMON GO</b>), enable <b>automatically teleport</b>, close app.</li>
     <img src="coorward/ss1.jpg" alt="Nature" class="responsive" width="600" height="400">
     <img src="coorward/ss2.jpg" alt="Nature" class="responsive" width="600" height="400">
     <br> <br> 
-    <li>run/ start gps joystick (just use any coords).</li>
+    <li>Run/ start gps joystick (just use any coords).</li>
     <b>-enable location permission:</b> settings> apps> urgpsjoystick> permission
     <br> <br>
-    <li>open discord app, go to <b>pokedex100</b>> <b>100community channel</b>> click <b>community coords link</b>> open with: select <b>Coorward</b> > log-in to discord> authenticate> click community coords link again.</li>
+    <li>Open discord app, go to <b>pokedex100</b>> <b>100community channel</b>> click <b>community coords link</b>> open with: select <b>Coorward</b> > log-in to discord> authenticate> click community coords link again.</li>
     <img src="coorward/ss3.jpg" alt="Nature" class="responsive" width="600" height="400">    
       <ul>
         <li>will show the coords page for a seconds with a warning "2 hrs cooldown" on screen.</li>
         <li>will auto open pokemon go as it was already set in coorward or it will switch if it's already opened.</li>
       </ul> 
       <br> <br> 
-    <li>just switch between discord (to get coords) and pogo or use split screen.</li>   
+    <li>Just switch between discord (to get coords) and pogo or use split screen.</li>   
     <img src="coorward/ss4.jpg" alt="Nature" class="responsive" width="600" height="400">   
   </ol>
 
-     
-    <hr>
-    <h3>
-    Playstore: <a href="https://play.google.com/store/apps/details?id=xyz.mashapp.coorward&hl=en" target="_blank">COORWARD</a>
-    </h3>
+  <h2>NOTE:</h2>
+  <p>It won't work if you have more than one gps joystick installed.</p>
+  
+ <hr>
+ <h3>
+   Coorward: <a href="https://play.google.com/store/apps/details?id=xyz.mashapp.coorward&hl=en" target="_blank">DOWNLOAD</a>        
+ </h3>
 
-    <h3>FAQ:</h3>
-    <button class="accordion">Webview need to update blah blah!</button>
+<hr>
+<h3><font color="#f70040">FAQ:</font></h3>
+
+<button class="accordion">Webview need to update blah blah!</button>
 <div class="panel">
   <p><a href="https://blogs.systweak.com/how-to-enable-disable-android-system-webview/" target="_blank">Try this fix</a></p>
 </div>
-<br>
-<br>
+
+
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
-</script>
-
+    var acc = document.getElementsByClassName("accordion");
+    var i;
     
-</div>
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
+
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -228,6 +234,5 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
