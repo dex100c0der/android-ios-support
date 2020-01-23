@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>iDroid Support - Downgrade Google play Services</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
-<style>
+  <title>Downgrade Google play Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+  <style> 
 
-body {margin:0; font-family:'Prompt'; font-size:14px}
+
+body {
+            margin: 0;
+            padding: 0;
+            font-family:'roboto mono';
+            font-size: 15px;
+}
+            
 
 .topnav {
   overflow: hidden;
-  background-color: #002d4c;
+  background-color: #008080;
+  font-family:'roboto mono';
+  font-size: 20px;
 }
 
 .topnav a {
@@ -26,10 +37,6 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   font-size: 17px;
 }
 
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .topnav .icon {
   display: none;
@@ -70,13 +77,13 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #004882;
+  background-color:  #008080;
   color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color:  #008080;
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -113,34 +120,64 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
     text-align: left;
   }
 }
+
+/* accordion */
+.accordion {
+  background-color: #eee;
+  color: #1974d2;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;  
+  transition: 0.4s;
+  font-family: 'Roboto Mono';font-size: 18px;
+          
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  font-family: 'Roboto Mono';font-size: 14px;
+}
+
+}
 /* responsive img */
 .responsive {
   width: 50%;
   height: auto;
 }
 
+
 </style>
 </head>
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="index.html"><i class="fa fa-fw fa-home" style="font-size:26px"></i></a>  
 </div>
 
-
 <div style="padding-left:16px">
-  <h1><font color="#0074d0">DOWNGRADE GOOGLE PLAY SERVICES</font></h1>
-  Google Play Services is a background service that runs on Android, which in turn helps in integrating Google’s advanced functionalities to other applications. It is essentially an Application programming interface (API) for developers to enhance communication between apps. It is a bundle of a bunch of other services that aid a user.
-  
-  <hr>   
+ 
 
+  <h1><font color="#0074d0">Downgrade Google Play Services</font></h1>
+  <p><B>Google Play Services</B> is a background service that runs on Android, which in turn helps in integrating Google’s advanced functionalities to other applications. It is essentially an Application programming interface (API) for developers to enhance communication between apps. It is a bundle of a bunch of other services that aid a user.</p>
+  <hr>     
+  
   <h2>NOTE:</h2>
     <ul>
         <li>Anroid 9 can't spoof unless you root or dowgrade the OS (if applicable).<br></li>
         <LI>Follow the steps below carefully.</LI>
       </ul>
   
-<h2>Steps:</h2>
+<h2>STEPS:</h2>
     <ol>
         <li>Go to Settings> Security> Device Admins/ Device Administrators and turn off Find My Device.</li>
           <ul>
@@ -177,20 +214,48 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
         <br>
         <br>
         <li>Clear cache and data of Google Maps.</li><br>
-        <li>Uninstall or disable Maps.</li><br>
+        <li>Uninstall or disable Maps. (optional)</li><br>
         <li>Disable auto updates in the Google Play Store.</li>
             <ul>
               <li>Google Play Store> Settings> Auto-update apps> Set to Don't auto-update apps.</li>
             </ul>
     </ol>
 <br>
-
-
 <hr>
 <h3><a href="michelle.html" target="_blank">Other ways to disable google play services auto update</a></h3>
+
+
+
+
 <h3><font color="#f70040">FAQ:</font></h3>
 
+<button class="accordion">!</button>
+<div class="panel">
+  <p>#</p>
 </div>
+
+
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
+
+
+
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -201,6 +266,5 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
