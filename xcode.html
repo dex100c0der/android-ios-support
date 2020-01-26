@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>iDroid Support - XCode</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="icon/ios.png" type="image/png" sizes="32x32">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
-<style>
+  <title>xCode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icon/ios.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+  <style> 
 
-body {margin:0; font-family:'Prompt'; font-size:14px}
+
+body {
+            margin: 0;
+            padding: 0;
+            font-family:'roboto mono';
+            font-size: 15px;
+}
+            
 
 .topnav {
   overflow: hidden;
-  background-color: #002d4c;
+  background-color: #008080;
+  font-family:'roboto mono';
+  font-size: 20px;
 }
 
 .topnav a {
@@ -26,10 +37,6 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   font-size: 17px;
 }
 
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .topnav .icon {
   display: none;
@@ -70,13 +77,13 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #004882;
+  background-color:  #008080;
   color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color:  #008080;
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -113,24 +120,20 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
     text-align: left;
   }
 }
-/* responsive img */
-.responsive {
-  width: 50%;
-  height: auto;
-}
-/* faq accordion */
+
+/* accordion */
 .accordion {
   background-color: #eee;
-  color: #444;
+  color: #1974d2;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
   text-align: left;
-  outline: none;
-  font-size: 14px;
+  outline: none;  
   transition: 0.4s;
-  font-family:'Prompt';
+  font-family: 'Roboto Mono';font-size: 18px;
+          
 }
 
 .active, .accordion:hover {
@@ -142,37 +145,53 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   display: none;
   background-color: white;
   overflow: hidden;
-  color: #0074d0;
-  font-size: 13px;
-  font-family:'Prompt';
+  font-family: 'Roboto Mono';font-size: 14px;
 }
+
+/* responsive img */
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
 </style>
 </head>
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="index.html"><i class="fa fa-fw fa-home" style="font-size:26px"></i></a>  
 </div>
 
-
 <div style="padding-left:16px">
+ 
 
-<h1><font color="#0074d0">HOW TO INSTALL IPA USING XCODE</font></h1>
-
+<h1><font color="#0074d0">How to sideload IPA using xCode</font></h1>
 <hr>
 
 <h2>REQUIREMENTS:</h2>
 <ul>
-    <li>Mac OS 10.14.4 (If your on Windows, use VM to install Mac OS)</li>
+    <li>macOS 10.14.4 (If your on Windows, use VM to install macOS)</li>
     <li>XCode 11.2</li>
     <li>iOS App Signer</li>
     <li>iDevice running iOS 12+</li>
 </ul>
-
-<h2>NOTE:</h2>
-How to install Mac Os 10.14 Mojave on VirtualBox Windows 10
+<br>
+How to install macOS Mojave on VirtualBox with Windows 10 64bit.
 <br>
 <span style='font-size:25px;'>&#9755; <a href="https://www.youtube.com/watch?v=sGqJYMjojXc" target="_blank">VIDEO GUIDE</a><br> </span>
+
+ 
 
 <h2>HOW TO INSTALL:</h2>
 <ol>
@@ -193,48 +212,70 @@ How to install Mac Os 10.14 Mojave on VirtualBox Windows 10
   <li>Once it’s done installing, on your device go to Settings > General > and trust the profile like usual when impacting</li>
   <li>Done!</li>
 </ol>   
+<br>
 <b>NOTE:</b> If you are having trouble installing and are getting an error message similar to <b>unable to install</b>, Turn off Re-Sign only in IOS app signer.
 <br>
+<br>
 <span style='font-size:25px;'>&#9755; <a href="https://www.youtube.com/watch?v=ULZBjjDM_Z4&feature=youtu.be" target="_blank">Video Guide</a><br></span> 
-<b>ctto:</b> <i>discord/Aleky#4873</i>
+<br>
+<b>ctto:</b>Aleky#4873</i>
 
 <HR>
 <h2>DOWNLOAD LINKS:</h2>
-<font size="3"> <b>
-<a href="https://developer.apple.com/download/more/" target="_blank">MacOS Mojave 10.14.6 (5.64 GB)</a><br>
-<a href="https://developer.apple.com/download/more/" target="_blank">XCode 11.2 (7.2GB)</a><br>
-<a href="https://dantheman827.github.io/ios-app-signer/" target="_blank">iOS App Signer</a><br>
-<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox (VM)</a>
-</font></b>
+<font size="3"><b>
+
+    <B>macOS Mojave 10.14.6 (5.64 GB)</B> 
+    <form method="get" action="https://support.apple.com/en_AU/downloads/" target="_blank">
+      <button type="submit"><b><font color=red>DOWNLOAD</font></b></button>
+    </form>
+    <br>
+
+    <B>XCode 11.2 (7.2GB)</B> 
+    <form method="get" action="https://developer.apple.com/download/more/" target="_blank">
+      <button type="submit"><b><font color=red>DOWNLOAD</font></b></button>
+    </form>
+    <br>
+
+
+    <B>iOS App Signer</B> 
+    <form method="get" action="https://dantheman827.github.io/ios-app-signer/" target="_blank">
+      <button type="submit"><b><font color=red>DOWNLOAD</font></b></button>
+    </form>
+    <br>
+
+    <B>VirtualBox (VM)</B> 
+    <form method="get" action="https://www.virtualbox.org/wiki/Downloads" target="_blank">
+      <button type="submit"><b><font color=red>DOWNLOAD</font></b></button>
+    </form>
+    <br>
+
 
 <hr>
-<h2><font color="red">FAQ:</font></h2>
+<h3><font color="#f70040">FAQ:</font></h3>
 
-<button class="accordion"><b>Error:</b> #</button>
-<div class="panel">
-  <p>#</p>
-</div>
-
-
+  <button class="accordion"><b>?</b></button>
+  <div class="panel">      
+    <p>booom!</p>    
+  </div>
 
 
 
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
     }
-  });
-}
-</script>
+    </script>
 
 
 
@@ -248,6 +289,6 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
+
