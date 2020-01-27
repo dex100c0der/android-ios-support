@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>iDroid Support - How to Root with Magisk</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
-<style>
+  <title>Root</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+  <style> 
 
-body {margin:0; font-family:'Prompt'; font-size:14px}
+
+body {
+            margin: 0;
+            padding: 0;
+            font-family:'roboto mono';
+            font-size: 15px;
+}
+            
 
 .topnav {
   overflow: hidden;
-  background-color: #002d4c;
+  background-color: #008080;
+  font-family:'roboto mono';
+  font-size: 20px;
 }
 
 .topnav a {
@@ -26,10 +37,6 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   font-size: 17px;
 }
 
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .topnav .icon {
   display: none;
@@ -70,13 +77,13 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #004882;
+  background-color:  #008080;
   color: white;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color:  #008080;
+  color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -114,98 +121,190 @@ body {margin:0; font-family:'Prompt'; font-size:14px}
   }
 }
 
+/* accordion */
+.accordion {
+  background-color: #eee;
+  color: #1974d2;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;  
+  transition: 0.4s;
+  font-family: 'Roboto Mono';font-size: 15px;
+          
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  font-family: 'Roboto Mono';font-size: 14px;
+}
+
+/* responsive img */
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
 img {
-      width: 50%;
-      height: auto;
-    }
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
 
 </style>
 </head>
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="index.html"><i class="fa fa-home" style="font-size:20px;color: #0094fd"></i> Home</a>
+  <a href="index.html"><i class="fa fa-fw fa-home" style="font-size:26px"></i></a>  
 </div>
 
 <div style="padding-left:16px">
-
-  <h1><font color="#0074d0">HOW TO ROOT WITH MAGISK</font></h1>
-  <b>Rooting</b> is a process that allows you to attain root access to the Android operating system code (the equivalent term for Apple devices id jailbreaking). It gives you privileges to modify the software code on the device or install other software that the manufacturer wouldn’t normally allow you to. And for good mobile security reasons: they don’t want users to make modifications to the phones that could result in accidents beyond repair; it is easier for them to offer support if they allow users to only use the same unmodified version of the software. But tech savvy users have already developed rooting methods, which vary depending on device. 
-
-  <hr>     
-<h2><font color=red>WARNING!</font></h2> 
-Rooting a device may void the warranty on the device. It may also make the device unstable or if not done properly, may completely brick the device. Some methods may install additional apps/software on your device. We does not take any responsibility for your device. Root at your own risk and only if you understand what you are doing!
-
-<h2>NOTE:</h2> 
-Download and save a stable Magisk zip file into your phone first before installing TWRP recovery.
-<br>
-<br>
-
-<h3>Step 1: Install TWRP Recovery</h3>
-
-<form method="get" action="twrp.html" target="_blank">  
-  <button type="submit"><b><font color=red>TWRP Recovery Guides</font></b></button>
-</form>
-
-<h3>Step 2: Install Magisk to ROOT</h3> 
-<ol>
-  <li>Boot into TWRP recovery. Press and hold <b>“Home + Power + Volume Up”</b> buttons for a few seconds and as soon as the logo appears. Now, your device will boot into TWRP recovery mode. </li>
-  You will reach a screen asking you if you want to allow system modifications. Swipe to the right.
-  <li>Tap the "Install" button in TWRP's main menu. From there, navigate to where you saved the magisk zip file and select it.</li>
-  <li>Swipe the slider at the bottom of the screen to install Magisk, then tap "Reboot System". It may take 2-5 minutes for the device to finish setting itself up.</li>
-  <img src="magisk/twrp-ss.jpg" class="center"> 
-</ol>
-
-<h2>Step 3: Setting-up Magisk Manager (Hide ROOT)</h2> 
-
-<ol>
-    <b>NOTE:</b>    Base on Magisk v19.3 and Magisk Manager v7.3.4
-    <br><br>
-  <li>Open MAGISK MANAGER app>> MENU>> SETTINGS>> tap HIDE MAGISK MANAGER (wait until its done downloading/ installing)</li>
-  <img src="magisk/magisk1-3.jpg" class="center">
-  <br><br>
-
-  <li>when its done, tap MENU icon again >>SETTINGS >>enable MAGISK HIDE</li>
-  <img src="magisk/magisk4.jpg" class="center">
-  <li>close mananger app then open it again. <br><br></li>
-
-  <b>NOTE:</b>  Do not enable magisk core only mode if you're using a module like appsystemizer or smali patcher.
  
-<br><br>
-  <li>tap MENU icon>> MAGISK HIDE</li>
-  <img src="magisk/step4.jpg" class="center">
-    <ul><br>
-      <li>look for and select POKEMON GO app (required)</li>
-      <li>look for and select your fakegps app (optional)</li>
-    </ul>
-    <br>
+
+  <h1><font color="#0074d0">Root your phone with Magisk</font></h1>
+  <p><b>Rooting</b> is a process that allows you to attain root access to the Android operating system code (the equivalent term for Apple devices id jailbreaking). It gives you privileges to modify the software code on the device or install other software that the manufacturer wouldn’t normally allow you to. And for good mobile security reasons: they don’t want users to make modifications to the phones that could result in accidents beyond repair; it is easier for them to offer support if they allow users to only use the same unmodified version of the software. But tech savvy users have already developed rooting methods, which vary depending on device.</p>
+  <hr>     
   
-  <li>go back to SETTINGS tap CLEAR REPO CACHE close app.</li>
-  <img src="magisk/repo.jpg" class="center">
-</ol>
+  <h2><font color=red>WARNING!!!</font></h2> 
+  Rooting a device may void the warranty on the device. It may also make the device unstable or if not done properly, may completely brick the device. Some methods may install additional apps/software on your device. We does not take any responsibility for your device. Root at your own risk and only if you understand what you are doing!
+  
+  <h2>NOTE:</h2> Download and save a stable Magisk into your phone first before installing TWRP recovery.  
+  <br>
+  <br>
 
-<h3>Step 4: SafetyNet Check</h3>
-<ol>
-<li>Tap Advance Settings>> select 2 preserve options>> tap the circling arrow >> YES when prompted to download blah blah blah!</li>
-<img src="magisk/magisk-verify.jpg" class="center">
-</ol>
+  <h2>Step 1: Install TWRP</h2>
 
+  <form method="get" action="twrp.html" target="_blank">  
+    <button type="submit"><b><font color=red>TWRP Guides</font></b></button>
+  </form>
+  
+  <h2>Step 2: Install Magisk</h2> 
+  <ol>
+    <li>Boot into TWRP recovery. Press and hold <b>“Home + Power + Volume Up”</b> buttons for a few seconds and as soon as the logo appears. Now, your device will boot into TWRP recovery mode. </li>
+    You will reach a screen asking you if you want to allow system modifications. Swipe to the right.<br>
+    <br>
+    <li>Tap the "Install" button in TWRP's main menu. From there, navigate to where you saved the magisk zip file and select it.</li>
+    <br>
+    <li>Swipe the slider at the bottom of the screen to install Magisk, then tap "Reboot System". It may take 2-5 minutes for the device to finish setting itself up.</li>
+    
+    <a target="_blank" href="magisk/twrp-ss.jpg">
+        <img src="magisk/twrp-ss.jpg" alt="image" style="width:300px">
+      </a>
+      <br>
+      <font size="2">click image to enlarge</font>
+      <br>
+    </ol>   
 
-<h3>Step5: Try to run Pokemon Go!</h3>
+  <h2>Step 3: Setting-up Magisk Manager (Hide ROOT)</h2> 
+  <ol>
+      <b>NOTE:</b>    Base on Magisk v19.3 and Magisk Manager v7.3.4
+      <br><br>
+    <li>Open <b>MAGISK MANAGER</b> app>> <b>MENU</b>>> <b>SETTINGS</b>>> tap <b>HIDE MAGISK MANAGER</b> (wait until its done downloading/ installing)</li>
+    <a target="_blank" href="magisk/magisk1-3.jpg">
+        <img src="magisk/magisk1-3.jpg" alt="image" style="width:300px">
+      </a>
+      <br>
+      <font size="2">click image to enlarge</font>
+      <br>
+        <br>
+  
+    <li>when its done, tap <b>MENU</b> icon again >><b>SETTINGS</b> >>enable <b>MAGISK HIDE.</b></li>
+    <a target="_blank" href="mmagisk/magisk4.jpg">
+        <img src="magisk/magisk4.jpg" alt="image" style="width:300px">
+      </a>
+      <br>
+      <font size="2">click image to enlarge</font>
+      <br>
+        <br>
+  
+    <li>close <b>Mananger</b> app then open it again. <br><br></li>
+  
+    <b>NOTE:</b>  Do not enable magisk core only mode if you're using a module like appsystemizer or smali patcher.
+   
+  <br><br>
+    <li>tap <b>MENU</b> icon then select <b>MAGISK HIDE</b></li>
+    <a target="_blank" href="magisk/step4.jpg">
+        <img src="magisk/step4.jpg" alt="image" style="width:300px">
+      </a>
+      <br>
+      <font size="2">click image to enlarge</font>
+      <br>
+        <br>
+  
+      <ul>
+        <li>look for and select <b>POKEMON GO</b> app (required)</li>
+        <li>look for and select your <b>gps mocking app</b> (optional)</li>
+      </ul>
+      <br>
+    
+    <li>go back to <b>SETTINGS</b> tap <b>CLEAR REPO CACHE</b> then close app.</li>
+    <a target="_blank" href="magisk/repo.jpg">
+        <img src="magisk/repo.jpg" alt="image" style="width:300px">
+      </a>
+      <br>
+      <font size="2">click image to enlarge</font>
+      <br>
+        <br>   
+  </ol>
 
-<h2>TIP:</h2>
-If you're is having trouble passing the safetyNet check, download <b>SafetyPatch</b> module by hackintosh5 or via Magisk app!
+  <h2>Step 4: SafetyNet Check</h2>
+  <ol>
+  <li>Tap Advance Settings>> select 2 preserve options>> tap the circling arrow >> YES when prompted to download blah blah blah!</li>
+  <a target="_blank" href="magisk/magisk-verify.jpg">
+    <img src="magisk/magisk-verify.jpg" alt="image" style="width:300px">
+  </a>
+  <br>
+  <font size="2">click image to enlarge</font>
+  <br> 
+  </ol> 
+  
+  <h2>Step 5: Try to run Pokemon Go.</h2>
+
 
 <hr>
-<h3>XDA: <a href="https://forum.xda-developers.com/apps/magisk/discussion-pokemon-magisk-discussion-t3465722/" target="_blank">PokeMon Go Magisk Discussion</a></h3>
-<h3>XDA: <a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445" target="_blank">Magisk</a></h3>
+<h2><font color="#f70040">FAQ:</font></h2>
 
-<br>
-<B><font color="red">__**FAQ**__</font></B><br>
+  <button class="accordion"><b>failed safetyNet check!</b></button>
+  <div class="panel">
+    <p>If you're is having trouble passing safetyNet check, download <b>SafetyPatch</b> module by hackintosh5 or via Magisk.</p>
+  </div>
 
-   
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
     
-</div>
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
+
+
+
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -216,6 +315,6 @@ function myFunction() {
   }
 }
 </script>
-
 </body>
 </html>
+
