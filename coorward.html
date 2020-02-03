@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Coorward</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="icon/ios.png" type="image/png" sizes="32x32">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-  <style> 
-
+<title>Coorward</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+<style>
 
 body {
             margin: 0;
@@ -22,7 +20,7 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-image: linear-gradient(to right top, #008080, #009682, #00aa73, #00bd52, #24cd00);
+  background-image: linear-gradient(to right, #008080, #009a85, #00b37a, #00ca5e, #58de29);
   font-family:'roboto mono';
   font-size: 20px;
 }
@@ -132,16 +130,10 @@ body {
   text-align: left;
   outline: none;  
   transition: 0.4s;
-  font-family: 'Roboto Mono';font-size: 18px;
+  font-family: 'Roboto Mono';font-size: 15px;
           
 }
 
-/* responsive img */
-.responsive {
-  width: 30%;
-  height: auto;
-}
-    
 .active, .accordion:hover {
   background-color: #ccc; 
 }
@@ -154,6 +146,24 @@ body {
   font-family: 'Roboto Mono';font-size: 14px;
 }
 
+/* responsive img */
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+
 </style>
 </head>
 <body>
@@ -162,8 +172,8 @@ body {
   <a href="index.html"><i class="fa fa-fw fa-home" style="font-size:26px"></i></a>  
 </div>
 
+
 <div style="padding-left:16px">
- 
 
   <h1><font color="#0074d0">Coorward</font></h1>
   <p>Open coordinates links and automatically forwards GPS coordinates to GPS mocking app.</p>
@@ -179,56 +189,74 @@ body {
       <b>-enable location permission:</b> settings> apps> coorward> permission
       <br> <br>
     <li>Run app> tap <b>SETTINGS</b> (scroll down) or <b>3dots menu</b> (upper right), tap <b>select app to load after teleport</b> (select <b>POKEMON GO</b>), enable <b>automatically teleport</b>, close app.</li>
-    <img src="coorward/ss1.jpg" alt="Nature" class="responsive" width="600" height="400">
-    <img src="coorward/ss2.jpg" alt="Nature" class="responsive" width="600" height="400">
-    <br> <br> 
-    <li>Run/ start gps joystick (just use any coords).</li>
+    <a target="_blank" href="coorward/1.jpg">
+      <img src="coorward/1.jpg" alt="image" style="width:200px">
+    </a>
+    <br>   
+    <font size="1"><b>click image to enlarge</b></font>
+    <br> 
+    <br>  
+    
+    <li>Run gps joystick (just use any coords).</li>
     <b>-enable location permission:</b> settings> apps> urgpsjoystick> permission
     <br> <br>
     <li>Open discord app, go to <b>pokedex100</b>> <b>100community channel</b>> click <b>community coords link</b>> open with: select <b>Coorward</b> > log-in to discord> authenticate> click community coords link again.</li>
-    <img src="coorward/ss3.jpg" alt="Nature" class="responsive" width="600" height="400">    
+    <a target="_blank" href="coorward/ss3.jpg">
+      <img src="coorward/ss3.jpg" alt="image" style="width:200px">
+    </a>
+    <br>
+    <font size="1"><b>click image to enlarge</b></font>
+    <br>
+    <br>      
       <ul>
         <li>will show the coords page for a seconds with a warning "2 hrs cooldown" on screen.</li>
         <li>will auto open pokemon go as it was already set in coorward or it will switch if it's already opened.</li>
       </ul> 
-      <br> <br> 
-    <li>Just switch between discord (to get coords) and pogo or use split screen.</li>   
-    <img src="coorward/ss4.jpg" alt="Nature" class="responsive" width="600" height="400">   
+      <br>
+      <br> 
+    <li>Just switch between discord (to get coords) and pogo or use split screen.</li>  
+    <a target="_blank" href="coorward/ss4.jpg">
+      <img src="coorward/ss4.jpg" alt="image" style="width:200px">
+    </a>    
   </ol>
 
   <h2>NOTE:</h2>
   <p>It won't work if you have more than one gps joystick installed.</p>
-  
- <hr>
- <h3>
+
+    <hr>
+    <h3>
    Coorward: <a href="https://play.google.com/store/apps/details?id=xyz.mashapp.coorward&hl=en" target="_blank">DOWNLOAD</a>        
- </h3>
+    </h3>
+  
 
-<hr>
-<h3><font color="#f70040">FAQ:</font></h3>
 
+<h2><font color="#f70040">FAQ:</font></h2>
 <button class="accordion">Webview need to update blah blah!</button>
 <div class="panel">
   <p><a href="https://blogs.systweak.com/how-to-enable-disable-android-system-webview/" target="_blank">Try this fix</a></p>
 </div>
 
 
+
+
 <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-    
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-        } else {
-          panel.style.display = "block";
-        }
-      });
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
     }
-    </script>
+  });
+}
+</script>
+
+
 
 <script>
 function myFunction() {
@@ -240,5 +268,6 @@ function myFunction() {
   }
 }
 </script>
+
 </body>
 </html>
