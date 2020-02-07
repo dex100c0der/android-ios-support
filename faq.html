@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ</title>
+  <link rel="icon" href="icon/main.png" type="image/png" sizes="32x32">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel='stylesheet'
+    href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      color: #212112;
+      background-size: 7%;
+      background-color: white !important;
+      overflow-x: hidden;
+      transition: all 200ms linear;
+
+    }
+
+    ::selection {
+      color: #fff;
+      background-color: #ff4242;
+    }
+
+    ::-moz-selection {
+      color: #fff;
+      background-color: #ff4242;
+    }
+
+    .start-header {
+      opacity: 1;
+      transform: translateY(0);
+      padding: 10px 0;
+      box-shadow: 0 10px 30px 0 rgb(33, 33, 33, 0.15);
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .start-header.scroll-on {
+      box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
+      padding: 5px 0;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .start-header.scroll-on .navbar-brand img {
+      height: 28px;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .navigation-wrap {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .navbar {
+      padding: 0;
+    }
+
+    .navbar-brand img {
+      height: 52px;
+      width: auto;
+      display: block;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .navbar-toggler {
+      float: right;
+      border: none;
+      padding-right: 0;
+    }
+
+    .navbar-toggler:active,
+    .navbar-toggler:focus {
+      outline: none;
+    }
+
+    /*menu icon for phone color*/
+    .navbar-light .navbar-toggler-icon {
+      width: 24px;
+      height: 17px;
+      background-image: none;
+      position: relative;
+      border-bottom: 1px solid white;
+      transition: all 300ms linear;
+    }
+
+    .navbar-light .navbar-toggler-icon:after,
+    .navbar-light .navbar-toggler-icon:before {
+      width: 24px;
+      position: absolute;
+      height: 1px;
+      background-color: white;
+      top: 0;
+      left: 0;
+      content: '';
+      z-index: 2;
+      transition: all 300ms linear;
+    }
+
+    .navbar-light .navbar-toggler-icon:after {
+      top: 8px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+      transform: rotate(45deg);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+      transform: translateY(8px) rotate(-45deg);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      border-color: transparent;
+    }
+
+    /*navbar menu text color (ipa download, android etc*/
+    .nav-link {
+      color: #fff !important;
+      font-weight: 400;
+      transition: all 200ms linear;
+    }
+
+    .nav-item:hover .nav-link {
+      color: #ff4242 !important;
+    }
+
+    /*navbar "home" menu hover color*/
+    .nav-item.active .nav-link {
+      color: #ff4242 !important;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 5px 0 !important;
+      display: inline-block;
+    }
+
+    .nav-item:after {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background-color: #ff4242;
+      opacity: 0;
+      transition: all 200ms linear;
+    }
+
+    .nav-item:hover:after {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    .nav-item.active:hover:after {
+      opacity: 0;
+    }
+
+    .nav-item {
+      position: relative;
+      transition: all 200ms linear;
+    }
+
+    /*navbar background color*/
+    .bg-light {
+      background-color: #0E0E0E !important;
+      transition: all 200ms linear;
+    }
+
+    .section {
+      position: relative;
+      width: 100%;
+      display: block;
+    }
+
+    .full-height {
+      height: 100vh;
+    }
+
+    .over-hide {
+      overflow: hidden;
+    }
+
+    .absolute-center {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      margin-top: 40px;
+      transform: translateY(-50%);
+      z-index: 20;
+    }
+
+    /* announcement text*/
+    h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: whitesmoke;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      margin: 0;
+      padding-top: 10px;
+      opacity: 1;
+      transform: translate(0);
+      transition: all 300ms linear;
+      transition-delay: 1700ms;
+    }
+
+    body.hero-anime p {
+      opacity: 0;
+      transform: translateY(40px);
+      transition-delay: 1700ms;
+    }
+
+    #switch,
+    #circle {
+      cursor: pointer;
+      -webkit-transition: all 300ms linear;
+      transition: all 300ms linear;
+    }
+
+    #switch {
+      width: 60px;
+      height: 8px;
+      border: 2px solid #ff4242;
+      border-radius: 27px;
+      background: #ff4242;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      opacity: 1;
+      transform: translate(0);
+      transition: all 300ms linear;
+      transition-delay: 1900ms;
+    }
+
+    body.hero-anime #switch {
+      opacity: 0;
+      transform: translateY(40px);
+      transition-delay: 1900ms;
+    }
+
+    #circle {
+      position: absolute;
+      top: -11px;
+      left: -13px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #000;
+    }
+
+    .switched {
+      border-color: #000 !important;
+      background: #ff4242 !important;
+    }
+
+    .switched #circle {
+      left: 43px;
+      box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25), 0 0 0 1px rgba(26, 53, 71, 0.07);
+      background: #fff;
+    }
+
+    .nav-item .dropdown-menu {
+      transform: translate3d(0, 10px, 0);
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+      display: block;
+      padding: 0;
+      margin: 0;
+      transition: all 200ms linear;
+    }
+
+    .nav-item.show .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      max-height: 999px;
+      transform: translate3d(0, 0px, 0);
+    }
+
+    /*drop down menu color background*/
+    .dropdown-menu {
+      padding: 10px !important;
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #212121;
+      background-color: #1f2029;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
+      transition: all 200ms linear;
+    }
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    .dropdown-item {
+      padding: 3px 15px;
+      color: #fff;
+      border-radius: 2px;
+      transition: all 200ms linear;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      color: #fff;
+      background-color: rgb(255, 66, 66, 0.6);
+    }
+
+    body.dark {
+      color: #fff;
+      background-color: #1f2029;
+    }
+
+    body.dark h1 {
+      color: #fff;
+    }
+
+    body.dark h1 span {
+      transition-delay: 0ms !important;
+    }
+
+    body.dark p {
+      color: #fff;
+      transition-delay: 0ms !important;
+    }
+
+    body.dark .bg-light {
+      background-color: red !important;
+    }
+
+    body.dark .start-header {
+      box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    body.dark .start-header.scroll-on {
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    body.dark .nav-link {
+      color: #fff !important;
+    }
+
+    body.dark .nav-item.active .nav-link {
+      color: #999 !important;
+    }
+
+    body.dark .dropdown-menu {
+      color: #fff;
+      background-color: #1f2029;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    body.dark .dropdown-item {
+      color: #fff;
+    }
+
+    body.dark .navbar-light .navbar-toggler-icon {
+      border-bottom: 1px solid #fff;
+    }
+
+    body.dark .navbar-light .navbar-toggler-icon:after,
+    body.dark .navbar-light .navbar-toggler-icon:before {
+      background-color: #fff;
+    }
+
+    body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      border-color: transparent;
+    }
+
+
+    @media (max-width: 767px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .nav-item:after {
+        display: none;
+      }
+
+      .nav-item::before {
+        position: absolute;
+        display: block;
+        top: 15px;
+        left: 0;
+        width: 11px;
+        height: 1px;
+        content: "";
+        border: none;
+        background-color: white;
+        vertical-align: 0;
+      }
+
+      .dropdown-toggle::after {
+        position: absolute;
+        display: block;
+        top: 10px;
+        left: -23px;
+        width: 1px;
+        height: 11px;
+        content: "";
+        border: none;
+        background-color: white;
+        vertical-align: 0;
+        transition: all 200ms linear;
+      }
+
+      .dropdown-toggle[aria-expanded="true"]::after {
+        transform: rotate(90deg);
+        opacity: 0;
+      }
+
+      .dropdown-menu {
+        padding: 0 !important;
+        background-color: transparent;
+        box-shadow: none;
+        transition: all 200ms linear;
+      }
+
+      .dropdown-toggle[aria-expanded="true"]+.dropdown-menu {
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+      }
+
+      body.dark .nav-item::before {
+        background-color: #fff;
+      }
+
+      body.dark .dropdown-toggle::after {
+        background-color: #fff;
+      }
+
+      body.dark .dropdown-menu {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+
+    /* accordion */
+    .accordion {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+    }
+
+    .active,
+    .accordion:hover {
+      background-color: #ccc;
+      color: rgb(44, 43, 43);
+      font-weight: bold;
+    }
+
+    .accordion:after {
+      content: '\002B';
+      color: #444;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .panel {
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+    /* responsive img */
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+
+    img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 200px;
+    }
+
+    img:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+
+  <body class="hero-anime">
+    <div class="navigation-wrap bg-light start-header start-style">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar navbar-expand-md navbar-light">
+
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link dropdown-toggle" href="index.html" role="button" aria-haspopup="true"
+                      aria-expanded="false">Home</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <body>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div style="padding-left:14px">
+
+        <h2>
+          Frequently Asked Questions:
+        </h2>
+
+        <button class="accordion">Pokémon GO Three-Strike Discipline Policy</button>
+        <div class="panel">
+          <br>
+          <div class="j">
+            <font color=red>Keep in mind that offenders are not always offered three strikes. Some misbehaviors may
+              result in immediate account termination without prior warning.</font>
+          </div>
+          <br>
+
+          <h3>Strike 1: Warning/ Red Warning (RW)</h3>
+          <br>
+          <b>Disciplinary actions:</b>
+          <br>
+          <div class="j">
+            If this strike is issued, you will see a warning message within the Pokémon GO app informing you that we
+            have detected cheating on your account. In addition to this warning, your gameplay experience may be
+            degraded in the following ways for the duration of the warning:
+          </div>
+          <ul>
+            <li>You may not be able to encounter rare Pokémon in the wild. These Pokémon may not appear on the map or on
+              the Nearby Pokémon tracker.</li>
+            <li>You may be excluded from receiving new EX Raid Passes.</li>
+          </ul>
+          <b>Duration:</b>
+          <br>
+          This strike will last for approximately 7 days. After this period, your gameplay experience will fully be
+          restored.
+          <br>
+          <br>
+
+          <h3>Strike 2: Suspension</h3>
+          <div class="j">
+            If your account is issued a second strike, you will temporarily lose access to your Pokémon GO account. When
+            attempting to log into the game, you’ll be presented with a message stating that your account is suspended.
+            You will not be able to bypass this message.
+          </div>
+          <br>
+          <b>Duration:</b>
+          <br>
+          This strike will last for approximately 30 days. After that period, your account access will be restored.
+
+          <br>
+          <br>
+          <h3>Strike 3: Termination</h3>
+          <div class="j">
+            If you receive the first and second strikes and continue to cheat, your account will be permanently banned.
+          </div>
+          <br>
+          <b>Duration:</b>
+          Permanent!
+          <br>
+          <br>
+        </div>
+
+
+        <button class="accordion">What is spoofing?</button>
+        <div class="panel">
+          <p><b>Spoofing</b> is where you trick your device's GPS tracker to think it's in another location. Of course
+            your
+            whereabouts in Pokemon Go is completely dependent on this.</p>
+        </div>
+
+
+        <button class="accordion">How to Snipe?</button>
+        <div class="panel">
+          <b>With the latest changes by Niantic, sniping is now much harder.</b>
+          <ul>
+            <li>Start by being idle (no pokestops, gyms, or catching Pokemon) for 2 hours. This includes having the app
+              open or
+              closed.</li>
+            <li>Assume you are at location A and there is a Pokemon spawning at location B (which is more than 1000 km
+              away).
+            </li>
+            <li>You can now teleport to B, encounter that Pokemon and capture it at B. Since Niantic records your
+              encounter
+              location now, your latest location is at B and not A anymore. </li>
+            <li>Then, you can spin Pokestops at B without being soft banned. You may return to A or snipe at another
+              distant
+              location C after another 2 hours of idling.</li>
+          </ul>
+        </div>
+
+        <button class="accordion">What is Cooldown (CD)?</button>
+        <div class="panel">
+          <p> <b>Cool down</b> is the time required between teleports for certain actions. Cool down time depends on the
+            distance
+            teleporting. Max cool down is 2 hours!</p>
+          <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+              <th>Distance</th>
+              <th>Cooldown</th>
+            </tr>
+            <tr>
+              <td>1 Km</td>
+              <td>1 min</td>
+            </tr>
+            <tr>
+              <td>2 Km</td>
+              <td>1 min</td>
+            </tr>
+            <tr>
+              <td>4 Km</td>
+              <td>2 mins</td>
+            </tr>
+            <tr>
+              <td>10 Km</td>
+              <td>8 mins</td>
+            </tr>
+            <tr>
+              <td>12 Km</td>
+              <td>9 mins</td>
+            </tr>
+            <tr>
+              <td>15 Km</td>
+              <td>11 mins</td>
+            </tr>
+            <tr>
+              <td>20 Km</td>
+              <td>13 mins</td>
+            </tr>
+            <tr>
+              <td>25 Km</td>
+              <td>15 mins</td>
+            </tr>
+            <tr>
+              <td>30 Km</td>
+              <td>18 mins</td>
+            </tr>
+            <tr>
+              <td>40 Km</td>
+              <td>22 mins</td>
+            </tr>
+            <tr>
+              <td>45 Km</td>
+              <td>23 mins</td>
+            </tr>
+            <tr>
+              <td>60 Km</td>
+              <td>25 mins</td>
+            </tr>
+            <tr>
+              <td>80 Km</td>
+              <td>27 mins</td>
+            </tr>
+            <tr>
+              <td>100 Km</td>
+              <td>30 mins</td>
+            </tr>
+            <tr>
+              <td>125 Km</td>
+              <td>33 mins</td>
+            </tr>
+            <tr>
+              <td>140 Km</td>
+              <td>34 mins</td>
+            </tr>
+            <tr>
+              <td>150 Km</td>
+              <td>36 mins</td>
+            </tr>
+            <tr>
+              <td>180 Km</td>
+              <td>39 mins</td>
+            </tr>
+            <tr>
+              <td>200 Km</td>
+              <td>42 mins</td>
+            </tr>
+            <tr>
+              <td>250 Km</td>
+              <td>46 mins</td>
+            </tr>
+            <tr>
+              <td>300 Km</td>
+              <td>50 mins</td>
+            </tr>
+            <tr>
+              <td>350 Km</td>
+              <td>53 mins</td>
+            </tr>
+            <tr>
+              <td>400 Km</td>
+              <td>56 mins</td>
+            </tr>
+            <tr>
+              <td>500 Km</td>
+              <td>64 mins</td>
+            </tr>
+            <tr>
+              <td>600 Km</td>
+              <td>600 Km</td>
+            </tr>
+            <tr>
+              <td>750 Km</td>
+              <td>82 mins</td>
+            </tr>
+            <tr>
+              <td>800 Km</td>
+              <td>86 mins</td>
+            </tr>
+            <tr>
+              <td>900 Km</td>
+              <td>93 mins</td>
+            </tr>
+            <tr>
+              <td>950 Km</td>
+              <td>97 mins</td>
+            </tr>
+            <tr>
+              <td>1000 Km</td>
+              <td>100 mins</td>
+            </tr>
+            <tr>
+              <td>1150 Km</td>
+              <td>111 mins</td>
+            </tr>
+            <tr>
+              <td>1200 Km</td>
+              <td>115 mins</td>
+            </tr>
+            <tr>
+              <td>1250 Km</td>
+              <td>118 mins</td>
+            </tr>
+            <tr>
+              <td>1266+ Km</td>
+              <td>120 mins</td>
+            </tr>
+          </table>
+          Cooldown can be calculated with a distance calculator or by waiting the maximum cooldown of 2 hours.
+        </div>
+
+
+        <button class="accordion">What actions trigger/ reset Cooldown?</button>
+        <div class="panel">
+          <b>Cooldown will reset if you do any of the following actions:</b>
+          <ul>
+            <li>Catch a Pokémon.</li>
+            <li>Accidentally drop the ball anywhere on the catch screen.</li>
+            <li>Use a berry on a Pokemon in catch screen.</li>
+            <li>Fight in a Gym.</li>
+            <li>Putting a Pokémon in a gym.</li>
+            <li>Spin a Pokestop/gym.</li>
+            <li>Using a berry on a gym Pokémon.</li>
+            <li>Finish a Raid and either feed a berry or try to catch the boss.</li>
+            <li>Catch meltans from a meltan mystery box.</li>
+          </ul>
+        </div>
+
+
+        <button class="accordion">What actions DO NOT trigger Cooldown?</button>
+        <div class="panel">
+          <b>Cool down will NOT reset if you do any of the following actions:</b>
+          <ul>
+            <li>Teleporting in general. You can teleport as much as you want, just don't DO any of the cool down .</li>
+            <li>Click on a pokemon, without doing anything after. (shiny checking).</li>
+            <li>Egg hatching.</li>
+            <li>Evolve/ power-up a Pokemon.</li>
+            <li>Using an item on a Pokemon (like TM).</li>
+            <li>Receive rewards from a quest.</li>
+            <li>Catching a quest Pokemon.</li>
+            <li>Take photos (Snapshot).</li>
+            <li>Catch Smeargle or any of the other photobomb Pokemon.</li>
+            <li>Raid and then immediately run away from the catch screen (Used in speed raiding) You have to be off
+              cooldown
+              when you start this</li>
+            <li>Trades</li>
+            <li>PVP Battles</li>
+            <li>Sending/Receiving gifts</li>
+            <li>Add a lure to a pokestop</li>
+            <li>Feeding berries to gym defender pokemon from a distance</li>
+            <li>Switch from tweaked app to legit app in order to buy coins and then switch back.</li>
+            If you are already on cooldown, these actions above can be done while you wait it out.
+          </ul>
+        </div>
+
+        <button class="accordion">What is a Softban?</button>
+        <div class="panel">
+          <p>Soft bans are temporary and may prevent you from interacting with the game. You may be temporarily soft
+            banned if
+            you find that you can't interact with elements in the game. For example, you may be soft banned if Pokestops
+            spin
+            but nothing happens and they remain blue, if you can't spin Pokestops at all, or if you throw a pokeball at
+            a
+            pokemon and it hits, but the pokemon flee or you got kicked from a gym battle.</p>
+        </div>
+
+
+        <button class="accordion">What is Shadowban?</button>
+        <div class="panel">
+          <p>A shadow ban, different than a soft ban, doesn't prevent you from playing. What it does is prevent you from
+            seeing
+            anything other than common spawns- Pidgey, Rattata, and the like. In other words, no rare Pokemons for you!
+            No
+            Eevee, no Growlithe, and certainly no Snorlax, Dragonite, or Tyranitar. You can still hatch eggs, spin stops
+            and
+            catch Pokemon you can see and does not affect Raids.</p>
+        </div>
+
+        <button class="accordion">How to earn Coins?</button>
+        <div class="panel">
+          <p>Players get one coin for every 10 minutes a Pokemon is in a gym, for a maximum of 50 coins a day. This
+            means one
+            Pokemon has to be in a gym for eight hours and 20 minutes to max out on coins. The daily reset for coins
+            happens at
+            12 a.m. in your local time zone. You also only get your coins after the Pokemon is defeated and returns to
+            you.
+            However, you won't get coins for previous days. This means if your Pokemon was in the gym for two full days,
+            you'll
+            only get the daily max of 50 coins.</p>
+        </div>
+
+
+        <button class="accordion">What is the daily/ weekly catch limit?</button>
+        <div class="panel">
+          <p>Yes! There is a daily/ weekly catch limit in the game which is 1,000 Pokemon per day or 7,000 per week.
+            This
+            so-called "Catch Ban" doesn't affect Shadow Pokemon. Yes, you can actually catch 1,000 Pokemon per day using
+            Gotcha/Go Plus and playing in a bigger city for 7-8 hours.</p>
+        </div>
+
+
+        <button class="accordion">Things you can do while on Cooldown?</button>
+        <div class="panel">
+          <ul>
+            <li>open gifts</li>
+            <li>auto-walk</li>
+            <li>sing</li>
+            <li>back-dive</li>
+          </ul>
+        </div>
+
+        <button class="accordion">What is DPS (Damage per Second)?</button>
+        <div class="panel">
+          <p>
+            <b>DPS</b>= Damage Per Second
+            <br>
+            DPS is the average amount of damage a Pokémon will do per second in battle.
+          </p>
+        </div>
+
+        <button class="accordion">What is TDO (total Damage Output)?</button>
+        <div class="panel">
+          <p>
+            <b>TDO</b>= Total Damage Output
+            <br>
+            TDO is the total amount of damage a Pokémon will do before it faints.
+          </p>
+        </div>
+        <button class="accordion">How to fix 'The Gym is under attack!</button>
+        <div class="panel">
+
+          <p>If a gym gets flipped but you're unable to add your Pokemon due to the gym-is-under-attack error (a.k.a.
+            the
+            10-minute lockout), change the clock on your phone 10 minutes ahead and you can add your defender.</p>
+          <br>
+          <br>
+        </div>
+
+        <button class="accordion">What is Pokemon Camping?</button>
+        <div class="panel">
+          <p>If a Pokemon that you're very much desired has spawned but you're still in cooldown, you can teleport to
+            the
+            Pokemon's location, tap on the Pokemon to enter the capture screen, but DO NOT attempt to throw the Poke
+            Balls or
+            feed any berry. Off the screen to let Pokemon Go app running in the background. Make sure you don't use the
+            smartphone too much as iOS and Android may force close the game to release resources. Wait until the cool
+            down
+            period has passed (e.g. driving time to reach the place or max 2 hours for far flung location, then attempt
+            to catch
+            the Pokemon.</p>
+        </div>
+
+        <button class="accordion">How to clear iOS device's RAM</button>
+        <div class="panel">
+          <ol>
+            <li>Make sure that your iPhone, iPad or iPod Touch is unlocked.</li>
+            <li>Press the Sleep/Wake button until the <b>"Slide to Power Off"</b> screen appears.</li>
+            <li>Press the Home button for 5 secs.</li>
+            <li>Your iOS device's RAM will be cleared and you will be returned to your home/applications screen.</li>
+          </ol>
+
+          <b>iPhone X and later + iPad Pro (11"/ 12.x" without Home button)</b>
+          <ol>
+            <li>Make sure your iPhone/iPad is unlocked.</li>
+            <li>Go to Settings > General > Accessibility > Assistive Touch and slide the toggle to ON position.</li>
+            <li>Now, go to Settings again > General > Drag down and tap on Shutdown button. It will display the "Slide
+              to Power
+              Off" prompt.</li>
+            <li>Tap on the Assistive Touch button > Press and hold the Home button from options displayed for a few secs
+              until the
+              screen turns black and then white.</li>
+            <li>Your iOS device's RAM will be cleared and you will be returned to the Settings app.</li>
+          </ol>
+        </div>
+
+        <button class="accordion">HOT SPOTS</button>
+        <div class="panel">
+
+          <ul>
+            <li>London 51.510077,-0.123853</li>
+            <li>Paris 48.86158451,2.28936430</li>
+            <li>California Disneyland 33.811954,-117.919067</li>
+            <li>Santa Monica 34.009033,-118.497279</li>
+            <li>Pier 39 37.808673,-122.409821</li>
+            <li>NY Central Park 40.770418,-73.974637</li>
+            <li>SF Union Square 37.787993 ,-122.407437</li>
+            <li>Hong Kong 22.319051,114.172118</li>
+            <li>Tokyo Disneyland 35.631209,139.880933</li>
+            <li>Busan 35.15396,129.05957</li>
+            <li>Sydney -33.868820,151.209296</li>
+            <li>Copenhagen Mall 55.6627212,12.5531362</li>
+            <li>Budapest 47.530248,19.051257</li>
+            <li>Brazil -23.549616,-46.655418</li>
+            <li>UK 53.190085,-2.891558</li>
+            <li>Millennium Park Chicago 41.886473,-87.626356</li>
+            <li>Lincoln park zoo Chicago 41.920118,-87.633728 </li>
+            <li>Cluster spot Peru -11.562950,-77.270210</li>
+            <li>Bornova Buyuk Park Turkey 38.463131,27.216493</li>
+            <li>Saragossa, Spain 41.661609,-0.894640</li>
+            <li>Taipei,Taiwan 25.044004,121.506411</li>
+            <br>
+            <b>NEW:</b>
+            <li>Dubai 25.07675,55.13294</li>
+            <li>Canary Islands 28.128966,-15.433923</li>
+            <li>Dubai Beach 25.074859,55.131223</li>
+          </ul>
+        </div>
+
+
+        <!--
+<hr>
+<h3><font color="#f70040">faq:</font></h3>
+<button class="accordion"><b>+</b></button>
+  <div class="panel">
+  +
+  </div>
+-->
+
+
+        <script>
+          var acc = document.getElementsByClassName("accordion");
+          var i;
+
+          for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+              this.classList.toggle("active");
+              var panel = this.nextElementSibling;
+              if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+              } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+              }
+            });
+          }
+        </script>
+
+        <div class="section mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="my-5 py-5">
+        </div>
+    </body>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="function.js"></script>
+
+  </body>
+
+</html>
