@@ -650,23 +650,76 @@
 					</ol>
 					Alternatively you can just uninstall/ reinstall magisk to clear all your modules.
 				</div>
+				
+				<button class="accordion"><b>ERROR: Mock location class not found</b></button>
+				<div class="panel">
+				<br>
+					<ol>
+						<li>This means that the patcher cannot find core android classes... this usually means your service.jar is not deodexed properly.. or you didnt allow for USB debugging.</li>
+						</ol>
+				
+				</div>
+				
+				<button class="accordion"><b>ERROR: BASE DIRECTORY NOT FOUND</b></button>
+				<div class="panel">
+				<br>
+					<ol>
+						<li>You did not accept the USB debugging permission popup on your phone.. the patcher can't do anything without this permission.</li>
+						<li>The permission popup should be displayed after hitting the "ADB PATCH" button.. or as soon as you connect your phone to your PC.</li>
+						<li>If you can't see the permission popup: go to settings -> developer options -> revoke usb debugging authorizations.. disconnect and reconnect your phone and try again.</li>
+						<li>Make sure you tick "always allow from this computer".. otherwise you may have to confirm the popup multiple times during a single patch.</li>
+					</ol>				
+				</div>
+				
+				<button class="accordion"><b>UNSUPPORTED MAJOR.MINOR VERSION XX.X</b></button>
+				<div class="panel">
+				<br>
+				<ol>
+					<li>Use the Java Uninstall Tool to clean up out-of-date java versions and reinstall the latest java release.</li>
+					
+					</ol>
+				</div>
+				
+				<button class="accordion"><b>COULD NOT FIND RESOURCES</b></button>
+				<div class="panel">
+				<br>
+				<ol>
+					<li>This is a harmless warning, you can safely ignore it.</li>
+					</ol>
+				</div>
+				
+				<button class="accordion"><b>ERROR: BASE DIRECTORY NOT FOUND</b></button>
+				<div class="panel">
+				<br>
+				<ol>
+					<li>You did not accept the USB debugging permission popup on your phone.. the patcher can't do anything without this permission.</li>
+					<li>The permission popup should be displayed after hitting the "ADB PATCH" button.. or as soon as you connect your phone to your PC.</li>
+					<li>If you can't see the permission popup: go to settings -> developer options -> revoke usb debugging authorizations.. disconnect and reconnect your phone and try again.</li>
+					<li>Make sure you tick "always allow from this computer".. otherwise you may have to confirm the popup multiple times during a single patch.</li>
+					</ol>
+				</div>
+				
+				<button class="accordion"><b>COULD NOT FIND RESOURCES</b></button>
+				<div class="panel">
+				<br>
+				<ol>
+					<li>This is a harmless warning, you can safely ignore it.</li>
+					</ol>
+				</div>				
+				
 
-				<button class="accordion"><b>rubber-banding issue</b></button>
+				<button class="accordion"><b>ERROR: XYZ CLASS NOT FOUND</b></button>
 				<div class="panel">
 					<br>
 					<ol>
-						<li>Set your gps to device only in location method settings (Settings -> Location -> Location
-							method).</li>
-						<li>Disable improve location accuracy settings (Settings -> Location -> Improve accuracy).</li>
-						<li>If you are still experiencing rubber banding after trying everything above, try a different
-							fake gps app.</li>
+						<li>f you are browsing for a services.jar - it's most likely not deodexed.</li>						
 					</ol>
 				</div>
 				
 				<button class="accordion"><b>smali won't install/ random errors/ etc. </b></button>
 				<div class="panel">
 				<br>
-					Try taichi magisk. click <a href="taichi.html" target="_blank">HERE</a>
+					Use Taichi.Magisk. click <a href="taichi.html" target="_blank">HERE</a>
 				</div>
 
 
