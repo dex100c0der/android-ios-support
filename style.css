@@ -273,7 +273,7 @@ body.hero-anime #switch{
 }
 .dropdown-item:hover, 
 .dropdown-item:focus {
-	color: #fff;
+	color: red;
 	background-color: rgb(255,66,66,0.6);
 }
  
