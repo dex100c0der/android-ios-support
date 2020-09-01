@@ -248,7 +248,7 @@ body.hero-anime #switch{
 	max-height: 999px;
     transform: translate3d(0, 0px, 0);
 }
-/*drop down menu color background*/
+/*drop down menu background color*/
 .dropdown-menu {
 	padding: 10px!important;
 	margin: 0;
@@ -271,9 +271,10 @@ body.hero-anime #switch{
 	border-radius: 2px;
     transition: all 200ms linear;
 }
+/*drop down menu text color*/
 .dropdown-item:hover, 
 .dropdown-item:focus {
-	color: red;
+	color:rgb(151, 148, 148);
 	background-color: rgb(255,66,66,0.6);
 }
  
