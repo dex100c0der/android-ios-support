@@ -3,7 +3,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>TaiChi·Magisk</title>
+	<title>TaiChi- Magisk Module</title>
 	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 	<link rel='stylesheet'
@@ -557,36 +557,40 @@
 			<br>
 			<div style="padding-left:14px">
 
-                <h2>TaiChi·Magisk</h2>
-                <i>by: Weishu</i>                 
+                <font color="#f70040"><h2>TaiChi- Magisk Module</h2></font>
+              by: <font color="#0074d0"><i>Weishu</i></font>                 
                 <hr>
-                <b>TaiChi·Magisk </b>is the enhanced version of TaiChi. The normal TaiChi can not hook into system process, and it must uninstall the original app when create new app.TaiChi·Magisk can overcome these shortcomings. TaiChi·Magisk hooks into system process via a magisk module, it can intercept all processes in system, so it can do all which Xposed Framework can do.
+                <b>TaiChi- Magisk </b>is the enhanced version of TaiChi. The normal TaiChi can not hook into system process, and it must uninstall the original app when create new app.TaiChi·Magisk can overcome these shortcomings. TaiChi·Magisk hooks into system process via a magisk module, it can intercept all processes in system, so it can do all which Xposed Framework can do.
                 <br>
                 <br>
 
-                <button class="accordion"><b>FEATURES:</b></button>
+                <button class="accordion"><font color="#ff4242" size="4">Features:</font></button>
 				<div class="panel">
 					<br>
+					<font size="2">
 					<ol>
 						<LI>TaiChi fully supports Android Pie.</LI>
 						<li>TaiChi can run in a non-root environment.</li>
 						<li>TaiChi does not affect the android system and it does not hook all apps in system. Only the apps that you want to apply Xposed modules are hooked. Other apps in your system will run in a completely intact environment, which means TaiChi can pass SafetyNet easily.</li>
 						<li>TaiChi doesn't need to reboot system in most cases.</li>					
 						<li>TaiChi is hard to be detected. TaiChi doesn't modify the libart and app_process, thus it has nearly no noticeable characteristics.</li>
-					</ol>		
+					</ol>
+</font>					
                 </div>
                 <BR>
-
-                <H3>PRERIQUISITE:</H3>
+				<font color="#0074d0">
+                <H3>PRERIQUISITES:</H3>
+				</font>
                 <UL>
-                    <LI>Magisk rooted android phone (5.1-11).</LI>
+                    <LI>Magisk rooted Android phone (5.1-11).</LI>
                     <LI>Hidden Root for Pokémon GO and passing SafetyNet.</LI>
                 </UL>
-
+				<font color="#0074d0">
                 <h3>HOW TO INSTALL:</h3>
+				</font>
                 <ol>
-					<li>Download the Taichi Magisk module (.ZIP). Click <a href="https://github.com/taichi-framework/TaiChi-Magisk/releases" target="_blank">HERE</a> to download.</li>
-					<li>Install the downloaded .zip file via TWRP recovery.</li>
+					<li>Download <a href="https://github.com/taichi-framework/TaiChi-Magisk/releases" target="_blank"><u>Taichi Magisk module</u></a> (.ZIP) into to your phone.</li>
+					<li>Install the magisk module via TWRP recovery.</li>
 					<li>Verify if the module was installed properly. Open <b>Magisk Manager</b> and tap <b>Modules</b> icon. <b>Taichi</b> by weishu should be on the list/s and enabled.</li>
 					    <br>
 						<a target="_blank" href="taichi/tai2021.jpg">
@@ -596,10 +600,10 @@
 					  	    <font size="1"><b>tap image to enlarge</b></font>
 					  	<br>
 
-					<li>Install <b>"TaiChi"</b> app. Click <a href="https://github.com/taichi-framework/TaiChi/releases" target="_blank">HERE</a> to download.</li>
+					<li>Download and install <a href="https://github.com/taichi-framework/TaiChi/releases" target="_blank"><u>TaiChi App</u></a>.</li>
 					
 					
-					<li>Install <b>"Mock Locations"</b> module. Click <a href="https://drive.google.com/file/d/14cEU3-d-94O8zVVSvZrbOozePzJSRMEi/view?usp=sharing" target="_blank">HERE</a> to download.</li>
+					<li>Download and install <a href="https://drive.google.com/file/d/14cEU3-d-94O8zVVSvZrbOozePzJSRMEi/view?usp=sharing" target="_blank"><u>Mock Locations module</u></a>.</li>
 					
 									
 					
@@ -636,42 +640,46 @@
 					  </a>
 					  <br>
 					  <font size="1"><b>tap image to enlarge</b></font>					 			               
-				</ol>
-			
+				</ol>			
 				<br>
-                <h3>GPS JOYSTICK and GPS SETTINGS:</h3>
-		<b>non-systemized:</b>
+				
+				<font color="#f70040">
+                <h3>GPS JOYSTICK APP and PHONE GPS/ LOCATION SETTING:</h3>
+				
+				</font>
+		<b>NON-Systemized:</b>
+			<ul>
+				<li>GPS Joystick >> Settings>> Enable Indirect Mocking=<font color="#f70040"><b>OFF</b></font></li>
+                    <li>Phone gps/ location settings >> Device only/ Phone only or Bluetooth WiFi scanning OFF.</li>
+                    <li>Select gps joystick as mock location app in Developer settings!</li>
+            </ul>		
+		<b>Systemized:</b>
                 <ul>
-			<li>GPS joystick >>settings>> enable indirect mocking=<b>OFF</b></li>
-                    	<li>phone location settings >> Device only/ phone only or Bluetooth WiFi scanning off.</li>
-                    	<li>Select gps joystick as mock location app in Developer settings!</li>
-                </ul>
-		
-		<b>systemized:</b>
-                <ul>
-			<li>GPS joystick >>settings>> Enable System Mode=<b>ON</b></li>
-                    	<li>phone location settings >> Device only/ phone only or Bluetooth WiFi scanning off.</li>                    
+					<li>GPS Joystick >> Settings>> Enable System Mode=<font color="#f70040"><b>ON</b></font></li>
+                    <li>Phone gps/ location settings >> Device only/ Phone only or Bluetooth WiFi scanning OFF.</li>                    
                 </ul>
 			<br>
 				
 
-			<h3>Official Site: <a href="https://taichi.cool/" target="_blank">TaiChi·Magisk</a></h3>
+			<h3>Official Site: <a href="https://taichi.cool/" target="_blank"><u>TaiChi- Magisk<u/></a></h3>
 				
 				<!---
 					<br>
 					Video: <a href="https://www.youtube.com/watch?v=H9sakb26Juw" target="_blank">Video</a></h3>
-				-->
+			
 
 
 				<hr>
 				<h3>
 					<font color="#f70040">FAQ:</font>
+					<font color="#ff4242">FAQ:</font>
+					
 				</h3>
 				<button class="accordion"><b>+</b></button>
 				<div class="panel">
 				-					
 				</div>
-
+	-->
 				
 
 

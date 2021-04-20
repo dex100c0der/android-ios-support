@@ -3,7 +3,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>App Systemizer</title>
+	<title>Magisk App Set-up to Hide Root</title>
 	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 	<link rel='stylesheet'
@@ -556,111 +556,92 @@
 			<br>
 			<br>
 			<div style="padding-left:14px">
-			
-				<font color="#f70040">
-					<h3>App Systemizer (Terminal Emulator)</h3>
-				</font>
-				by: <font color="#0074d0"><i>veez21</i></font>
-				<hr>
-				Systemizes user-installed apps systemlessly thru magisk! Supports all device running Magisk.
-				<br>
-				<br>
-				<font color="#0074d0">
-				<h3>HOW TO INSTALL:</h3>
-				</font>
-				
-					<ol>
-						<li>Open Magisk app.</li>	
-						<br>			
-						<li>Tap <b>Modules</b> icon >> tap the <b>Search</b> icon and look for <b>App Systemizer (Terminal Emulator)</b>.</li>
-						<a target="_blank" href="appsys/as23.jpg">
-						<img src="appsys/as23.jpg" alt="image" style="width:250px">	
-						</a>
-						<br>
-						<font size="1"><b>tap image to enlarge</b></font>
-						<br>
-						<br>
 
-<li>Tap the <b>Download</b> icon then select <b>Install</b>.</li>
-<a target="_blank" href="appsys/as45.jpg">
-<img src="appsys/as45.jpg" alt="image" style="width:250px">	
-</a>
-<br>
-<font size="1"><b>tap image to enlarge</b></font>
-<br>
-<br>
-<li>Phone will then reboot.</li>
-<br>
-					<li>Download and install <b>Terminal Emulator for Android</b> app by Jack Palevich or <b>Termux</b> by Fredrik Fornwall from Playstore.
-					</li>
-					<br>
-					<li>Run Terminal Emulator then enter <b>"su"</b>. <font color="red">(grant superuser access when
-							prompted!)</font>
-					</li>
-					<br>
-					<li>Enter <b>"systemize -f"</b>, follow on-screen instructions.</li>
-					<br>
-					<li>Reboot your phone.</li>
+<font color="#f70040">
+				<h3>Setting-up Magisk App<font color="#0074d0" size="4"><b> (to hide root)</b></font></h3>
+		</font>
+		<hr>
+		
+		<font color="#f70040" size="3">
+						<h3>NOTE:</h3>
+						</font>
+						This guide is based on Magisk App v22.0
+						<br>
+						<br>				
+						
+						<ol>
+							<li>Open Magisk App.</li>
+							<li>Tap <b>Settings</b> icon.</li>
+								<a target="_blank" href="magisk/m1.jpg">
+									<img src="magisk/m1.jpg" alt="image" style="width:250px">
+								</a>
+								<br>
+									<font size="1"><b>tap image to enlarge</b></font>
+								<br>
+								<br>
+							<li>Under Settings, scroll down then enable <b>MagiskHide</b> then tap <b>Hide the Magisk app</b>, put any name you want and wait until it's done.</li>
+								<a target="_blank" href="magisk/m2.jpg">
+									<img src="magisk/m2.jpg" alt="image" style="width:200px">
+								</a>
+								<br>
+									<font size="1"><b>tap image to enlarge</b></font>
+								<br>
+								<br>
+							<li>Open Magisk app again then tap <b>Superuser</b> icon.</li>
+								<a target="_blank" href="magisk/m3.jpg">
+									<img src="magisk/m3.jpg" alt="image" style="width:200px">
+								</a>
+								<br>
+									<font size="1"><b>tap image to enlarge</b></font>
+								<br>
+								<br>
+<li>Tap <b>MagiskHide</b>, then search for and select <font color="#f70040">Pokémon Go</font> app and <font color="#f70040">Google Play services</font>. <i>(app that you want to hide root)</i>.</li>
+								<a target="_blank" href="magisk/m4-5.jpg">
+									<img src="magisk/m4-5.jpg" alt="image" style="width:200px">
+								</a>
+								<br>
+									<font size="1"><b>tap image to enlarge</b></font>
+								<br>
+								<br>
+							<li>Check <b>SafetyNet</b>.</li>
+								<a target="_blank" href="magisk/sncheck.jpg">
+									<img src="magisk/sncheck.jpg" alt="image" style="width:200px">
+								</a>
+								<br>
+									<font size="1"><b>tap image to enlarge</b></font>
+								<br>		
 				</ol>
+					<br>
 
-				<font color="#f70040">
-				<h3>NOTE:</h3>
-				</FONT>
-				Select: <b>
-					<font color=green>/system/priv-app</font>
-				</b> for location.
-				<br>
-				<br>
-				<font color="#f70040">
-				<h3>UPDATE:</h3>
-				</FONT>
-				In order for App Systemizer v17.2.2 to work, you also need to install <b>Busybox for Android NDK</b> module by osm0sis.
-				<br>
-				
-				<a target="_blank" href="appsys/bb.jpg">
-						<img src="appsys/bb.jpg" alt="image" style="width:250px">
-					  </a>
-					  <br>
-					  <font size="1"><b>tap image to enlarge</b></font>
-					  <br>
-				<br>
-				
-				</div>
-				<br>
-				<h3>OFFICIAL XDA:
-				<a href="https://forum.xda-developers.com/apps/magisk/module-terminal-app-systemizer-ui-t3585851"
-					target="_blank"><u>App Systemizer</u></a></h3>
-			
-			
-			<br>
-			<h3>
-				<font color="#f70040">FAQ:</font>
-			</h3>
-			<button class="accordion"><b>Failed SafetyNet check</b></button>
-			<div class="panel">
-			<BR>
-			If you're having trouble passing SafetyNet, download <b>SafetyPatch</b> module by hackintosh5 via Magisk.
-			</div>
+					<h3>
+						<font color="#f70040">FAQ:</font>
+					</h3>
+					<button class="accordion">failed safetyNet check!</button>
+					<div class="panel">
+					<br>
+					If you're having trouble passing safetyNet check, download <b>SafetyPatch</b> module by
+							hackintosh5 via Magisk app.
+					</div>
 
 
 
-			<script>
-				var acc = document.getElementsByClassName("accordion");
-				var i;
+					<script>
+						var acc = document.getElementsByClassName("accordion");
+						var i;
 
-				for (i = 0; i < acc.length; i++) {
-					acc[i].addEventListener("click", function () {
-						this.classList.toggle("active");
-						var panel = this.nextElementSibling;
-						if (panel.style.maxHeight) {
-							panel.style.maxHeight = null;
-						} else {
-							panel.style.maxHeight = panel.scrollHeight + "px";
+						for (i = 0; i < acc.length; i++) {
+							acc[i].addEventListener("click", function () {
+								this.classList.toggle("active");
+								var panel = this.nextElementSibling;
+								if (panel.style.maxHeight) {
+									panel.style.maxHeight = null;
+								} else {
+									panel.style.maxHeight = panel.scrollHeight + "px";
+								}
+							});
 						}
-					});
-				}
-			</script>
-			<!-- 
+					</script>
+					<!-- 
 <font size=5px;>
  <b>official site:</b> <a href="http://www.cydiaimpactor.com/" target="_blank">cydia impactor</a>
 <font color="#f70040"><b>faq:</b></font>
@@ -669,18 +650,16 @@
    		 ?       
   		</div>
 </font>
-<font color="#ff4242">
-<font color="#0074d0">
 <hr>-->
-			<div class="section mt-5">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
+					<div class="section mt-5">
+						<div class="container">
+							<div class="row">
+								<div class="col-12">
 
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
 
 			</div>
