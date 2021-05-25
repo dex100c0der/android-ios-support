@@ -8,8 +8,28 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
   <link rel="stylesheet" href="./style.css"> 
-<style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".tabs-list li a").click(function(e){
+                e.preventDefault();
+            });
+
+            $(".tabs-list li").click(function(){
+                var tabid = $(this).find("a").attr("href");
+                $(".tabs-list li,.tabs div.tab").removeClass("active");   // removing active class from tab and tab content
+                $(".tab").hide();   // hiding open tab
+                $(tabid).show();    // show tab
+                $(this).addClass("active"); //  adding active class to clicked tab
+
+            });
+
+        });
+    </script> 
+  
+<style>
 body{
     font-family: 'Poppins', sans-serif;
 	font-size: 16px;
@@ -452,7 +472,83 @@ body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
   }
 
+	
+/* Style the tab */
+.tabs{
+    width:100%;
+    height:auto;
+    margin:0 auto;
+}
 
+/* tab list item */
+.tabs .tabs-list{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+}
+.tabs .tabs-list li{
+    width:120px;/* tab lenght*/
+    float:left;
+    margin:0px;
+    margin-right:2px;
+    padding:10px 5px;
+    text-align: center;
+    background-color:cornflowerblue;
+    border-radius:3px;
+}
+.tabs .tabs-list li:hover{
+    cursor:pointer;
+}
+.tabs .tabs-list li a{
+    text-decoration: none;
+    color:white;
+}
+
+/* Tab content section */
+.tabs .tab{
+    display:none;
+    width:96%;
+    min-height:250px;
+    height:auto;
+    border-radius:3px;
+    padding:20px 15px;
+    background-color:lavender;
+    color:darkslategray;
+    clear:both;
+}
+.tabs .tab h3{
+    border-bottom:3px solid cornflowerblue;
+    letter-spacing:1px;
+    font-weight:normal;
+    padding:5px;
+}
+.tabs .tab p{
+    line-height:20px;
+    letter-spacing: 1px;
+}
+
+/* When active state */
+.active{
+    display:block !important;
+}
+.tabs .tabs-list li.active{
+    background-color:lavender !important;
+    color:black !important;
+}
+.active a{
+    color:black !important;
+}
+
+/* media query */
+@media screen and (max-width:360px){
+    .tabs{
+        margin:0;
+        width:96%;
+    }
+    .tabs .tabs-list li{
+        width:80px;
+    }
+}
   
 </style>
 </head>
@@ -488,17 +584,18 @@ body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 <br>
 <br>
 <br>
-<br>
-<br>
+
 <div style="padding-left:14px">
 
-<font color="#f70040">
-<h3>Fake GPS Location- GPS Joystick</h3>
+<font color="#f70040" size=6>
+Fake GPS Location- GPS Joystick
 </font>
-The App Ninjas
+
+<br>
+<i><font size=2 color="#0074d0">The App Ninjas</i></font>
 <hr>
 
-<font size="3">
+<font size=2>
 <ul>
     <li>Allows you to test location based apps by mocking your location via an overlay joystick control!</li>
     <li>Will overwrite your current location and any apps that you want to test will think you're in New York, London or any other place in the world!</li>
@@ -507,184 +604,83 @@ The App Ninjas
 </font>
 
 
-<button class="accordion"><font color="#f70040">APP FEATURES:</font></button>
+<div class="tabs">
+        <ul class="tabs-list">
+           <li class="active"><a href="#tab1">features</a></li>
+            <li ><a href="#tab2">v4.3</a></li>
+            <li ><a href="#tab3">previous</a></li>
+			<li ><a href="#tab4">official</a></li>
+        </ul>
 
-<div class="panel">
-<br>
-<font size="2">
-  <ul>
-    <li>Changes GPS location instantly and easily</li>
-    <li>Select your current location or any location in the world using the map or joystick</li>
-    <li>Enter latitude/longitude directly from the joystick and teleport anywhere</li>
-    <li>Change your location in any direction you point the joystick</li>
-    <li>Create and save a route using any number of points on a map and walk automatically</li>
-    <li>Pause and continue the route directly from the joystick</li>
-    <li>Use loop or reverse route mode to walk on your route over and over</li>
-    <li>Keep track of your favorite list of locations and routes</li>
-    <li>Keep track of custom markers for groups of points of interest</li>
-    <li>Import and export GPX files to your favorites, routes or custom markers</li>
-    <li>Displays distance and cooldown time information</li>
-    <li>Hide option in the notification to show/hide the joystick on your screen</li>
-    <li>Have 3 customizable speeds for your joystick</li>
-    <li>Size, type and opacity settings for the joystick</li>
-    <li>Lots of settings options for complete user customization</li>
-    <li>Plus this app automatically includes the best algorithm for providing realistic GPS values. All of these variance options are available in Settings to allow complete customization for the best and most realistic location testing.</li>
-  </ul>
-  </font>
-</div>
-<br>
-
-<h3>GPS Joystick v4.3</h3>
-	<ul>
-		<li>Privacy Mode (CLONED)/ ADS Free/ Stock Icon</li>
-			<ul>
-				<li><a href="https://drive.google.com/drive/folders/1vB1fssxf7jDl3Spfm2liozi9qBWVGm7c" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
-			</ul>
-		<br>
-		<li>Stock version (unlocked):
-			<ul>
-				<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-arm64-v8a.apk" target="_blank"><u>arm64-v8a</u></a></li>
-				<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-armeabi-v7a.apk" target="_blank"><u>armeabi-v7a</u></a></li>
-			</ul>
-		<br>
-		<li>Privacy Mode (CLONED)/ ADS Free/ Team Icon</li>
-			<ul>
-				<li><a href="https://drive.google.com/drive/folders/1REiSlrXg5qbOg-J3QPSkIm4-fBlQeJPv?usp=sharing" target="_blank"><font color=blue><u>Team Mystic</u></font></a></li>
-				<li><a href="https://drive.google.com/drive/folders/1ppnF4XqL9wFjWGsW07FEYF3vtPY4FxT-?usp=sharing" target="_blank"><font color=red><u>Team Valor</u></font></a></li>
-				<li><a href="https://drive.google.com/drive/folders/1UbReWDrK976_O3NAsPQMqUGN2Qg5cF_y?usp=sharing" target="_blank"><font color=yellow><u>Team Instinct</u></font></a></li>
-			</ul>
-		</ul>
-
-
-
-<!--
-
-
-<button class="accordion">GPS Joystick v4.3</button>
-<div class="panel">
-<br>
-		<ul>
-		<li>Privacy Mode (CLONED)/ ADS Free/ Stock Icon</li>
-			<ul>
-				<li><a href="https://drive.google.com/drive/folders/1vB1fssxf7jDl3Spfm2liozi9qBWVGm7c" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
-			</ul>
-		<br>
-		<li>Stock version (unlocked):
-			<ul>
-				<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-arm64-v8a.apk" target="_blank"><u>arm64-v8a</u></a></li>
-				<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-armeabi-v7a.apk" target="_blank"><u>armeabi-v7a</u></a></li>
-			</ul>
-		<br>
-		<li>Privacy Mode (CLONED)/ ADS Free/ Team Icon</li>
-			<ul>
-				<li><a href="" target="_blank"><font color=blue><u>Team Mystic</u></font></a></li>
-				<li><a href="" target="_blank"><font color=red><u>Team Valor</u></font></a></li>
-				<li><a href="" target="_blank"><font color=yellow><u>Team Instinct</u></font></a></li>
-			</ul>
-		</ul>
-
-</div>
-<br>
-
-
-
-
-<button class="accordion">GPS Joystick v4.3 - <i><font color="#0074d0"></font></i>
-<div class="panel">
-<br>
-Team Mystic:
-<form method="get" action="https://drive.google.com/drive/folders/1REiSlrXg5qbOg-J3QPSkIm4-fBlQeJPv?usp=sharing" target="_blank">
-  <button type="submit"><font color=blue>Download</font></button>
-</form>
-<br>
-
-Team Valor:
-<form method="get" action="https://drive.google.com/drive/folders/1ppnF4XqL9wFjWGsW07FEYF3vtPY4FxT-?usp=sharing" target="_blank">
-  <button type="submit"><font color=red>Download</font></button>
-</form>
-<br>
-
-Team Instinct:
-<form method="get" action="https://drive.google.com/drive/folders/1UbReWDrK976_O3NAsPQMqUGN2Qg5cF_y?usp=sharing" target="_blank">
-  <button type="submit"><font color=yellow>Download</font></button>
-</form>
-</div>
-<br>
--->
-
-
-<button class="accordion">PREVIOUS VERSIONS:</button>
-	<div class="panel">
-	<br>
-	
-	<h3>GPS Joystick v4.1.2</h3>
-	<ul>
-		<li>Privacy Mode (CLONED)/ ADS Free/ Dex100 Icon</li>
-			<ul>
-				<li><a href="http://bit.ly/2YHlMQo" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
-			</ul>
-	</ul>
-	
-	<br>
-	
-	<h3>GPS Joystick v3.0.3</h3>
-	<ul>
-		<li>Privacy Mode (CLONED)/ ADS Free/ Dex100 Icon</li>
-			<ul>
-				<li><a href="http://bit.ly/2YX0lGf" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
-			</ul>
-	</ul>
-
+        <div id="tab1" class="tab active">
+          <font color="#f70040"><h3>app features</h3></font>		
+			<font size=2>
+				<li>Changes GPS location instantly and easily</li>
+				<li>Select your current location or any location in the world using the map or joystick</li>
+				<li>Enter latitude/longitude directly from the joystick and teleport anywhere</li>
+				<li>Change your location in any direction you point the joystick</li>
+				<li>Create and save a route using any number of points on a map and walk automatically</li>
+				<li>Pause and continue the route directly from the joystick</li>
+				<li>Use loop or reverse route mode to walk on your route over and over</li>
+				<li>Keep track of your favorite list of locations and routes</li>
+				<li>Keep track of custom markers for groups of points of interest</li>
+				<li>Import and export GPX files to your favorites, routes or custom markers</li>
+				<li>Displays distance and cooldown time information</li>
+				<li>Hide option in the notification to show/hide the joystick on your screen</li>
+				<li>Have 3 customizable speeds for your joystick</li>
+				<li>Size, type and opacity settings for the joystick</li>
+				<li>Lots of settings options for complete user customization</li>
+				<li>Plus this app automatically includes the best algorithm for providing realistic GPS values. All of these variance options are available in settings to allow complete customization for the best and most realistic location testing.
+			</font>
+		
+                   
+        </div>
+        <div id="tab2" class="tab">
+            <font color="#f70040"><h3>gps joystick v4.3</h3></font>
+				<ul>
+					<li>privacy mode (cloned)/ ads free/ stock icon</li>
+						<ul>
+							<li><a href="https://drive.google.com/drive/folders/1vB1fssxf7jDl3Spfm2liozi9qBWVGm7c" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
+						</ul>					
+					<br>
+					<li>privacy mode (cloned)/ ads free/ team icon</li>
+						<ul>
+							<li><a href="https://drive.google.com/drive/folders/1REiSlrXg5qbOg-J3QPSkIm4-fBlQeJPv?usp=sharing" target="_blank"><font color=blue><u>Team Mystic</u></font></a></li>
+							<li><a href="https://drive.google.com/drive/folders/1ppnF4XqL9wFjWGsW07FEYF3vtPY4FxT-?usp=sharing" target="_blank"><font color=red><u>Team Valor</u></font></a></li>
+							<li><a href="https://drive.google.com/drive/folders/1UbReWDrK976_O3NAsPQMqUGN2Qg5cF_y?usp=sharing" target="_blank"><font color=yellow><u>Team Instinct</u></font></a></li>
+						</ul>
+				</ul>           
+            
+        </div>
+        <div id="tab3" class="tab">
+            <font color="#f70040"><h3>previous versions</h3></font>
+			gps joystick v4.1.2
+				<ul>
+					<li>privacy mode (cloned)/ ads free/ dex100 icon</li>
+						<ul>
+							<li><a href="http://bit.ly/2YHlMQo" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
+						</ul>
+				</ul>		
+			gps joystick v3.0.3
+				<ul>
+					<li>privacy mode (cloned)/ ads free/ dex100 icon</li>
+						<ul>
+							<li><a href="http://bit.ly/2YX0lGf" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
+						</ul>
+				</ul>
+                
 	</div>
+        <div id="tab4" class="tab">
+            <font color="#f70040"><h3>stock version (unlocked)</h3></font>       
+						<ul>
+							<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-arm64-v8a.apk" target="_blank"><u>arm64-v8a</u></a></li>
+							<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-armeabi-v7a.apk" target="_blank"><u>armeabi-v7a</u></a></li>
+						</ul>
+                
+		</div
+ </div>
+<br>
 
 
-
-        
-<!--
-<hr>
-<h3><font color="#f70040">faq:</font></h3>
-<button class="accordion"><b>+</b></button>
-  <div class="panel">
-  +
-  </div>
--->
-
-  
-  <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-    
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
-      });
-    }
-    </script>
-
-<div class="section mt-5">
-<div class="container">
-<div class="row">
-<div class="col-12">
-
-</div>
-</div>	
-</div>
-
-
-</div>
-<div class="my-5 py-5">
-</div>
-</body>
- 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
-<script  src="function.js"></script>
- 
 </body>
 </html>
