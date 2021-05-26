@@ -20,6 +20,97 @@
     99%{    color:transparent;  }
     100%{   color: red;    }
 }
+
+/*
+ CSS for the main interaction
+*/
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+/*
+ Styling
+*/
+
+body {
+  font: 16px/1.5em "Overpass", "Open Sans", Poppins, sans-serif;
+  color: #333;
+  font-weight: 300;
+}
+
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: #8d8d8d;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+  color: #06c;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: #06c;
+}
+
+.tabset > input:checked + label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+/*
+ Demo purposes only
+*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 30px;
+}
+
+.tabset {
+  max-width: 65em;
+}
+
 </style>
 
 
@@ -107,10 +198,10 @@
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false">Apps</a>
       <div class="dropdown-menu">
-		<a class="dropdown-item" href="https://www.apkmirror.com/apk/niantic-inc/pokemon-go/" target="_blank">PokÃ©mon GO (<font color="red">APK</font>)</a>
+		<a class="dropdown-item" href="https://www.apkmirror.com/apk/niantic-inc/pokemon-go/" target="_blank">Pokémon GO (<font color="red">APK</font>)</a>
 		<a class="dropdown-item" href="gplayservices-app.html">Google Play Services (<font color="red">APK</font>)</a>
         <a class="dropdown-item" href="gpsjoystick-app.html">GPS Joystick (<font color="red">No ADS</font>)</a>
-        <a class="dropdown-item" href="pokemod-velocity.html">PokÃ©mod Velocity</a>
+        <a class="dropdown-item" href="pokemod-velocity.html">Pokémod Velocity</a>
 		<a class="dropdown-item" href="fglpro-app.html">FGL Pro</a>
         <a class="dropdown-item" href="routes-app.html">GPS Joystick & Routes Go</a>
         <a class="dropdown-item" href="loc-spoofer-app.html">GPS Location Spoofer</a>        
@@ -158,39 +249,45 @@
           <div class="col-12">
 
  <!-----------------------------------main page text start   --------------------------------->   
-<div class="c">
-<font size="3" color="red">      
-<a href="https://www.patreon.com/pokedex100" target="_blank"><span class="blinking">Support us!</span></a>
-</font>
-<br>
-
-<font size="2" color="">
-<a href="https://discord.gg/Pokedex100" target="_blank">Discord server</a>
-</font>
-<br>
-
-<font size="2">
-Join us now and enjoy our services! 
-</font>
+ <br>
+ <br>
+ <div class="tabset">
+  <!-- Tab 1 -->
+  <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+  <label for="tab1">info</label>
+  <!-- Tab 2 -->
+  <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+  <label for="tab2">updates</label>
+  <!-- Tab 3 -->
+  <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+  <label for="tab3">support us</label>
+  
+  <div class="tab-panels">
+    <section id="marzen" class="tab-panel">    
+     <p> <a href="https://niantic.helpshift.com/a/pokemon-go/?p=web&s=release-notes-known-issues&f=known-issues&l=en
+                    " target="_blank"><font color="">Pokémon GO Known Issues</font></a>
+	<br>
+   <a href="https://p337.info/pokemongo/" target="_blank"><font color="">Events Countdown Timer</font></a></p>
+  </section>
+  
+    <section id="rauchbier" class="tab-panel">
+     <li>Pokémon GO to discontinue support for Android 5, iOS 10, and iOS 11, as well as iPhone 5s and iPhone 6.</font></b> <a href="https://pokemongolive.com/en/post/ios10-ios11-android5-discontinued-support/" target="_blank">More Info</a></li>  
+     <li><b>appdb-rickpactor</b> and <b>xcode</b> is currenty not working with iOS 13.3.x</li>	  
+	</section>
+	
+    <section id="dunkles" class="tab-panel">
+	<p>check our <a href="https://www.patreon.com/pokedex100" target="_blank">Patreon</a> for our top services and join us at our <a href="https://discord.gg/Pokedex100" target="_blank">discord server.</a>  enjoy and have fun!</p>
+		
+	</section>
+  </div>
+  
 </div>
-<hr>
+ 
+ 
+ 
+ 
+ 
 
-        <div class="c">
-              <font size=2 color="white">               
-                  <a href="https://niantic.helpshift.com/a/pokemon-go/?p=web&s=release-notes-known-issues&f=known-issues&l=en
-                    " target="_blank"><font color="">PokÃ©mon GO Known Issues</font></a>    
-                  <br>
-                  <a href="https://p337.info/pokemongo/" target="_blank"><font color="">Events Countdown Timer</font></a>
-            <br>
-           <hr>
-
-            <div class="c">
-             <font size="2" color=#0074d0><b>Updates:</b></font>
-                <font size=1> 
-                <li><b><font color="white">PokÃ©mon GO to discontinue support for Android 5, iOS 10, and iOS 11, as well as iPhone 5s and iPhone 6.</font></b> <a href="https://pokemongolive.com/en/post/ios10-ios11-android5-discontinued-support/" target="_blank">More Info</a></li>  
-                <li><b>appdb-rickpactor</b> and <b>xcode</b> is currenty not working with iOS 13.3.x</li>
-                </font>
-                 </div>
 <!-----------------------------------main page text end --------------------------------->            
   
           </div>
