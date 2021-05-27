@@ -57,7 +57,7 @@ body{
 .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
   display: block;
 }
-
+<!--
 /*
  Styling
 */
@@ -117,14 +117,147 @@ body {
 *:after {
   box-sizing: border-box;
 }
-<!--
+
 body {
   padding: 10px;
 }
--->
+
 .tabset {
   max-width: 65em;
 }
+-->
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fake 1s infinite;
+}
+
+.worko-tabs {
+  margin: 20px;
+  width: 80%;
+}
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
+}
+.worko-tabs .flex-tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.worko-tabs .flex-tabs .tab {
+  flex-grow: 1;
+  max-height: 40px;
+}
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+}
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
+}
+.worko-tabs .tab:hover {
+  background-color: #D6DBDF ;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #3498DB;
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .flex-tabs {
+    flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    order: 7;
+  }
+  .flex-tabs #tab-one-panel {
+    order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    order: 8;
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label {
+    border-bottom: none;
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </style>
 
@@ -265,41 +398,41 @@ body {
         <div class="row">
           <div class="col-12">
 
- <!-----------------------------------main page text start   --------------------------------->   
+<!-- main page text -->
+<div class="worko-tabs">
+  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
+    <input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+    <input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
 
- <div class="tabset">
-  <!-- Tab 1 -->
-  <input type="radio" name="tabset" id="tab1" aria-controls="marzen">
-  <label for="tab1">info</label>
-  <!-- Tab 2 -->
-  <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
-  <label for="tab2">updates</label>
-  <!-- Tab 3 -->
-  <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
-  <label for="tab3">support</label>
-  
-  <div class="tab-panels">
-    <section id="marzen" class="tab-panel">    
-    <li><a href="https://niantic.helpshift.com/a/pokemon-go/?p=web&s=release-notes-known-issues&f=known-issues&l=en
-                    " target="_blank"><font color="">Pokemon GO Known Issues</font></a>
-   <li><a href="https://p337.info/pokemongo/" target="_blank"><font color="">Events Countdown Timer</font></a>
-  </section>
-  
-    <section id="rauchbier" class="tab-panel">
-     Pokemon GO to discontinue support for Android 5, iOS 10, and iOS 11, as well as iPhone 5s and iPhone 6. <a href="https://pokemongolive.com/en/post/ios10-ios11-android5-discontinued-support/" target="_blank">More Info</a>
-     <b>appdb-rickpactor</b> and <b>xcode</b> is currenty not working with iOS 13.3.x  
-	</section>
-	
-    <section id="dunkles" class="tab-panel">
-	check our <a href="https://www.patreon.com/pokedex100" target="_blank">Patreon</a> for our top services and join us at our <a href="https://discord.gg/Pokedex100" target="_blank">discord server.</a>  enjoy and have fun!
-	</section>
-  </div>
-  
-</div> 
- 
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">info</label>
+        <label for="tab-two" id="tab-two-label" class="tab">updates</label>
+        <label for="tab-three" id="tab-three-label" class="tab">support</label>
+
+
+        <div id="tab-one-panel" class="panel">
+
+          <p>asdasdasdad.</p>
+        </div>
+        <div id="tab-two-panel" class="panel">
+            Tab two content
+        </div>
+        <div id="tab-three-panel" class="panel">
+            Tab three content
+        </div>
+        <div id="tab-four-panel" class="panel">
+            Tab four content
+        </div>
+    </div>
+
+</div>
+
  
 
-<!-----------------------------------main page text end --------------------------------->            
+ 
+
+<!-- main page text end -->            
   
           </div>
         </div>
