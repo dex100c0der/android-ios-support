@@ -1,600 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IPA Sideloading</title>
-  <link rel="icon" href="icon/ios.png" type="image/png" sizes="32x32">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link rel='stylesheet'
-    href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
-  <link rel="stylesheet" href="./style.css">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 400;
-      color: #212112;
-      background-size: 7%;
-      background-color: white !important;
-      overflow-x: hidden;
-      transition: all 200ms linear;
-
-    }
-
-    ::selection {
-      color: #fff;
-      background-color: #ff4242;
-    }
-
-    ::-moz-selection {
-      color: #fff;
-      background-color: #ff4242;
-    }
-
-    .start-header {
-      opacity: 1;
-      transform: translateY(0);
-      padding: 10px 0;
-      box-shadow: 0 10px 30px 0 rgb(33, 33, 33, 0.15);
-      -webkit-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out;
-    }
-
-    .start-header.scroll-on {
-      box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
-      padding: 5px 0;
-      -webkit-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out;
-    }
-
-    .start-header.scroll-on .navbar-brand img {
-      height: 28px;
-      -webkit-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out;
-    }
-
-    .navigation-wrap {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      -webkit-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out;
-    }
-
-    .navbar {
-      padding: 0;
-    }
-
-    .navbar-brand img {
-      height: 52px;
-      width: auto;
-      display: block;
-      -webkit-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out;
-    }
-
-    .navbar-toggler {
-      float: right;
-      border: none;
-      padding-right: 0;
-    }
-
-    .navbar-toggler:active,
-    .navbar-toggler:focus {
-      outline: none;
-    }
-
-    /*menu icon for phone color*/
-    .navbar-light .navbar-toggler-icon {
-      width: 24px;
-      height: 17px;
-      background-image: none;
-      position: relative;
-      border-bottom: 1px solid white;
-      transition: all 300ms linear;
-    }
-
-    .navbar-light .navbar-toggler-icon:after,
-    .navbar-light .navbar-toggler-icon:before {
-      width: 24px;
-      position: absolute;
-      height: 1px;
-      background-color: white;
-      top: 0;
-      left: 0;
-      content: '';
-      z-index: 2;
-      transition: all 300ms linear;
-    }
-
-    .navbar-light .navbar-toggler-icon:after {
-      top: 8px;
-    }
-
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-      transform: rotate(45deg);
-    }
-
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-      transform: translateY(8px) rotate(-45deg);
-    }
-
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-      border-color: transparent;
-    }
-
-    /*navbar menu text color (ipa download, android etc*/
-    .nav-link {
-      color: #fff !important;
-      font-weight: 400;
-      transition: all 200ms linear;
-    }
-
-    .nav-item:hover .nav-link {
-      color: #ff4242 !important;
-    }
-
-    /*navbar "home" menu hover color*/
-    .nav-item.active .nav-link {
-      color: #ff4242 !important;
-    }
-
-    .nav-link {
-      position: relative;
-      padding: 5px 0 !important;
-      display: inline-block;
-    }
-
-    .nav-item:after {
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      content: '';
-      background-color: #ff4242;
-      opacity: 0;
-      transition: all 200ms linear;
-    }
-
-    .nav-item:hover:after {
-      bottom: 0;
-      opacity: 1;
-    }
-
-    .nav-item.active:hover:after {
-      opacity: 0;
-    }
-
-    .nav-item {
-      position: relative;
-      transition: all 200ms linear;
-    }
-
-    /*navbar background color*/
-    .bg-light {
-      background-color: #0E0E0E !important;
-      transition: all 200ms linear;
-    }
-
-    .section {
-      position: relative;
-      width: 100%;
-      display: block;
-    }
-
-    .full-height {
-      height: 100vh;
-    }
-
-    .over-hide {
-      overflow: hidden;
-    }
-
-    .absolute-center {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      margin-top: 40px;
-      transform: translateY(-50%);
-      z-index: 20;
-    }
-
-    /* announcement text*/
-    h1 {
-      font-size: 48px;
-      line-height: 1.2;
-      font-weight: 700;
-      color: whitesmoke;
-      text-align: center;
-    }
-
-    p {
-      text-align: center;
-      margin: 0;
-      padding-top: 10px;
-      opacity: 1;
-      transform: translate(0);
-      transition: all 300ms linear;
-      transition-delay: 1700ms;
-    }
-
-    body.hero-anime p {
-      opacity: 0;
-      transform: translateY(40px);
-      transition-delay: 1700ms;
-    }
-
-    #switch,
-    #circle {
-      cursor: pointer;
-      -webkit-transition: all 300ms linear;
-      transition: all 300ms linear;
-    }
-
-    #switch {
-      width: 60px;
-      height: 8px;
-      border: 2px solid #ff4242;
-      border-radius: 27px;
-      background: #ff4242;
-      position: relative;
-      display: block;
-      margin: 0 auto;
-      text-align: center;
-      opacity: 1;
-      transform: translate(0);
-      transition: all 300ms linear;
-      transition-delay: 1900ms;
-    }
-
-    body.hero-anime #switch {
-      opacity: 0;
-      transform: translateY(40px);
-      transition-delay: 1900ms;
-    }
-
-    #circle {
-      position: absolute;
-      top: -11px;
-      left: -13px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: #000;
-    }
-
-    .switched {
-      border-color: #000 !important;
-      background: #ff4242 !important;
-    }
-
-    .switched #circle {
-      left: 43px;
-      box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25), 0 0 0 1px rgba(26, 53, 71, 0.07);
-      background: #fff;
-    }
-
-    .nav-item .dropdown-menu {
-      transform: translate3d(0, 10px, 0);
-      visibility: hidden;
-      opacity: 0;
-      max-height: 0;
-      display: block;
-      padding: 0;
-      margin: 0;
-      transition: all 200ms linear;
-    }
-
-    .nav-item.show .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      max-height: 999px;
-      transform: translate3d(0, 0px, 0);
-    }
-
-    /*drop down menu color background*/
-    .dropdown-menu {
-      padding: 10px !important;
-      margin: 0;
-      font-size: 13px;
-      letter-spacing: 1px;
-      color: #212121;
-      background-color: #1f2029;
-      border: none;
-      border-radius: 3px;
-      box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
-      transition: all 200ms linear;
-    }
-
-    .dropdown-toggle::after {
-      display: none;
-    }
-
-    .dropdown-item {
-      padding: 3px 15px;
-      color: #fff;
-      border-radius: 2px;
-      transition: all 200ms linear;
-    }
-
-    .dropdown-item:hover,
-    .dropdown-item:focus {
-      color: #fff;
-      background-color: rgb(255, 66, 66, 0.6);
-    }
-
-    body.dark {
-      color: #fff;
-      background-color: #1f2029;
-    }
-
-    body.dark h1 {
-      color: #fff;
-    }
-
-    body.dark h1 span {
-      transition-delay: 0ms !important;
-    }
-
-    body.dark p {
-      color: #fff;
-      transition-delay: 0ms !important;
-    }
-
-    body.dark .bg-light {
-      background-color: red !important;
-    }
-
-    body.dark .start-header {
-      box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
-    }
-
-    body.dark .start-header.scroll-on {
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
-    }
-
-    body.dark .nav-link {
-      color: #fff !important;
-    }
-
-    body.dark .nav-item.active .nav-link {
-      color: #999 !important;
-    }
-
-    body.dark .dropdown-menu {
-      color: #fff;
-      background-color: #1f2029;
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
-    }
-
-    body.dark .dropdown-item {
-      color: #fff;
-    }
-
-    body.dark .navbar-light .navbar-toggler-icon {
-      border-bottom: 1px solid #fff;
-    }
-
-    body.dark .navbar-light .navbar-toggler-icon:after,
-    body.dark .navbar-light .navbar-toggler-icon:before {
-      background-color: #fff;
-    }
-
-    body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-      border-color: transparent;
-    }
-
-
-    @media (max-width: 767px) {
-      h1 {
-        font-size: 38px;
-      }
-
-      .nav-item:after {
-        display: none;
-      }
-
-      .nav-item::before {
-        position: absolute;
-        display: block;
-        top: 15px;
-        left: 0;
-        width: 11px;
-        height: 1px;
-        content: "";
-        border: none;
-        background-color: white;
-        vertical-align: 0;
-      }
-
-      .dropdown-toggle::after {
-        position: absolute;
-        display: block;
-        top: 10px;
-        left: -23px;
-        width: 1px;
-        height: 11px;
-        content: "";
-        border: none;
-        background-color: white;
-        vertical-align: 0;
-        transition: all 200ms linear;
-      }
-
-      .dropdown-toggle[aria-expanded="true"]::after {
-        transform: rotate(90deg);
-        opacity: 0;
-      }
-
-      .dropdown-menu {
-        padding: 0 !important;
-        background-color: transparent;
-        box-shadow: none;
-        transition: all 200ms linear;
-      }
-
-      .dropdown-toggle[aria-expanded="true"]+.dropdown-menu {
-        margin-top: 10px !important;
-        margin-bottom: 20px !important;
-      }
-
-      body.dark .nav-item::before {
-        background-color: #fff;
-      }
-
-      body.dark .dropdown-toggle::after {
-        background-color: #fff;
-      }
-
-      body.dark .dropdown-menu {
-        background-color: transparent;
-        box-shadow: none;
-      }
-    }
-
-    /* accordion */
-    .accordion {
-      background-color: #eee;
-      color: #444;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-      transition: 0.4s;
-    }
-
-    .active,
-    .accordion:hover {
-      background-color: #ccc;
-      color: rgb(44, 43, 43);
-      font-weight: bold;
-    }
-
-    .accordion:after {
-      content: '\002B';
-      color: #444;
-      font-weight: bold;
-      float: right;
-      margin-left: 5px;
-    }
-
-    .active:after {
-      content: "\2212";
-    }
-
-    .panel {
-      padding: 0 18px;
-      background-color: white;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-    }
-
-    /* responsive img */
-    .responsive {
-      width: 100%;
-      height: auto;
-    }
-
-    img {
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 5px;
-      width: 200px;
-    }
-
-    img:hover {
-      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-    }
-  </style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ios/IPA Sideloading</title>
+	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
+	<link rel="stylesheet" href="./style.css"> 
+
+<style>
+body
+{
+    font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	background-color: white;
+	
+}
+
+/* responsive img */
+  .responsive {
+	width: 100%;
+	height: auto;
+  }
+  
+  img {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 200px;
+  }
+  
+  img:hover {
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fake 1s infinite;
+}
+
+.worko-tabs {
+  margin: 20px;
+  width: 80%;
+}
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
+}
+.worko-tabs .flex-tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.worko-tabs .flex-tabs .tab {
+  flex-grow: 1;
+  max-height: 40px;
+}
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+  font-size: 14px; /*tab content font size*/
+ 
+}
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
+}
+.worko-tabs .tab:hover {
+  background-color: #D6DBDF ;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #3498DB; /*tab font color when clicked*/
+ font-weight: 600; /*tab font bold when clicked*/
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .flex-tabs {
+    flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    order: 7;
+  }
+  .flex-tabs #tab-five-label {
+    order: 9;
+  }
+  .flex-tabs #tab-six-label {
+    order: 11;
+  }  
+  .flex-tabs #tab-seven-label {
+    order: 13;
+  }
+   .flex-tabs #tab-eight-label {
+    order: 15;
+  }  
+  
+  .flex-tabs #tab-one-panel {
+    order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    order: 8;
+  }
+  .flex-tabs #tab-five-panel {
+    order: 10;
+  }
+  .flex-tabs #tab-six-panel {
+    order: 12;
+  }
+  .flex-tabs #tab-seven-panel {
+    order: 14;
+  }
+  .flex-tabs #tab-eight-panel {
+    order: 16;
+  } 
+  
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+  #tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+    border-bottom: none;
+	
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+</style>
 </head>
+<body> 
+
+	<body class="hero-anime">	 
+	<div class="navigation-wrap bg-light start-header start-style">
+		<div class="container">
+		<div class="row">
+		<div class="col-12">
+		<nav class="navbar navbar-expand-md navbar-light">	
+		
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto py-4 py-md-0">
+			<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+				<a class="nav-link dropdown-toggle"  href="index.html" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+			</li>
+		</ul>
+		</div>	
+		</nav>
+		</div>
+		</div>
+		</div>	
+	</div>
 
 <body>
+<br>
+<br>
+<br>
+<br>
 
-  <body class="hero-anime">
-    <div class="navigation-wrap bg-light start-header start-style">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="navbar navbar-expand-md navbar-light">
+<div style="padding-left:14px">
 
-
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto py-4 py-md-0">
-                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                    <a class="nav-link dropdown-toggle" href="index.html" role="button" aria-haspopup="true"
-                      aria-expanded="false">Home</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <body>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-	  <div style="padding-left:14px">
-
-	<h3>
-	<font color="#f70040">
-	IPA Sideloading
-	</font>
-	</h3>
-
+<h3><font color="#f70040">IPA SIDELOADING</font></h3>
+<!--<i><font size=2 color="#0074d0">The App Ninjas</i></font>-->
 <hr>
-<b>Sideloading</b> is the process of installing apps on your iDevice (iPhone/ iPad/ iTouch) using .IPA files.
+<b>Sideloading</b> is the process of installing apps on your iDevice (iPhone/ iPad/ iTouch) using .IPA file.
 <br>
 <br>
-<b>TIP:</b>
-<br>
+<h3>TIP:</h3>
 Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="#f70040">2FA security disabled</font> for these intallation methods. 
 <br>
 <br>
 
-<button class="accordion"><b>Sideloadly</b> <font color="green"> <i>(Windows/ Mac OS)</i></font></button>
-<div class="panel">
-<br>
+<div class="worko-tabs">  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
+	<input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+	<input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
+	   <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+	      <input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
+		     <input class="state" type="radio" title="tab-six" name="tabs-state" id="tab-six" />
+			    <input class="state" type="radio" title="tab-seven" name="tabs-state" id="tab-seven" />
+				   <input class="state" type="radio" title="tab-eight" name="tabs-state" id="tab-eight" />
 
-<b>Sideloadly</b> is an IPA sideload tool that allows users to install IPA files directedly on iDevice with your own free developer account. With this tool you will have a free apple developer account, by using it you can sideload 10 apps but you can activate only 3 apps. Currently Sideloadly works on Windows and macOS operating systems only.
-<br>
-<br>
-		<button class="accordion">Sideloadly Features:</button>
-				<div class="panel">
-				<br>
-					<font size="2">
-						<ul>
-							<li>Apps can be sideloaded with a free or Paid Apple developer account.</li>
-							<li>Easy sideloading with drag and drop support.</li>
-							<li>It is possible to change the app name on your Homescreen.</li>
-							<li>It is an available jailbreak only installation option.</li>
-							<li>It is supported with Windows operating system.</li>
-							<li>It is possible to troubleshoot easier with installation logs.</li>
-						</ul>
-					</font>	
-				</div>
-		<br>
-<b>Requirements:</b>
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">sideloadly</label>
+        <label for="tab-two" id="tab-two-label" class="tab">altdeploy</label>
+        <label for="tab-three" id="tab-three-label" class="tab">altserver patcher</label>
+		<label for="tab-four" id="tab-four-label" class="tab">xcode</label>
+		<label for="tab-five" id="tab-five-label" class="tab">3utools</label>
+		<label for="tab-six" id="tab-six-label" class="tab">matrix installer</label>
+		<label for="tab-seven" id="tab-seven-label" class="tab">nullximpactor</label>
+		<label for="tab-eight" id="tab-eight-label" class="tab">appDB rickpactor</label>
+
+        <div id="tab-one-panel" class="panel active">
+          <h3><font color="#f70040">SIDELOADLY (windows)</font></h3>
+          <p>is an IPA sideload tool that allows users to install IPA files directedly on iDevice with your own free developer account. With this tool you will have a free apple developer account, by using it you can sideload 10 apps but you can activate only 3 apps. Currently Sideloadly works on Windows and macOS operating systems only.</p>
+        
+<h3>PRERIQUISITES:</h3>
 	<ul>
 		<li>iPhone, iPad, or iPod touch.</li>
 		<li>A computer running Windows operating system or virtually running Mac OS.</li>
@@ -605,10 +283,10 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 				<li><a href="https://armconverter.com/sideloadly/SideloadlySetup32.exe" target="_blank">windows 32-bit</a></li>
 				<li><a href="https://armconverter.com/sideloadly/SideloadlySetup.dmg" target="_blank">Mac OS</a></li>
 			</ul>
-		<li>Internet connection.</li>
+		<li>Stable Internet connection.</li>
 	</ul>
-
-<b>Sideload iPAs with Sideloadly</b><font color="#f70040"> (Windows users only)</font>:
+	
+<h3>HOW TO SIDELOAD IPA:</h3>
 	<ol>
 		<li>Open Sideloadly app.</li>
 			<a target="_blank" href="sideloadly/sideloadly0.jpg">
@@ -643,33 +321,30 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 					<font size="1"><b>tap image to enlarge</b></font>
 					<br>
 					<br>
-		<li>Waiting until completing the process of installing iPA.</li>		
-		<li>Go to Settings > Profiles and devices management > Trust the developer.</li>				
+		<li>Waiting until completing the process of installing iPA.</li>	
+			<br>		
+		<li>Go to Settings > Profiles and devices management > Trust the developer.</li>	
+			<br>
 		<li>Now you have completed the iPA sideloading.</li>
 	</ol>	
-		<strike><b><a href="" >Video Walkthrough</a></b></strike>		
-</div>
-<br>
-
-
-<button class="accordion"><b>AltDeploy</b> <font color="green"> <i>(MAC/ Mac OS)</i></font></button>
-<div class="panel">
-<br>
-
-<b>AltDeploy</b> is a mac OS solution for signing and sideloading IPA files to your iDevice, including some jailbreak tools, without worrying about app certificates being revoked. With Alt Deploy, you will get a Mail app add-on; this must be enabled in client preferences for the app. Once enabled, AltDeploy will work, but you must ensure your Mail app is open all the time you use AltDeploy.
-<br>
-<br>
-
-<b>Requirements:</b>
+<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>		
+	</div>	
+		
+		
+		<div id="tab-two-panel" class="panel">
+           <h3><font color="#f70040">ALTDEPLOY (mac/ mac os)</font></h3>
+		<p>is a mac OS solution for signing and sideloading IPA files to your iDevice, including some jailbreak tools, without worrying about app certificates being revoked. With Alt Deploy, you will get a Mail app add-on; this must be enabled in client preferences for the app. Once enabled, AltDeploy will work, but you must ensure your Mail app is open all the time you use AltDeploy.</p>
+  
+		 <h3>PRERIQUISITES:</h3>
 	<ul>
-		<li>iPhone, iPad, or iPod touch.</li>
+		<li>iPhone, iPad, or iPod touch.</li>		
 		<li>A MAC or Windows computer virtually running mac OS (<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a>).</li></li>
 		<li>Latest iTunes (<a href="https://www.apple.com/itunes/download/win64" target="_blank">x64</a>) (<a href="https://www.apple.com/itunes/download/win32" target="_blank">x32</a>) Installed.</li>
-		<li>Internet connection.</li>
-	</ul>
-
-<b>How to set-up AltDeploy:</b>
-	<ol>
+		<li>Stable Internet connection.</li>
+	</ul>  
+		   
+	<h3>SET-UP ALTDEPLOY:</h3>	   
+		<ol>
 		<li>Download <a href="https://github.com/pixelomer/AltDeploy/releases/download/v1.1/AltDeploy.zip" target="_blank">AltDeploy</a> onto your Mac.</li>
 		<li>Extract the zipped contents and open AltDeploy.app.</li>
 		<li>If security settings are enabled, go to Settings > Security and Privacy option and enable.</li>
@@ -677,10 +352,10 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 		<li>Click General > Manage Plugins.</li>
 		<li>Activate the AltPlugin.mailbundle.</li>
 		<li>Restart the Mail.app.</li>
-	</ol>
-
-<b>How to install IPA:</b>
-	<ol>
+	</ol>  		   
+		   
+	<h3>HOW TO SIDELOAD IPA:</h3>		   
+		<ol>
 		<li>Launch AltDeploy app on your Mac.</li>
 		<li>Plug your iDevice into your Mac.</li>
 		<li>Choose the IPA file you want to sideload and click Start.</li>
@@ -691,33 +366,25 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 		<li>Tap Trust and close settings.</li>
 		<li>You can now run your app on your iDevice.</li>
 	</ol>
-		<strike><b><a href="" >Video Walkthrough</a></b></strike>
-</div>
-<br>
-
-
-<button class="accordion"><b>AltServer Patcher</b> <font color="green"> <i>(Windows/ Mac OS)</i></font></button>
-<div class="panel">
-    <br>
-
-<b>AltServer Patcher</b> is a utility that patches AltServer to install any IPA from a web URL.
-<br>
-<br>
-
-<font color="#f70040"><b>NOTE:</b></font> This method requires Windows 8.1/ 10-64bit in order to work.
-<br>
-<br>
-<b>Requirements:</b>
+<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>		   
+    </div>
+		
+        <div id="tab-three-panel" class="panel">
+         <h3><font color="#f70040">ALTSERVER PATCHER (windows/ mac os)</font></h3>    
+		<p>is a utility that patches AltServer to install any IPA from a web URL.</p>	
+			
+		<h3>PRERIQUISITES:</h3>	
 	<ul>
 		<li>iPhone, iPad, or iPod touch.</li>
-		<li>A computer running Windows 8.1/ 10 64bit.</li>
+		<li>A computer running Windows 8.1/ 10 (64bit).</li>
 		<li>Latest iTunes (<a href="https://www.apple.com/itunes/download/win64" target="_blank">x64</a>) (<a href="https://www.apple.com/itunes/download/win32" target="_blank">x32</a>) and <a href="https://support.apple.com/en-us/HT204283" target="_blank">iCloud</a> installed.</li>
 		<li>Internet connection.</li>
-	</ul> 
-
-<b>How to install IPA:</b>
+	</ul>
+			
+	<h3>HOW TO SIDELOAD IPA:</h3>		
 	<ol>
 		<li>Make sure iTunes and iCloud are both installed. You will need to have both versions downloaded directly from an internet browser, not through the Microsoft Store. If you have installed iTunes/ iCloud from the Microsoft Store, you will need to uninstall that version, and re-install through an internet browser.</li>
+		<br>
 		<li>After you have installed iTunes and iCloud, ensure you are logged into both of them, using the same Apple ID that you are using on your Apple device. Once you have done this, you can close iTunes and iCloud.</li>
 			<a target="_blank" href="altstore/2.jpg">
 						<img src="altstore/2.jpg" alt="image" style="width:200px">
@@ -740,6 +407,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 				<br>
 				<br>
 		<li>Download and install <a href="https://ipg.pw/altstore/AltServerPatcher.exe" target="_blank">AltServerPatcher</a>.</li>
+		<br>
 		<li>Open AltServerPatcher app. If it asks you if you would like to allow the program to make changes to your computer, select “Yes”.</li>
 				<a target="_blank" href="altstore/5.jpg">
 						<img src="altstore/5.jpg" alt="image" style="width:200px">
@@ -748,7 +416,8 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 					<font size="1"><b>tap image to enlarge</b></font>
 					<br>
 					<br>
-		<li>Connect your Apple device to your computer.</li>		
+		<li>Connect your Apple device to your computer.</li>
+		<br>		
 		<li>Under <b>“Utility to Install”</b>, select <b>“Custom IPA Link”</b>.</li>
 			<a target="_blank" href="altstore/7-1.jpg">
 						<img src="altstore/7-1.jpg" alt="image" style="width:200px">
@@ -819,38 +488,31 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 					<br>
 
 		<li>Wait a few minutes (depends on ur internet speed), and the app will appear on your Apple device! Once you can see the app icon on the home screen, you may disconnect your Apple Device from the computer.</li>
+		<br>
 		<li>On your Apple device, go to <b>Settings > General > Device Management ></b> Apple ID email address and TRUST the app.</li>
-		<br>		
+</ol>
 			
-		<font color="#f70040"><b>NOTE:</b></font> You may experience issues during installation due to Windows Defender blocking them (false positive). Temporary disable windows security's real time protection while using Altserver to install apps then enable it when done. 
-
-	</ol>
-
-
-<strike><b><a href="" >Video Walkthrough</a></b></strike>
-</div>
+		<h3><font color="#f70040">NOTE:</font></h3>You may experience issues during installation due to Windows Defender blocking them (false positive). Temporary disable windows security's real time protection while using Altserver to install apps then enable it when done. 
 <br>
-
-
-<button class="accordion"><b>xCode</b> <font color="green"> <i>(Mac/ Mac OS)</i></font></button>
-<div class="panel">
-    <br>
-	
-<b>xCode</b> is Apple's integrated development environment (IDE) for macOS, used to develop software for macOS, iOS, iPadOS, watchOS, and tvOS.
-<br>
-<br>
-
-<b>Requirements:</b>
-	<ul>
+<br>	
+<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>
+</div>			
+		
+        <div id="tab-four-panel" class="panel">
+         <h3><font color="#f70040">XCODE (mac/ mac os)</font></h3>    
+		<p>is Apple's integrated development environment (IDE) for macOS, used to develop software for macOS, iOS, iPadOS, watchOS, and tvOS.</p>	   
+			
+		<h3>PRERIQUISITES:</h3>		
+		<ul>
 		<li>iPhone, iPad, or iPod touch.</li>
 		<li>A MAC or Windows computer virtually running mac OS (<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a>).</li>
 		<li><a href="https://developer.apple.com/download/more/" target="_blank">xCode</a></li>
 		<li><a href="https://dantheman827.github.io/ios-app-signer/" target="_blank">iOS App Signer.</a></li>
-		<li>Internet connection.</li>
-	</ul>
-
-<b>How to install IPA:</b>
-	<ol>
+		<li>Stable Internet connection.</li>
+	</ul>			
+			
+		<h3>HOW TO SIDELOAD IPA:</h3>	
+		<ol>
 		<li>Open Xcode app.</li>
 		<li>Create new Xcode Project <b>(Shift + Cmd + N)</b> > Single View Application.</li>
 		<li>Fill out Product Name > Organisation Name > Organization Identifier.</li>
@@ -866,117 +528,112 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 		<li>Once it’s done installing, on your device go to Settings > General > and trust the profile like usual when impacting.</li>
 	</ol>
 		
-<font color="#f70040"><b>NOTE:</b></font> If you are having trouble installing and are getting an error message similar to <b><i>"unable to install"</i></b>, turn off "<b>Re-Sign only</b>" in IOS app signer.
-<br>
-<br>
+<h3><font color="#f70040">NOTE</font></h3>
+<p>If you are having trouble installing and are getting an error message similar to <b><i>"unable to install"</i></b>, turn off "<b>Re-Sign only</b>" in IOS app signer.</p>
+
 	<ul>
-		<strike><b><a href="" >Video Walkthrough</a></b></strike>
+<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>
 		<li><b><a href="https://www.youtube.com/watch?v=sGqJYMjojXc" target="_blank">How to install mac OS Mojave on VirtualBox.</a></b></li>
-	</ul>
-		
+	</ul>	
 </div>
-<br>
-
-
-<button class="accordion"><b>3uTools</b> <font color="green"> <i>(Windows/ Linux/ Mac)</i></font></button>
-<div class="panel">
-<br>
-
-<b>3UTools</b> is a GUI tool that is used to install the IOS IPA file without the need of having your device jailbroken. The advantage of using this method is that you can keep playing the game 24*7 without being revoked.
-<br>
-<br>
-
-<b>Requirements:</b>
-	<ul>
+		
+		
+		<div id="tab-five-panel" class="panel">
+         <h3><font color="#f70040">3UTOOLS (windows/ linux/ mac os)</font></h3> 
+<p>is a GUI tool that is used to install the IOS IPA file without the need of having your device jailbroken. The advantage of using this method is that you can keep playing the game 24*7 without being revoked.</p>
+ 
+		<h3>PRERIQUISITES:</h3>	  
+		 <ul>
 		<li>iPhone, iPad, or iPod touch.</li>
 		<li>A Windows computer/ Windows running virtual mac OS/ Linux.</li>
 		<li>Latest iTunes (<a href="https://www.apple.com/itunes/download/win64" target="_blank">x64</a>) (<a href="https://www.apple.com/itunes/download/win32" target="_blank">x32</a>) installed.</li>
 		<li><a href="https://url.3u.com/zmAJjyaa" target="_blank">3uTools</a>  app Installed.</li>
-		<li>Internet connection.</li>
-	</ul>
-	
-<b>How to install IPA:</b>
-	<ol>
+		<li>Stable internet connection.</li>
+	</ul> 
+		  
+	<h3>HOW TO SIDELOAD IPA:</h3>	  
+			<ol>
 		<li>Open 3utools and Click on the Toolbox Tab.</li>
+		<br>
 		<li>Locate and Click IPA signature.</li>
+		<br>
 		<li>Click Add File and select the IPA file.</li>
-		<li>Click Sign with appleID (add your appleID).</li>
+		<br>
+		<li>Click Sign with appleID (add your appleID).</li>	
 		<font color="#f70040"><b>NOTE:</b></font> <i>Make sure that added appleID and IPA file are both selected.</i>
+		<br>
+		<br>
 		<li>Click Start Signing and wait for it to finish.</li>
+		<br>
 		<li>click iDevice > Click Apps > Click Import and Install IPA.</li>
+		<br>
 		<li>Select the signed IPA from documents and wait till its done.</li>
+		<br>
 		<li>Trust the App: Settings > General > Profile and Device management and <b>TRUST</b> the App.</li>
 	</ol>
-		<strike><b><a href="" >Video Walkthrough</a></b></strike>
+<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike> 
 </div>
-<br>
-
-
-<button class="accordion"><b><strike>Matrix Installer</strike></b> <font color="green"> <i>(Windows/ Mac OS)</i></font></button>
-<div class="panel">
-    <br>
-
-<b>Matrix Installer</b> is a desktop tool for sideloading and installing iOS apps.  It makes it possible to install any third- party app on iOS device using .IPA file.
-<br>
-<br>
-<b>Limitations:</b>
+		
+		
+		<div id="tab-six-panel" class="panel">
+         <h3><font color="#f70040">MATRIX INSTALLER (mac/ mac os)</font></h3>    
+		<p>is a desktop tool for sideloading and installing iOS apps.  It makes it possible to install any third- party app on iOS device using .IPA file.
+</p>	
+		<h3>LIMITATIONS:</h3>	
 	<ul>
-		<li>It currently supports Mac OS and Windows.
-		<li>You can only have 3 apps installed at a time.
+		<li>it currently supports Mac OS and Windows.
+		<li>you can only have 3 apps installed at a time.
 		<li>apps certificate expire every 7 days and have to be re-installed again.
-	</ul>
-
-<b>REQUIREMENTS:</b>
-	<ul>
+	</ul>		
+		
+		<h3>PRERIQUISITES:</h3>		
+			<ul>
 		<li>iPhone, iPad, or iPod touch.</li>
 		<li>A computer running Windows operating system.</li>
 		<li>Latest <a href="https://support.apple.com/downloads/itunes" target="_blank">iTunes</a> Installed.</li>
-		<li>Maxtrix app installed.</li>
-		<li>Internet connection.</li>
-	</ul>
-	
-<b>How to install IPA:</b>
-<br>
-Step 1: Make sure that you have the latest version of iTunes installed on your computer.
-Step 2: Remove the original app from your iDevice.
-Step 3: Download and save the IPA from our website, then launch Matrix Installer.
-Step 4: Connect your device to the PC using the USB cable. Installer will detect your iDevice.
-Step 5: Drag and drop the downloaded IPA file onto it. Or you can click “Device”->”Install Package…”
-pix
-Step 6: Installer will ask for your Apple ID username and password which are used to fetch the developer certificate from the Apple servers. (It’s better to create a new Apple ID)
-pix
-Step 7: Now, please be patient and wait for Impactor to perform all of the work.
-Step 8: Once you see the “Complete” message on it, unlock your iPhone screen and go to “Settings->General->Device Management”.
-Step 9: Tap the developer Apple ID and trust it.
-pix
+		<li>Matrix app installed.</li>
+		<li>Stable internet connection.</li>
+	</ul>	
+			
+		<h3>HOW TO SIDELOAD IPA:</h3>	
+		<ol>
+		<li>Make sure that you have the latest version of iTunes installed on your computer.
+<li>Remove the original app from your iDevice.
+<li>Download and save the IPA from our website, then launch Matrix Installer.
+<li>Connect your device to the PC using the USB cable. Installer will detect your iDevice.
+<li>Drag and drop the downloaded IPA file onto it. Or you can click “Device”->”Install Package…”
 
+<li>Installer will ask for your Apple ID username and password which are used to fetch the developer certificate from the Apple servers. (It’s better to create a new Apple ID)
 
-		<strike><b><a href="" >Video Walkthrough</a></b></strike>
+<li>Now, please be patient and wait for Impactor to perform all of the work.
+<li>Once you see the “Complete” message on it, unlock your iPhone screen and go to “Settings->General->Device Management”.
+<li>Tap the developer Apple ID and trust it.
+</ol>
+
+<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>				
 </div>
-<br>
+		
+        <div id="tab-seven-panel" class="panel">
+         <h3><font color="#f70040">NULLXIMPACTOR (mac/ mac os)</font></h3>
+<p>you can sideload IPA files to your iPhone/iPad running on iOS 10, 11, iOS 12, and iOS 13. However, it has to be made sure that the IPA file is hosted on a website. Similar to Cydia Impactor, nullxImpactor also requires you to provide an Apple ID along with its password for signing the IPA. Using this Cydia Impactor alternative for macOS, you can sideload third-party iOS apps and jailbreak tools like Electra, UnC0ver, Chimera, and Checkra1n.
+</p>		 
 
-
-<button class="accordion"><b>nullxImpactor</b> <font color="green"> <i>(Mac/ Mac OS)</i></font></button>
-<div class="panel">
-<br>
-
-Using <b>nullxImpactor</b> you can sideload IPA files to your iPhone/iPad running on iOS 10, 11, iOS 12, and iOS 13. However, it has to be made sure that the IPA file is hosted on a website. Similar to Cydia Impactor, nullxImpactor also requires you to provide an Apple ID along with its password for signing the IPA. Using this Cydia Impactor alternative for macOS, you can sideload third-party iOS apps and jailbreak tools like Electra, UnC0ver, Chimera, and Checkra1n.
-<br>
-<br>
-<b>Requirements:</b>
-	<ul>
+<h3>PRERIQUISITES:</h3>
+<ul>
 		<li>iPhone, iPad, or iPod touch.</li>
 		<li>A MAC or windows computer running vitual mac OS.</li>
 		<li>Latest <a href="https://support.apple.com/downloads/itunes" target="_blank">iTunes</a> Installed.</li>
 		<li>Internet connection.</li>
-	</ul>
-	
-<b>How to use nullxImpactor?</b>
-<br>
+	</ul>	   
+			
+<h3>HOW TO SIDELOAD IPA:</h3>				
 	<ol>
 		<li>Download <a href="https://impactor.nullx.me/macos/nullxImpactor-1.0.1.zip" target="_blank">nullxImpactor</a> ZIP file.</li>
+		<br>
 		<li>Extract the contents of the ZIP file and open the nullxImpactor application.</li>
+		<br>
 		<li>Launch Mail App and navigate to Preferences > General > Manage Plug-ins.</li>
+		<br>
 		<li>Activate the AltPlugin.mailbundle and restart the Mail application.</li>
 				<a target="_blank" href="nullximpactor/nullximpactor1.jpg">
 					<img src="nullximpactor/nullximpactor1.jpg" alt="image" style="width:200px">
@@ -986,9 +643,13 @@ Using <b>nullxImpactor</b> you can sideload IPA files to your iPhone/iPad runnin
 					<br>
 					<br>
 		<li>Connect your iPhone/iPad via USB.</li>
+		<br>
 		<li>Enter the web URL of the IPA file.</li>
+		<br>
 		<li>For certificate and bundle ID, you can enter your own values as well.</li>
+		<br>
 		<li>Hit the ‘Install’ button.</li>
+		<br>
 		<li>Enter your Apple ID credentials. We recommend creating a new Apple ID specifically for this purpose.</li>
 				<a target="_blank" href="nullximpactor/nullximpactor2.jpg">
 					<img src="nullximpactor/nullximpactor2.jpg" alt="image" style="width:200px">
@@ -998,102 +659,71 @@ Using <b>nullxImpactor</b> you can sideload IPA files to your iPhone/iPad runnin
 					<br>
 					<br>
 		<li>Once the sideloading process is complete, navigate to Settings > General > Profiles & Device Management and trust the profile of the sideloaded application.</li>
+		<br>
 		<li>You can launch the sideloaded application now.</li>	
 	</ol>
 	
-<strike><b><a href="" >Video Walkthrough</a></b></strike>
+<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>	
 </div>
-<br>
-
-
-<button class="accordion"><b>AppDB Rickpactor</b> <font color="green"> <i>(Windows/ Mac/ Mac OS)</i></font></button>
-<div class="panel">
-    <br>
-
-<b>AppDB Rickpactor</b> .......
-<br>
-<br>
-
-<font color="#f70040"><b>WARNING:</b></font>
-This method will not work with iDevice running iOS 13.3.1! Update your iOS to continue with this method. Do not upgrade to Beta iOS versions.
-<br>
-<br>
-<font color="#0074d0"><b>NOTE:</b></font>
-	<ul>
-		<li>Windows users must start at "<b>Step #1</b>"</li>
-		<li>Mac/ mac OS users must start at "<b>Step #2</b>"</li>
-	</ul>
-
-<b>How to use AppDB Rickpactor?</b>
-<br>
-	<ol>
+		
+        <div id="tab-eight-panel" class="panel">
+          <h3><font color="#f70040">APPDB RICKPACTOR (windows/ mac/ mac os)</font></h3> 
+<p></p>
+<h3>NOTES:</h3>
+<ol>
+<li>This method will not work with iDevice running iOS 13.3.1! Update your iOS to continue with this method. Do not upgrade to Beta iOS versions.</li>
+<li>Windows users must start at "<b>Step #1</b>"</li>
+<li>Mac/ mac OS users must start at "<b>Step #2</b>"</li>
+</ol>
+	
+<h3>HOW TO SIDELOAD IPA:</h3>	
+<ol>
 		<li><font color="#f70040">Computer:</font> Uninstall iTunes if it is already on the Computer. Download either the <a href="https://www.apple.com/itunes/download/win64">64-bit</a> or <a href="https://www.apple.com/itunes/download/win32">32-bit</a> iTunes (depends on your computer) and install it then reboot your Computer.</li>
+		<br>
 		<li><font color="#0074d0">iDevice:</font> Open <a href="https://appdb.to/link">AppDB (mobile)</a> in your Safari web browser, click "<b>Link Device</b>" and enter a valid Email address. Install the Profile-Management and "<b>trust</b>" it in your Phone Settings <i>(Settings > General > Profiles & Device Management)</i>.</li>
+		<br>
 		<li><font color="#f70040">Computer:</font> Open <a href="https://appdb.to/link">AppDB (computer)</a> in your Safari/ Firefox/ Chrome/ Opera web browser, click "<b>Link Device</b>" and enter the same Email address as before (step #2).</li>
+		<br>
 		<li><font color="#f70040">Computer:</font> Access your Email (used in step #2 and #3), open the email you received from AppDB and on it click "<b>Control this Device</b>". Your iDevice and Computer are now successfully "linked".</li>
+		<br>
 		<li><font color="#f70040">Computer:</font> Sign out of iTunes - then create a fresh <a href="appleid.html" target="_blank">Apple ID</a> in iTunes. Do not activate "Two-Factor Authentication". After successfully creating the fresh AppleID, sign out of iTunes and sign into iTunes with your iPhones AppleID.</li>
+		<br>
 		<li><font color="#f70040">Computer:</font> Open the <a href="https://developer.apple.com/account"> Apple Developer</a> page and login with the newly created Apple ID; accept and submit the terms of the "Apple Developer Agreement". Close the Apple Developer Page.</li>
+		<br>
 		<li><font color="#f70040">Computer:</font> Open the <a href="https://appdb.to/my/configure"> AppDB Configuration</a> page; enter the newly created Apple ID + Password, set all other Options to NO, NO, NO, NO, NO and YES. Then click "Save feature configuration" on the bottom-left. Close the AppDB Configuration Page.</li>
+		<br>
 		<li><font color="#f70040">Computer:</font> Download the <a href="http://ipogo.app/rickpactor"> Rickpactor.exe</a> for Windows or the <a href="https://appdb.to/app/standalone/1900000033"> Rickpactor.dmg</a>  for Mac/ Mac OS.</li>
+		<br>
 		<li><font color="#0074d0">iDevice:</font> Uninstall the original Pokemon GO and other spoofing apps. Unlock your iDevice and keep it unlocked until the end of "Step #12".</li>
+		<br>
 		<li><font color="#f70040">Computer:</font> Open the <a href="https://appdb.to/app/cydia/1900000658">AppDB</a> page; Click the top "Install" - a Popup appears, in it click "Cancel". It will take you to the AppDB Live Device Status Page.</li>									 
+		<br>
 		<li><font color="#f70040">Computer:</font> Connect your iDevice to the Computer. Close iTunes incase its open; Run the Rickpactor App/ Program you downloaded at "Step 8". On the AppDB Live Device Status Page click on "<b>Install via Rickpactor</b>".</li>							
+		<br>
 		<li><font color="#0074d0">iDevice:</font> After the successful install, "<b>trust</b>" its Developer in your Phone Settings (Settings > General > Profiles & Device Management).</li>
 	</ol>
 
-	<strike><b><a href="" >Video Walkthrough</a></b></strike>
+	<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>		  
+        </div>
+    </div>
+
 </div>
-<br>
-<br>
-Let us know at <font color="#f70040"><b>android- ios support channel</b></font> for any error/s. Thank you! ;)
-
-<!--
-		<b><a href="" target="_blank">Video Walkthrough</a></b>
-		<font color="#f70040">
-		<font color="#0074d0">
-		
-<hr>
-<h3><font color="#f70040">faq:</font></h3>
-<button class="accordion"><b>+</b></button>
-  <div class="panel">
-  +
-  </div>
--->
 
 
-        <script>
-          var acc = document.getElementsByClassName("accordion");
-          var i;
-
-          for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-              this.classList.toggle("active");
-              var panel = this.nextElementSibling;
-              if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-              } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-              }
-            });
-          }
-        </script>
+</script>
 
         <div class="section mt-5">
           <div class="container">
             <div class="row">
               <div class="col-12">
-
-              </div>
-            </div>
-          </div>
-
+<!--
 
         </div>
         <div class="my-5 py-5">
         </div>
-		
     </body>
 
+-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
     <script src="function.js"></script>
