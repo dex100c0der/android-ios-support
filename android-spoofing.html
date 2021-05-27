@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -7,23 +6,18 @@
 	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
-	
-	
 	<link rel="stylesheet" href="./style.css"> 
 
-
 <style>
-
 body
 {
     font-family: 'Poppins', sans-serif;
-	font-size: 16px;
-
+	font-size: 14px;
 	background-color: white;
 	
 }
 
-  /* responsive img */
+/* responsive img */
   .responsive {
 	width: 100%;
 	height: auto;
@@ -78,6 +72,8 @@ body {
   display: none;
   width: 100%;
   flex-basis: auto;
+  font-size: 14px; /*tab content font size*/
+ 
 }
 .worko-tabs .tab {
   display: inline-block;
@@ -98,7 +94,8 @@ body {
 #tab-four:checked ~ .tabs #tab-four-label {
   background-color: #fff;
   cursor: default;
-  border-left-color: #3498DB;
+  border-left-color: #3498DB; /*tab font color when clicked*/
+ font-weight: 600; /*tab font bold when clicked*/
 }
 
 #tab-one:checked ~ .tabs #tab-one-panel,
@@ -149,6 +146,7 @@ body {
 #tab-three:checked ~ .tabs #tab-three-label,
 #tab-four:checked ~ .tabs #tab-four-label {
     border-bottom: none;
+	
   }
 
   #tab-one:checked ~ .tabs #tab-one-panel,
@@ -198,82 +196,27 @@ body {
 <div style="padding-left:14px">
 
 <h3><font color="#f70040">Android Spoofing</font></h3>
-<br>
-
-
 <!--<i><font size=2 color="#0074d0">The App Ninjas</i></font>-->
-
+<hr>
 
 <div class="worko-tabs">  
-    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" checked />
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
     <input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
     <input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
 	   <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
 
     <div class="tabs flex-tabs">
-        <label for="tab-one" id="tab-one-label" class="tab">android 5</label>
-        <label for="tab-two" id="tab-two-label" class="tab">android 6/ 7</label>
-        <label for="tab-three" id="tab-three-label" class="tab">android 8</label>
+        <label for="tab-one" id="tab-one-label" class="tab">android 5.x</label>
+        <label for="tab-two" id="tab-two-label" class="tab">android 6.x/ 7.x</label>
+        <label for="tab-three" id="tab-three-label" class="tab">android 8.x</label>
 		 <label for="tab-four" id="tab-four-label" class="tab">android 9+</label>
 
 
-        <div id="tab-one-panel" class="panel active">
-          <h3>heading</h3>
-         Tab one content
-        </div>
-        <div id="tab-two-panel" class="panel">
-            Tab two content
-        </div>
-        <div id="tab-three-panel" class="panel">
-            Tab three content
-        </div>
-        <div id="tab-four-panel" class="panel">
-            Tab four content
-        </div>
-	
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-<div class="tabs">
-        <ul class="tabs-list">
-           <li class="active"><a href="#tab1">android 5</a></li>
-            <li ><a href="#tab2">android 6/7</a></li>
-            <li ><a href="#tab3">android 8</a></li>
-			<li ><a href="#tab4">android 9+</a></li>
-        </ul>
-
-        <div id="tab1" class="tab active">
-          <font color="#f70040"><h3>lollipop </h3></font>
-		  <i><font size=3>(may not be supported by Pokemon GO right now.</font></i>	
+        <div id="tab-one-panel" class="panel ">
+         <font color="#f70040"><h3>lollipop </h3></font>
+		  <font size=2>(may not be supported by Pokemon GO anymore)</font>
+		  <br>
+		  <br>
 			<ol>
 						<li><b>ROOT</b> (<font color="#f70040">need a custom recovery (TWRP)</font>)</li> 
 							<ol>
@@ -291,12 +234,10 @@ body {
 							</ol>		
 							<br>                   
 						<li>If there's no TWRP for your phone, try to use <a href="http://gpsjoystick.theappninjas.com/system_app/"	target="_blank"><u>Kingroot</u></a>.</li> 
-													                    
 					</ol>
-		
-                   
         </div>
-        <div id="tab2" class="tab">
+		
+        <div id="tab-two-panel" class="panel">
             <font color="#f70040"><h3>marshmallow/ nougat </h3></font>
 				<ol>
                     <li>If phone's Android security patch level date is <b>Pre-March 2017:</b> <i><font color="#f70040">(SPOOFABLE)</font></i></li>                   
@@ -323,8 +264,8 @@ body {
 									<ul>
 										<li><a href="gpsjoystick-settings.html"	target="_blank"><u>GPS Joystick Settings</u></a></li>
 									</ul>
-							</OL>	
-							<BR>													
+							</ol>	
+							<br>													
 						<li><b>Downgrade firmware with a Pre-March 2017 ASP</b> <i>(if available)</i></li>
 						<i><font color="#f70040">(decide specific, google for a guide.)</font></i>
 						<br>
@@ -344,10 +285,10 @@ body {
 					<ul>
 						<li><strike><a href="vmos.html"	target="_blank">VMOS</a> guide</strike></li>
 					</ul>
-				</ol>				
-            
+				</ol>		
         </div>
-        <div id="tab3" class="tab">
+		
+        <div id="tab-three-panel" class="panel">
             <font color="#f70040"><h3>oreo</h3></font>
 			<ol>
 				<li>If phone's Android security patch level date is pre-August 2018 and Google Play services stock version is below 12.6.x</li>                   
@@ -413,9 +354,9 @@ body {
 				<li><b>Downgrade firmware with a pre-march 2017 ASP. </b><i>(if available)</i></li>
 				<i><font color="#f70040">(devicespecifc, google for a guide.)</font></i>
 			</ol>
-                
-	</div>
-        <div id="tab4" class="tab">
+        </div>
+		
+        <div id="tab-four-panel" class="panel">
             <font color="#f70040"><h3>Pie, Q, R, S, T, U, V, W, X, Y, Z!</h3></font>       
 			<ol>
 					<li><b>ROOT</b> (<font color="#f70040">need a custom recovery (TWRP) and unlocked bootloader</font>)</li> 
@@ -439,33 +380,24 @@ body {
 						<li><STRIKE><a href="vmos.html"	target="_blank">VMOS</a> guide</STRIKE></li>
 					</ul>					
 				</ol> 
-						
-		</div>
-<br>
+        </div>	
+    </div>
 
 
-
-
-
--->
-
-        </script>
+</script>
 
         <div class="section mt-5">
           <div class="container">
             <div class="row">
               <div class="col-12">
-
-              </div>
-            </div>
-          </div>
-
+<!--
 
         </div>
         <div class="my-5 py-5">
         </div>
     </body>
 
+-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
     <script src="function.js"></script>
