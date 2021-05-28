@@ -1,461 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fake GPS Location- GPS Joystick</title>
-  <link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
-  <link rel="stylesheet" href="./style.css"> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>android/Fake GPS Location- GPS Joystick</title>
+	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
+	<link rel="stylesheet" href="./style.css"> 
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-            $(".tabs-list li a").click(function(e){
-                e.preventDefault();
-            });
-
-            $(".tabs-list li").click(function(){
-                var tabid = $(this).find("a").attr("href");
-                $(".tabs-list li,.tabs div.tab").removeClass("active");   // removing active class from tab and tab content
-                $(".tab").hide();   // hiding open tab
-                $(tabid).show();    // show tab
-                $(this).addClass("active"); //  adding active class to clicked tab
-
-            });
-
-        });
-    </script> 
-  
 <style>
-body{
+body
+{
     font-family: 'Poppins', sans-serif;
-	font-size: 16px;
-	line-height: 24px;
-	font-weight: 400;
-	color: #212112;
-	background-size:7%;
-	background-color: white !important;
-	overflow-x: hidden;
-	transition: all 200ms linear;
-
-}
-::selection {
-	color: #fff;
-	background-color: #ff4242;
-}
-::-moz-selection {
-	color: #fff;
-	background-color: #ff4242;
-}
-.start-header {
-	opacity: 1;
-	transform: translateY(0);
-	padding: 10px 0;
-	box-shadow: 0 10px 30px 0 rgb(33,33,33,0.15);
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
-}
-.start-header.scroll-on {
-	box-shadow: 0 5px 10px 0 rgb(33,33,33,0.15);
-	padding: 5px 0;
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
-}
-.start-header.scroll-on .navbar-brand img{
-	height: 28px;
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
-}
-.navigation-wrap{
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
-}
-.navbar{
-	padding: 0;
-}
-.navbar-brand img{
-	height: 52px;
-	width: auto;
-	display: block;
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
-}
-.navbar-toggler {
-	float: right;
-	border: none;
-	padding-right: 0;
-}
-.navbar-toggler:active,
-.navbar-toggler:focus {
-	outline: none;
-}
-/*menu icon for phone color*/
-.navbar-light .navbar-toggler-icon {
-	width: 24px;
-	height: 17px;
-	background-image: none;
-	position: relative;
-	border-bottom: 1px solid white;
-    transition: all 300ms linear;
-}
-.navbar-light .navbar-toggler-icon:after, 
-.navbar-light .navbar-toggler-icon:before{
-	width: 24px;
-	position: absolute;
-	height: 1px;
+	font-size: 14px;
 	background-color: white;
-	top: 0;
-	left: 0;
-	content: '';
-	z-index: 2;
-    transition: all 300ms linear;
-}
-.navbar-light .navbar-toggler-icon:after{
-	top: 8px;
-}
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-	transform: rotate(45deg);
-}
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-	transform: translateY(8px) rotate(-45deg);
-}
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-	border-color: transparent;
-}
-/*navbar menu text color (ipa download, android etc*/
-.nav-link{
-	color: #fff !important;
-	font-weight: 400;
-    transition: all 200ms linear;
-}
-.nav-item:hover .nav-link{
-	color: #ff4242 !important;
-}
-/*navbar "home" menu hover color*/
-.nav-item.active .nav-link{
-	color: #ff4242 !important;
-}
-.nav-link {
-	position: relative;
-	padding: 5px 0 !important;
-	display: inline-block;
-}
-.nav-item:after{
-	position: absolute;
-	bottom: -5px;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	content: '';
-	background-color: #ff4242;
-	opacity: 0;
-    transition: all 200ms linear;
-}
-.nav-item:hover:after{
-	bottom: 0;
-	opacity: 1;
-}
-.nav-item.active:hover:after{
-	opacity: 0;
-}
-.nav-item{
-	position: relative;
-    transition: all 200ms linear;
-}
-/*navbar background color*/
-.bg-light {
-	background-color: #0E0E0E  !important;
-    transition: all 200ms linear;
-}
-.section {
-    position: relative;
-	width: 100%;
-	display: block;
-}
-.full-height {
-    height: 100vh;
-}
-.over-hide {
-    overflow: hidden;
-}
-.absolute-center {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 100%;
-  margin-top: 40px;
-	transform: translateY(-50%);
-	z-index: 20;
-}
-/* announcement text*/
-h1 {
-	font-size: 48px;
-	line-height: 1.2;
-	font-weight: 700;
-	color: whitesmoke;
-	text-align: center;
-}
-p {
-	text-align: center;
-	margin: 0;
-	padding-top: 10px;
-	opacity: 1;
-	transform: translate(0);
-    transition: all 300ms linear;
-    transition-delay: 1700ms;
-}
- 
-body.hero-anime p{
-	opacity: 0;
-	transform: translateY(40px);
-    transition-delay: 1700ms;
-}
-#switch,
-#circle {
-	cursor: pointer;
-	-webkit-transition: all 300ms linear;
-	transition: all 300ms linear; 
-} 
-#switch {
-	width: 60px;
-	height: 8px;
-	border: 2px solid #ff4242;
-	border-radius: 27px;
-	background: #ff4242;
-	position: relative;
-	display: block;
-	margin: 0 auto;
-	text-align: center;
-	opacity: 1;
-	transform: translate(0);
-    transition: all 300ms linear;
-    transition-delay: 1900ms;
-}
-body.hero-anime #switch{
-	opacity: 0;
-	transform: translateY(40px);
-    transition-delay: 1900ms;
-}
-#circle {
-	position: absolute;
-	top: -11px;
-	left: -13px;
-	width: 26px;
-	height: 26px;
-	border-radius: 50%;
-	background: #000;
-}
-.switched {
-	border-color: #000 !important;
-	background: #ff4242 !important;
-}
-.switched #circle {
-	left: 43px;
-	box-shadow: 0 4px 4px rgba(26,53,71,0.25), 0 0 0 1px rgba(26,53,71,0.07);
-	background: #fff;
-}
-.nav-item .dropdown-menu {
-    transform: translate3d(0, 10px, 0);
-    visibility: hidden;
-    opacity: 0;
-	max-height: 0;
-    display: block;
-	padding: 0;
-	margin: 0;
-    transition: all 200ms linear;
-}
-.nav-item.show .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-	max-height: 999px;
-    transform: translate3d(0, 0px, 0);
-}
-/*drop down menu color background*/
-.dropdown-menu {
-	padding: 10px!important;
-	margin: 0;
-	font-size: 13px;
-	letter-spacing: 1px;
-	color: #212121;
-	background-color: #1f2029;
-	border: none;
-	border-radius: 3px;
-	box-shadow: 0 5px 10px 0 rgb(33,33,33,0.15);
-    transition: all 200ms linear;
-}
-.dropdown-toggle::after {
-	display: none;
-}
- 
-.dropdown-item {
-	padding: 3px 15px;
-	color: #fff;
-	border-radius: 2px;
-    transition: all 200ms linear;
-}
-.dropdown-item:hover, 
-.dropdown-item:focus {
-	color: #fff;
-	background-color: rgb(255,66,66,0.6);
-}
- 
-body.dark{
-	color: #fff;
-	background-color: #1f2029;
-}
-body.dark h1{
-	color: #fff;
-}
-body.dark h1 span{
-    transition-delay: 0ms !important;
-}
-body.dark p{
-	color: #fff;
-    transition-delay: 0ms !important;
-}
-body.dark .bg-light {
-	background-color: #0074d0 !important;
-}
-body.dark .start-header {
-	box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
-}
-body.dark .start-header.scroll-on {
-	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
-}
-body.dark .nav-link{
-	color: #fff !important;
-}
-body.dark .nav-item.active .nav-link{
-	color: #999 !important;
-}
-body.dark .dropdown-menu {
-	color: #fff;
-	background-color: #1f2029;
-	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
-}
-body.dark .dropdown-item {
-	color: #fff;
-}
-body.dark .navbar-light .navbar-toggler-icon {
-	border-bottom: 1px solid #fff;
-}
-body.dark .navbar-light .navbar-toggler-icon:after, 
-body.dark .navbar-light .navbar-toggler-icon:before{
-	background-color: #fff;
-}
-body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-	border-color: transparent;
-}
- 
- 
-@media (max-width: 767px) { 
-	h1{
-		font-size: 38px;
-	}
-	.nav-item:after{
-		display: none;
-	}
-	.nav-item::before {
-		position: absolute;
-		display: block;
-		top: 15px;
-		left: 0;
-		width: 11px;
-		height: 1px;
-		content: "";
-		border: none;
-		background-color: white;
-		vertical-align: 0;
-	}
-	.dropdown-toggle::after {
-		position: absolute;
-		display: block;
-		top: 10px;
-		left: -23px;
-		width: 1px;
-		height: 11px;
-		content: "";
-		border: none;
-		background-color: white;
-		vertical-align: 0;
-		transition: all 200ms linear;
-	}
-	.dropdown-toggle[aria-expanded="true"]::after{
-		transform: rotate(90deg);
-		opacity: 0;
-	}
-	.dropdown-menu {
-		padding: 0 !important;
-		background-color: transparent;
-		box-shadow: none;
-		transition: all 200ms linear;
-	}
-	.dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
-		margin-top: 10px !important;
-		margin-bottom: 20px !important;
-	}
-	body.dark .nav-item::before {
-		background-color: #fff;
-	}
-	body.dark .dropdown-toggle::after {
-		background-color: #fff;
-	}
-	body.dark .dropdown-menu {
-		background-color: transparent;
-		box-shadow: none;
-	}
+	
 }
 
-/* accordion */
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  font-weight: bold;
-  outline: none;
-  font-size: 16px;
-  transition: 0.4s;
-}
-
-.active, .accordion:hover {
-  background-color: #ccc;
-  color: rgb(44, 43, 43);
-  font-weight: normal;
-}
-
-.accordion:after {
-  content: '\002B';
-  color: #444;
-  font-weight:;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-  
-  /* responsive img */
+/* responsive img */
   .responsive {
 	width: 100%;
 	height: auto;
@@ -472,84 +34,172 @@ body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
   }
 
-	
-/* Style the tab */
-.tabs{
-    width:100%;
-    height:auto;
-    margin:0 auto;
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fake 1s infinite;
 }
 
-/* tab list item */
-.tabs .tabs-list{
-    list-style:none;
-    margin:0px;
-    padding:0px;
+.worko-tabs {
+  margin: 20px;
+  width: 80%;
 }
-.tabs .tabs-list li{
-    width:auto;/* tab lenght*/
-    float:left;
-    margin:0px;
-    margin-right:2px;
-    padding:10px 5px;
-    text-align: center;
-    background-color:cornflowerblue;
-    border-radius:3px;
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
 }
-.tabs .tabs-list li:hover{
-    cursor:pointer;
+.worko-tabs .flex-tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.tabs .tabs-list li a{
-    text-decoration: none;
-    color:white;
+.worko-tabs .flex-tabs .tab {
+  flex-grow: 1;
+  max-height: 40px;
 }
-
-/* Tab content section */
-.tabs .tab{
-    display:none;
-    width:96%;
-    min-height:250px;
-    height:auto;
-    border-radius:3px;
-    padding:20px 15px;
-    background-color:lavender;
-    color:darkslategray;
-    clear:both;
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+  font-size: 14px; /*tab content font size*/
+ 
 }
-.tabs .tab h3{
-    border-bottom:3px solid cornflowerblue;
-    letter-spacing:1px;
-    font-weight:normal;
-    padding:5px;
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
 }
-.tabs .tab p{
-    line-height:20px;
-    letter-spacing: 1px;
+.worko-tabs .tab:hover {
+  background-color: #D6DBDF ;
 }
 
-/* When active state */
-.active{
-    display:block !important;
-}
-.tabs .tabs-list li.active{
-    background-color:lavender !important;
-    color:black !important;
-}
-.active a{
-    color:black !important;
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #3498DB; /*tab font color when clicked*/
+ font-weight: 600; /*tab font bold when clicked*/
 }
 
-/* media query */
-@media screen and (max-width:360px){
-    .tabs{
-        margin:0;
-        width:96%;
-    }
-    .tabs .tabs-list li{
-        width:80px;
-    }
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+  display: block;
 }
+
+@media (max-width: 600px) {
+  .flex-tabs {
+    flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    order: 7;
+  }
+  .flex-tabs #tab-five-label {
+    order: 9;
+  }
+  .flex-tabs #tab-six-label {
+    order: 11;
+  }  
+  .flex-tabs #tab-seven-label {
+    order: 13;
+  }
+   .flex-tabs #tab-eight-label {
+    order: 15;
+  }  
   
+  .flex-tabs #tab-one-panel {
+    order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    order: 8;
+  }
+  .flex-tabs #tab-five-panel {
+    order: 10;
+  }
+  .flex-tabs #tab-six-panel {
+    order: 12;
+  }
+  .flex-tabs #tab-seven-panel {
+    order: 14;
+  }
+  .flex-tabs #tab-eight-panel {
+    order: 16;
+  } 
+  
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+  #tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+    border-bottom: none;
+	
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
 </style>
 </head>
 <body> 
@@ -587,34 +237,38 @@ body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 <div style="padding-left:14px">
 
-<font color="#f70040" size=6>
-Fake GPS Location- GPS Joystick
-</font>
-
-<br>
-<i><font size=2 color="#0074d0">The App Ninjas</i></font>
+<h3><font color="#f70040">FAKE GPS LOCATION- GPS JOYSTICK</font></h3>
+<font size=2 color="#0074d0">The App Ninjas</font>
 <hr>
-
-<font size=2>
 <ul>
     <li>Allows you to test location based apps by mocking your location via an overlay joystick control!</li>
     <li>Will overwrite your current location and any apps that you want to test will think you're in New York, London or any other place in the world!</li>
     <li>This app has a "JoyStick" option which makes it simple and fun to change your location instantly.</li>
 </ul>
-</font>
 
+<div class="worko-tabs">  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
+	<input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+	<input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
+	   <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+	      <input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
+		     <input class="state" type="radio" title="tab-six" name="tabs-state" id="tab-six" />
+			    <input class="state" type="radio" title="tab-seven" name="tabs-state" id="tab-seven" />
+				   <input class="state" type="radio" title="tab-eight" name="tabs-state" id="tab-eight" />
 
-<div class="tabs">
-        <ul class="tabs-list">
-           <li class="active"><a href="#tab1">features</a></li>
-            <li ><a href="#tab2">v4.3</a></li>
-            <li ><a href="#tab3">previous</a></li>
-			<li ><a href="#tab4">official</a></li>
-        </ul>
-
-        <div id="tab1" class="tab active">
-          <font color="#f70040"><h3>app features</h3></font>		
-			<font size=2>
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">app features</label>
+        <label for="tab-two" id="tab-two-label" class="tab">version 4.3</label>
+        <label for="tab-three" id="tab-three-label" class="tab">previous versions</label>
+		<label for="tab-four" id="tab-four-label" class="tab">official</label>
+		<!--
+		<label for="tab-five" id="tab-five-label" class="tab">3utools</label>
+		<label for="tab-six" id="tab-six-label" class="tab">matrix installer</label>
+		<label for="tab-seven" id="tab-seven-label" class="tab">nullximpactor</label>
+		<label for="tab-eight" id="tab-eight-label" class="tab">appDB rickpactor</label>
+		-->
+        <div id="tab-one-panel" class="panel active">
+          <h3><font color="#f70040">app features</font></h3>
 				<li>Changes GPS location instantly and easily</li>
 				<li>Select your current location or any location in the world using the map or joystick</li>
 				<li>Enter latitude/longitude directly from the joystick and teleport anywhere</li>
@@ -631,13 +285,13 @@ Fake GPS Location- GPS Joystick
 				<li>Size, type and opacity settings for the joystick</li>
 				<li>Lots of settings options for complete user customization</li>
 				<li>Plus this app automatically includes the best algorithm for providing realistic GPS values. All of these variance options are available in settings to allow complete customization for the best and most realistic location testing.
-			</font>
+	
+	</div>	
 		
-                   
-        </div>
-        <div id="tab2" class="tab">
-            <font color="#f70040"><h3>gps joystick v4.3</h3></font>
-				<ul>
+		
+		<div id="tab-two-panel" class="panel">
+           <h3><font color="#f70040">gps joystick v4.3</font></h3>
+			<ul>
 					<li>privacy mode (cloned)/ ads free/ stock icon</li>
 						<ul>
 							<li><a href="https://drive.google.com/drive/folders/1vB1fssxf7jDl3Spfm2liozi9qBWVGm7c" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
@@ -649,12 +303,12 @@ Fake GPS Location- GPS Joystick
 							<li><a href="https://drive.google.com/drive/folders/1ppnF4XqL9wFjWGsW07FEYF3vtPY4FxT-?usp=sharing" target="_blank"><font color=red><u>Team Valor</u></font></a></li>
 							<li><a href="https://drive.google.com/drive/folders/1UbReWDrK976_O3NAsPQMqUGN2Qg5cF_y?usp=sharing" target="_blank"><font color=yellow><u>Team Instinct</u></font></a></li>
 						</ul>
-				</ul>           
-            
-        </div>
-        <div id="tab3" class="tab">
-            <font color="#f70040"><h3>previous versions</h3></font>
-			gps joystick v4.1.2
+			</ul>  
+    </div>
+		
+        <div id="tab-three-panel" class="panel">
+         <h3><font color="#f70040">previous versions</font></h3>    
+		gps joystick v4.1.2
 				<ul>
 					<li>privacy mode (cloned)/ ads free/ dex100 icon</li>
 						<ul>
@@ -665,30 +319,44 @@ Fake GPS Location- GPS Joystick
 				<ul>
 					<li>privacy mode (cloned)/ ads free/ dex100 icon</li>
 						<ul>
-							<li><a href="http://bit.ly/2YX0lGf" target="_blank"><u>arm64-v8a/ armeabi-v7a</u></a></li>
+							<li><a href="http://bit.ly/2YX0lGf" target="_blank"><u>arm64-v8a/ armeabi-v7a</a></li>
 						</ul>
 				</ul>
-                
-	</div>
-        <div id="tab4" class="tab">
-            <font color="#f70040"><h3>stock version (unlocked)</h3></font>       
-						<ul>
+		</div>			
+		
+		 <div id="tab-four-panel" class="panel">
+		  <h3><font color="#f70040">stock version (unlocked)</font></h3> 
+		  <ul>
 							<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-arm64-v8a.apk" target="_blank"><u>gpsjoystick-unlocked-arm64-v8a.apk</u></a></li>
 							<li><a href="http://gpsjoystick.theappninjas.com/download_v4_3/gpsjoystick-unlocked-armeabi-v7a.apk" target="_blank"><u>gpsjoystick-unlocked-armeabi-v7a.apk</u></a></li>
 						</ul> 
 					<br>	
-					official site: http://gpsjoystick.theappninjas.com/faq/
+			<font size=5><a href="http://gpsjoystick.theappninjas.com/faq/" target="_blank"><u>official site</a></font>
+					
 		</div>
-<br>
 
-<div class="section mt-5">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
 
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-		<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
-		<script src="function.js"></script>
-		
-</body>
+</div>
+
+
+</script>
+
+        <div class="section mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+<!--
+
+        </div>
+        <div class="my-5 py-5">
+        </div>
+    </body>
+
+-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="function.js"></script>
+
+  </body>
+
 </html>
