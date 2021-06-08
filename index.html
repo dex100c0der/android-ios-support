@@ -8,6 +8,7 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
   <link rel="stylesheet" href="./style.css">    
 </head>
+
 <style>
 body{
     font-family: 'Poppins', sans-serif;
@@ -25,11 +26,11 @@ body{
     animation:blinkingText 1.2s infinite;
 }
 @keyframes blinkingText{
-     0%{     color: red;    }
-    49%{    color: red; }
+     0%{     color: #f70040;    }
+    49%{    color: #f70040; }
     60%{    color: transparent; }
     99%{    color:transparent;  }
-    100%{   color: red;    }
+    100%{   color: #f70040;    }
 }
 
 /*
@@ -177,6 +178,102 @@ body {
 }
 
 
+
+
+
+
+
+/*
+ CSS for the main interaction
+*/
+.tabset > input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+  display: block;
+}
+
+/*
+ Styling
+*/
+body {
+    font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+  color: WHITE;
+  font-weight: 300;
+}
+.tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+  COLOR: WHITE;
+}
+
+.tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: #8d8d8d;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+  color: #06c;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+  background: #06c;
+}
+
+.tabset > input:checked + label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+/*
+ Demo purposes only
+*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 30px;
+}
+
+.tabset {
+  max-width: 65em;
+}
+
+
 </style>
 
 <body>
@@ -234,11 +331,12 @@ body {
       <div class="dropdown-menu">
         <a class="dropdown-item" href="android-spoofing.html">Android Spoofing</a>
         <a class="dropdown-item" href="magisk-root.html">Root with Magisk</a>
-        <a class="dropdown-item" href="">Install Magisk without Recovery</a>
-        <a class="dropdown-item" href="app-systemizer.html">App Systemizer</a>
+        <a class="dropdown-item" href="">Magisk without cRecovery</a>
+        <a class="dropdown-item" href="app-systemizer.html">Systemize App</a>
         <a class="dropdown-item" href="smali-patcher.html">Smali Patcher</a>       
         <a class="dropdown-item" href="taichi.html">TaiChi-Magisk</a>
-        <a class="dropdown-item" href="dowgrade-gpservices.html">Downgrade Google Play services</a>       
+        <a class="dropdown-item" href="dowgrade-gpservices.html">Downgrade Google Play Services</a> 
+		<a class="dropdown-item" href="taichi.html">Adventure Sync Apps</a>		
         </div>
     </li>
 	
@@ -250,7 +348,7 @@ body {
 		<a class="dropdown-item" href="https://www.apkmirror.com/apk/niantic-inc/pokemon-go/" target="_blank">Pokemon GO (<font color="#3498DB">APK</font>)</a>
 		<a class="dropdown-item" href="gplayservices-app.html">Google Play Services (<font color="#3498DB">APK</font>)</a>
         <a class="dropdown-item" href="gpsjoystick-app.html">GPS Joystick (<font color="#3498DB">No ADS</font>)</a>
-        <a class="dropdown-item" href="pokemod-velocity.html">Pokemod Velocity</a>
+        <a class="dropdown-item" href="pokemod-velocity.html">Pokemod Velocity</a>	
 		<a class="dropdown-item" href="fglpro-app.html">FGL Pro</a>
         <a class="dropdown-item" href="routes-app.html">GPS Joystick & Routes Go</a>
         <a class="dropdown-item" href="loc-spoofer-app.html">GPS Location Spoofer</a>        
@@ -298,7 +396,63 @@ body {
         <div class="row">
           <div class="col-12">
 
-<!-- main page text -->
+<!--<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>-->
+<div class="tabset">
+  <!-- Tab 1 -->
+  <input type="radio" name="tabset" id="tab1" aria-controls="info" >
+  <label for="tab1">INFO</label>
+  <!-- Tab 2 -->
+  <input type="radio" name="tabset" id="tab2" aria-controls="updates">
+  <label for="tab2">UPDATES</label>
+  <!-- Tab 3 -->
+  <input type="radio" name="tabset" id="tab3" aria-controls="support" checked>
+  <label for="tab3">SUPPORT</label>
+  
+  <div class="tab-panels">
+    <section id="info" class="tab-panel">
+      <font color="#f70040"><h3>helpful info's</h3></font>
+      <li><a href="https://p337.info/pokemongo/" target="_blank"><font color="">Events Countdown Timer</font></a></li>
+      <li><a href="https://niantic.helpshift.com/a/pokemon-go/?p=web&s=release-notes-known-issues&f=known-issues&l=en
+                    " target="_blank"><font color="">Pokemon GO Known Issues</font></a></li>
+	<li><a href="l40-50.html" target="_blank"><font color="">Level 40- 50 Guide</font></a></li>
+		
+  </section>
+    <section id="updates" class="tab-panel">
+       <font color="#f70040"><h3>important updates</h3></font>
+      <li>Pokemon GO to <a href="https://pokemongolive.com/en/post/ios10-ios11-android5-discontinued-support/" target="_blank">discontinue support</a> for Android 5, iOS 10, and iOS 11, as well as iPhone 5s and iPhone 6.</li>
+	  <li><font color="#0074d0">Appdb-rickpactor</font> and <font color="#0074d0">xcode</font> is currenty not working with iOS 13.3.x</li>
+
+	</section>
+    <section id="support" class="tab-panel">
+      <font color="#f70040"><h3>pokedex100</h3></font>
+      <li>support us and enjoy our amazing services!
+	  <br>
+	  <a href="https://www.patreon.com/pokedex100" target="_blank"><< Patreon >></a></li>
+      <li>join our player-friendly community at 
+	  <br>
+	  <a href="https://discord.gg/Pokedex100" target="_blank"><< Discord >></a></li>
+	</section>
+  </div>  
+</div>
+
+
+<p><small><i>++</i></small></p>
+
+
+
+
+<!-- main page text 
 <div class="worko-tabs">
   
     <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one"/>
@@ -312,15 +466,15 @@ body {
 
 
         <div id="tab-one-panel" class="panel">
-			<li><a href="https://niantic.helpshift.com/a/pokemon-go/?p=web&s=release-notes-known-issues&f=known-issues&l=en
-                    " target="_blank"><font color="">Pokemon GO Known Issues</font></a>
+			<li>
 			<li><a href="https://p337.info/pokemongo/" target="_blank"><font color="">Events Countdown Timer</font></a>
-        </div>
+        
+		</div>
 		
         <div id="tab-two-panel" class="panel">
             <li>Pokemon GO to discontinue support for Android 5, iOS 10, and iOS 11, as well as iPhone 5s and iPhone 6.
 		<a href="https://pokemongolive.com/en/post/ios10-ios11-android5-discontinued-support/" target="_blank">More Info</a>
-			<li><font color="#0074d0">appdb-rickpactor</font> and <<font color="#0074d0">>xcode</font> is currenty not working with iOS 13.3.x  
+			<li><  
         </div>
 		
         <div id="tab-three-panel" class="panel">
@@ -334,8 +488,8 @@ body {
     </div>
 </div>
 
-<!-- main page text end -->            
-  
+main page text end     
+-->  
           </div>
         </div>
       </div>
@@ -344,7 +498,7 @@ body {
       <div class="container">
         <div class="row">
           <div class="col-12">
-
+<!-- 
           </div>
         </div>
       </div>
@@ -354,7 +508,7 @@ body {
 </div>
 <div class="my-5 py-5">
 </div>
-
+-->
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>

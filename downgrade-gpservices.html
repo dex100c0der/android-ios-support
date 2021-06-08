@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>android/Downgrade Google Play Services</title>
+	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
+	<link rel="stylesheet" href="./style.css"> 
+<style>
+
+body
+{
+    font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	background-color: white;	
+}
+
+
+/* responsive img */
+  .responsive {
+	width: 100%;
+	height: auto;
+  }
+  
+  img {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 200px;
+  }
+  
+  img:hover {
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fake 1s infinite;
+}
+
+.worko-tabs {
+  margin: 20px;
+  width: 80%;
+}
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
+}
+.worko-tabs .flex-tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.worko-tabs .flex-tabs .tab {
+  flex-grow: 1;
+  max-height: 40px;
+}
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+  font-size: 14px; /*tab content font size*/
+ 
+}
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
+}
+.worko-tabs .tab:hover {
+  background-color: #D6DBDF ;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #3498DB; /*tab font color when clicked*/
+ font-weight: 600; /*tab font bold when clicked*/
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .flex-tabs {
+    flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    order: 7;
+  }
+  .flex-tabs #tab-five-label {
+    order: 9;
+  }
+  .flex-tabs #tab-six-label {
+    order: 11;
+  }  
+  .flex-tabs #tab-seven-label {
+    order: 13;
+  }
+   .flex-tabs #tab-eight-label {
+    order: 15;
+  }  
+  
+  .flex-tabs #tab-one-panel {
+    order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    order: 8;
+  }
+  .flex-tabs #tab-five-panel {
+    order: 10;
+  }
+  .flex-tabs #tab-six-panel {
+    order: 12;
+  }
+  .flex-tabs #tab-seven-panel {
+    order: 14;
+  }
+  .flex-tabs #tab-eight-panel {
+    order: 16;
+  } 
+  
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+  #tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+    border-bottom: none;
+	
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+</style>
+</head>
+<body> 
+
+	<body class="hero-anime">	 
+	<div class="navigation-wrap bg-light start-header start-style">
+		<div class="container">
+		<div class="row">
+		<div class="col-12">
+		<nav class="navbar navbar-expand-md navbar-light">	
+		
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto py-4 py-md-0">
+			<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+				<a class="nav-link dropdown-toggle"  href="index.html" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+			</li>
+		</ul>
+		</div>	
+		</nav>
+		</div>
+		</div>
+		</div>	
+	</div>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+
+<div style="padding-left:14px">
+
+<h3><font color="#f70040">DOWNGRADE GOOGLE PLAY SERVICES</font></h3>
+<!--<i><font size=2 color="#0074d0">The App Ninjas</i></font>-->
+<hr>
+<p><b>Google Play Services</b> is a background service that runs on Android, which in turn helps in integrating
+        Google’s advanced functionalities to other applications. It is essentially an Application programming interface
+        (API) for developers to enhance communication between apps. It is a bundle of a bunch of other services that aid
+        a user.</p>
+
+<font color="#f70040" size=5>NOTE:</FONT>
+<p>It is important to note here that this unrooted spoofing trick is only possible to achieve on Android devices
+        running Android 6.0 <i>(Marshmallow)</i>, Android 7.0 <i>(Nougat)</i>, and Android 8.0 <i>(Oreo)</i>. If your device
+        has received an update that took it to the most latest Android version, i.e., either Android 8.1 or Android 9
+        then most probably you won’t be able to spoof using this method. However, you can still try this trick though.
+        Who knows, it might work!</p>
+
+<div class="worko-tabs">  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
+	<input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+	<input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
+	   <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+	      <input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
+		     <input class="state" type="radio" title="tab-six" name="tabs-state" id="tab-six" />
+			    <input class="state" type="radio" title="tab-seven" name="tabs-state" id="tab-seven" />
+				   <input class="state" type="radio" title="tab-eight" name="tabs-state" id="tab-eight" />
+
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">STEP 1</label>
+        <label for="tab-two" id="tab-two-label" class="tab">STEP 2</label>
+        <label for="tab-three" id="tab-three-label" class="tab">STEP 3</label>
+		<label for="tab-four" id="tab-four-label" class="tab">STEP 4</label>
+		<label for="tab-five" id="tab-five-label" class="tab">STEP 5</label>
+		<label for="tab-six" id="tab-six-label" class="tab">STEP 6</label>
+		<label for="tab-seven" id="tab-seven-label" class="tab">STEP 7</label>
+		<label for="tab-eight" id="tab-eight-label" class="tab">DOWNLOAD LINKS</label>
+
+        <div id="tab-one-panel" class="panel active">
+          <h3><font color="#f70040">Download old version of Google Play Services for your Android device</font></h3>
+          
+		  <p>First, you need to download an old version of Google Play Services for the specific model of your Android
+          device. Here, to be able to spoof without root, spoofable versions are <font color="#0074d0">12.5.29</font>, <font color="#0074d0">12.6.85</font>,
+          <font color="#0074d0">12.6.87</font> and <font color="#0074d0">12.6.88</font>.</p>
+        
+		<p>You need to look at the first six digits inside the parentheses. You need to find a variant whose number
+          matches with the current version of Google Play Services already installed on your device.</p>
+		
+		<p>Here’s an example:</p>
+		
+		<p>My Android phone has the Google Play Services version with <b>(040306)</b> installed. So I will look for the same
+          when downloading an older version of Google Play Services using the provided link. As highlighted in the
+          screenshot bellow.</p>
+          
+          <a target="_blank" href="gpservices/gps1.jpg">
+            <img src="gpservices/gps1.jpg" alt="image" style="width:200px">
+          </a>
+          <br>
+          <font size="1"><b>click image to enlarge</b></font>
+     
+	</div>		
+		
+		<div id="tab-two-panel" class="panel">
+           <h3><font color="#f70040">Download and install location spoofing app of your choice</font></h3>
+		<p>There’s a limited number of location spoofing apps that are currently able to let you spoof your location in
+          Pokémon GO without requiring you to have root access. Which means, the apps featured in these steps are the
+          only ones using which you can spoof in the game without having root access.</p>
+  
+  <p>Recommended GPS mocking app is <a href="gpsjoystick-app.html" target="_blank">FAKE GPS LOCATION- GPS JOYSTICK</a> by The App Ninjas.</p>
+  
+		<a target="_blank" href="gpservices/appninja.jpg">
+            <img src="gpservices/appninja.jpg" alt="image" style="width:200px">
+          </a>
+          <br>
+          <font size="1"><b>click image to enlarge</b></font>		   
+    </div>
+		
+        <div id="tab-three-panel" class="panel">
+         <h3><font color="#f70040">Disable Find My Device on your Android device</font></h3>    
+		<p>In this step, you will have to disable the <b>Find My Device</b> feature on your Android smartphone or tablet
+          device because if this feature is enabled, then you won’t be able to downgrade or modify the Google Play
+          Services. In case you don’t know, here is how to do that:</p>	
+			
+		<ol>
+            <li>Go to <b>Settings</b> and scroll down until you find <b>Security</b> option. Tap on it.</li>
+            <a target="_blank" href="gpservices/3-1.jpg">
+              <img src="gpservices/3-1.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on <b>Device administrators</b>.</li>
+            <a target="_blank" href="gpservices/3-2.jpg">
+              <img src="gpservices/3-2.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>You will see <b>Find My Device</b> option, which most probably will be enabled. Tap on it to disable it.
+            </li>
+            <a target="_blank" href="gpservices/3-3.jpg">
+              <img src="gpservices/3-3.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>A new page will open, and you need to tap the option <b>“Deactivate this device administrator.”</b></li>
+            <a target="_blank" href="gpservices/3-4.jpg">
+              <img src="gpservices/3-4.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Once you have successfully disabled the device administration, here is how it will look like.</li>
+            <a target="_blank" href="gpservices/3-5.jpg">
+              <img src="gpservices/3-5.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>       
+        </ol>
+</div>			
+		
+        <div id="tab-four-panel" class="panel">
+         <h3><font color="#f70040">Uninstall Google Play Services updates</font></h3>    
+		<p> This step will guide you with the uninstallation of the Google Play Services updates and revert it to its
+          default factory version (stock). Here is how you can do this:</p>	   
+			
+		<ol>
+            <li>Go to <b>Settings</b> and then find the <b>Apps</b> option. Tap on it.</li>
+            <a target="_blank" href="gpservices/4-1.jpg">
+              <img src="gpservices/4-1.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Once you are under the <b>Apps</b> section, tap on the <b>menu button</b> located at the
+              <b>top-right</b> corner.</li>
+            <a target="_blank" href="gpservices/4.2.jpg">
+              <img src="gpservices/4-2.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on the <b>Show system</b> option to see all the system apps.</li>
+            <a target="_blank" href="gpservices/4-3.jpg">
+              <img src="gpservices/4-3.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Now scroll down and look for <b>Google Play Services</b>. Remember, the apps are in alphabetical order.
+              Once found, tap on it.</li>
+            <a target="_blank" href="gpservices/4-4.jpg">
+              <img src="gpservices/4-4.jpg" alt="image" style="width:200px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on the <b>menu button</b> located at the <b>top-right corner</b>.</li>
+            <a target="_blank" href="gpservices/4-5.jpg">
+              <img src="gpservices/4-5.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on <b>Uninstall updates.</b>.</li>
+            <a target="_blank" href="gpservices/4-6.jpg">
+              <img src="gpservices/4-6.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>A popup will appear asking you if you want to replace this app with the factory version? <b>All data
+                will be removed!</b> Tap on OK button to proceed with the uninstallation.</b>menu button</b>.</li>
+            <a target="_blank" href="gpservices/4-7.jpg">
+              <img src="gpservices/4-7.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Uninstallation process will now begin.</b>.</li>
+            <a target="_blank" href="gpservices/4-8.jpg">
+              <img src="gpservices/4-8.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Once Google Play Services has been successfully uninstalled and reverted to its factory version, you can
+              then move onto the next step.</li>           
+          </ol>	
+</div>
+		
+		
+		<div id="tab-five-panel" class="panel">
+         <h3><font color="#f70040">Install an old version of Google Play Services</font></h3> 
+		<p>Do you remember that you downloaded an old version of Google Play Services back in step 1 during the beginning
+          of this tutorial? We will now guide you with the installation of that apk file.</p>
+ 
+		<ol>
+            <li>Open any file explorer of your choice to browse to the <b>Downloads folder</b> where the apk file is
+              located. You can use the built-in file explorer too. Here I am using ES File Explorer.</li>
+            <br>
+            <li>Go to the <b>Downloads folder.</b></li>
+            <a target="_blank" href="gpservices/5-2.jpg">
+              <img src="gpservices/5-2.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on the downloaded <b>Google Play Services apk</b> file. The package name will be
+              <b>com.google.android.gms.</b>Google Play Services apk</b>></li>
+            <a target="_blank" href="gpservices/5-3.jpg">
+              <img src="gpservices/5-3.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>A popup might appear, tap on the <b>Install button</b> to begin the installation process.</li>
+            <a target="_blank" href="gpservices/5-4.jpg">
+              <img src="gpservices/5-4.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>The installation window will appear, tap on <b>Install button</b>.</li>
+            <a target="_blank" href="gpservices/5-5.jpg">
+              <img src="gpservices/5-5.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Your selected Google Play Services will now begin installing.</li>
+            <a target="_blank" href="gpservices/5-6.jpg">
+              <img src="gpservices/5-6.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+			
+            <li>Once installed, you will see the following page. Tap on the <b>Done</b> button.</li>
+            <a target="_blank" href="gpservices/5-7.jpg">
+              <img src="gpservices/5-7.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+			
+            <li>You can now head over to the next step.</li>
+          </ol>
+</div>
+		
+		
+		<div id="tab-six-panel" class="panel">
+         <h3><font color="#f70040">Disable Background Data Usage of Google Play Services</font></h3>    
+		<p>In this step, we will <b>disable the Background Data usage of Google Play Services</b> so that it won’t have
+          access to the Internet connectivity and cannot automatically update itself to the latest version on its own.
+          The steps are pretty much identical to the ones you followed in Step 4 above.</p>	
+		
+		<ol>
+            <li>Go to <b>Settings</b> and then find the <b>Apps</b> option. Tap on it.</li>
+            <a target="_blank" href="gpservices/4-1.jpg">
+              <img src="gpservices/4-1.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Once you are in the <b>Apps</b> section, look for <b>Google Play Services</b> in the list and tap on it.
+            </li>
+            <a target="_blank" href="gpservices/6-1.jpg">
+              <img src="gpservices/6-1.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on the <b>Data usage</b> option.</li>
+            <a target="_blank" href="gpservices/6-2.jpg">
+              <img src="gpservices/6-2.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on <b>Background data</b> to disable it.</li>
+            <a target="_blank" href="gpservices/6-3.jpg">
+              <img src="gpservices/6-3.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Once disabled, it should look similar to the screenshot shown below.</li>
+            <a target="_blank" href="gpservices/6-4.jpg">
+              <img src="gpservices/6-4.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>                   
+          </ol>						
+</div>
+		
+        <div id="tab-seven-panel" class="panel">
+         <h3><font color="#f70040">Disable Google Play Store </font></h3>
+		<p>This step is necessary because Google Play Store is designed to automatically update Google Play Services as
+          well as other system apps without your consent due to security reasons. And there is no way to disable the
+          auto updates other than completely disabling the Google Play Store. It’s easy, and here’s how you can do that:</p>		 
+
+		<ol>
+            <li>Go to <b>Settings</b> and then find the <b>Apps</b> option. Tap on it.</li>
+            <a target="_blank" href="gpservices/4-1.jpg">
+              <img src="gpservices/4-1.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Once you are under the Apps section, tap on the <b>menu button</b> located at the <b>top-right
+                corner</b>.</li>
+            <a target="_blank" href="gpservices/4-2.jpg">
+              <img src="gpservices/4-2.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on the <b>Show system</b> option to see all the system apps.</li>
+            <a target="_blank" href="gpservices/4-3.jpg">
+              <img src="gpservices/4-3.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Now scroll down and look for <b>Google Play Store</b>. Remember, the apps are in alphabetical order.
+              Once found, tap on it.</li>
+            <a target="_blank" href="gpservices/7-1.jpg">
+              <img src="gpservices/7-1.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Tap on the <b>Disable</b> button.</li>
+            <a target="_blank" href="gpservices/7-2.jpg">
+              <img src="gpservices/7-2.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>A popup menu will appear asking you, if you disable this app, other apps may no longer function as
+              intended. Simply tap on the <b>Disable App</b> button.</li>
+            <a target="_blank" href="gpservices/7-3.jpg">
+              <img src="gpservices/7-3.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Another popup will appear that asks, replace this app with the factory version? <b>All data will be
+                removed</b>. Tap on OK to proceed.</li>
+            <a target="_blank" href="gpservices/7-4.jpg">
+              <img src="gpservices/7-4.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>
+            <br>
+            <br>
+
+            <li>Once Google Play Store has been disabled, you will see the toast message as shown in the screenshot
+              below.</li>
+            <a target="_blank" href="gpservices/7-5.jpg">
+              <img src="gpservices/7-5.jpg" alt="image" style="width:150px">
+            </a>
+            <br>
+            <font size="1"><b>click image to enlarge</b></font>        
+          </ol>
+	
+</div>
+		
+        <div id="tab-eight-panel" class="panel">
+          <h3><font color="#f70040"></font></h3> 
+
+<li><a href="https://www.apkmirror.com/apk/google-inc/google-play-services/google-play-services-12-5-29-release/" target="_blank"><u>Google Play services v12.5.29</a></li>			
+<li><a href="https://www.apkmirror.com/apk/google-inc/google-play-services/google-play-services-12-6-85-release/" target="_blank"><u>Google Play services v12.6.85</a></li>		
+<li><a href="https://www.apkmirror.com/apk/google-inc/google-play-services/google-play-services-12-6-87-release/" target="_blank"><u>Google Play services v12.6.87</a></li>	
+<li><a href="https://www.apkmirror.com/apk/google-inc/google-play-services/google-play-services-12-6-88-release/" target="_blank"><u>Google Play services v12.6.88</a></li>
+
+
+
+
+
+
+
+	  
+        </div>
+    </div>
+
+</div>
+
+
+</script>
+
+        <div class="section mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+<!--
+
+        </div>
+        <div class="my-5 py-5">
+        </div>
+    </body>
+
+-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="function.js"></script>
+
+  </body>
+
+</html>

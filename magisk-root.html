@@ -1,599 +1,292 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>How to Root with Magisk?</title>
+	<title>android/Root with Magisk</title>
 	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-	<link rel='stylesheet'
-		href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
-	<link rel="stylesheet" href="./style.css">
-	<style>
-		body {
-			font-family: 'Poppins', sans-serif;
-			font-size: 16px;
-			line-height: 24px;
-			font-weight: 400;
-			color: #212112;
-			background-size: 7%;
-			background-color: white !important;
-			overflow-x: hidden;
-			transition: all 200ms linear;
-
-		}
-
-		::selection {
-			color: #fff;
-			background-color: #ff4242;
-		}
-
-		::-moz-selection {
-			color: #fff;
-			background-color: #ff4242;
-		}
-
-		.start-header {
-			opacity: 1;
-			transform: translateY(0);
-			padding: 10px 0;
-			box-shadow: 0 10px 30px 0 rgb(33, 33, 33, 0.15);
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.start-header.scroll-on {
-			box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
-			padding: 5px 0;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.start-header.scroll-on .navbar-brand img {
-			height: 28px;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.navigation-wrap {
-			position: fixed;
-			width: 100%;
-			top: 0;
-			left: 0;
-			z-index: 1000;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.navbar {
-			padding: 0;
-		}
-
-		.navbar-brand img {
-			height: 52px;
-			width: auto;
-			display: block;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.navbar-toggler {
-			float: right;
-			border: none;
-			padding-right: 0;
-		}
-
-		.navbar-toggler:active,
-		.navbar-toggler:focus {
-			outline: none;
-		}
-
-		/*menu icon for phone color*/
-		.navbar-light .navbar-toggler-icon {
-			width: 24px;
-			height: 17px;
-			background-image: none;
-			position: relative;
-			border-bottom: 1px solid white;
-			transition: all 300ms linear;
-		}
-
-		.navbar-light .navbar-toggler-icon:after,
-		.navbar-light .navbar-toggler-icon:before {
-			width: 24px;
-			position: absolute;
-			height: 1px;
-			background-color: white;
-			top: 0;
-			left: 0;
-			content: '';
-			z-index: 2;
-			transition: all 300ms linear;
-		}
-
-		.navbar-light .navbar-toggler-icon:after {
-			top: 8px;
-		}
-
-		.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-			transform: rotate(45deg);
-		}
-
-		.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-			transform: translateY(8px) rotate(-45deg);
-		}
-
-		.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-			border-color: transparent;
-		}
-
-		/*navbar menu text color (ipa download, android etc*/
-		.nav-link {
-			color: #fff !important;
-			font-weight: 400;
-			transition: all 200ms linear;
-		}
-
-		.nav-item:hover .nav-link {
-			color: #ff4242 !important;
-		}
-
-		/*navbar "home" menu hover color*/
-		.nav-item.active .nav-link {
-			color: #ff4242 !important;
-		}
-
-		.nav-link {
-			position: relative;
-			padding: 5px 0 !important;
-			display: inline-block;
-		}
-
-		.nav-item:after {
-			position: absolute;
-			bottom: -5px;
-			left: 0;
-			width: 100%;
-			height: 2px;
-			content: '';
-			background-color: #ff4242;
-			opacity: 0;
-			transition: all 200ms linear;
-		}
-
-		.nav-item:hover:after {
-			bottom: 0;
-			opacity: 1;
-		}
-
-		.nav-item.active:hover:after {
-			opacity: 0;
-		}
-
-		.nav-item {
-			position: relative;
-			transition: all 200ms linear;
-		}
-
-		/*navbar background color*/
-		.bg-light {
-			background-color: #0E0E0E !important;
-			transition: all 200ms linear;
-		}
-
-		.section {
-			position: relative;
-			width: 100%;
-			display: block;
-		}
-
-		.full-height {
-			height: 100vh;
-		}
-
-		.over-hide {
-			overflow: hidden;
-		}
-
-		.absolute-center {
-			position: absolute;
-			top: 50%;
-			left: 0;
-			width: 100%;
-			margin-top: 40px;
-			transform: translateY(-50%);
-			z-index: 20;
-		}
-
-		/* announcement text*/
-		h1 {
-			font-size: 48px;
-			line-height: 1.2;
-			font-weight: 700;
-			color: whitesmoke;
-			text-align: center;
-		}
-
-		p {
-			text-align: center;
-			margin: 0;
-			padding-top: 10px;
-			opacity: 1;
-			transform: translate(0);
-			transition: all 300ms linear;
-			transition-delay: 1700ms;
-		}
-
-		body.hero-anime p {
-			opacity: 0;
-			transform: translateY(40px);
-			transition-delay: 1700ms;
-		}
-
-		#switch,
-		#circle {
-			cursor: pointer;
-			-webkit-transition: all 300ms linear;
-			transition: all 300ms linear;
-		}
-
-		#switch {
-			width: 60px;
-			height: 8px;
-			border: 2px solid #ff4242;
-			border-radius: 27px;
-			background: #ff4242;
-			position: relative;
-			display: block;
-			margin: 0 auto;
-			text-align: center;
-			opacity: 1;
-			transform: translate(0);
-			transition: all 300ms linear;
-			transition-delay: 1900ms;
-		}
-
-		body.hero-anime #switch {
-			opacity: 0;
-			transform: translateY(40px);
-			transition-delay: 1900ms;
-		}
-
-		#circle {
-			position: absolute;
-			top: -11px;
-			left: -13px;
-			width: 26px;
-			height: 26px;
-			border-radius: 50%;
-			background: #000;
-		}
-
-		.switched {
-			border-color: #000 !important;
-			background: #ff4242 !important;
-		}
-
-		.switched #circle {
-			left: 43px;
-			box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25), 0 0 0 1px rgba(26, 53, 71, 0.07);
-			background: #fff;
-		}
-
-		.nav-item .dropdown-menu {
-			transform: translate3d(0, 10px, 0);
-			visibility: hidden;
-			opacity: 0;
-			max-height: 0;
-			display: block;
-			padding: 0;
-			margin: 0;
-			transition: all 200ms linear;
-		}
-
-		.nav-item.show .dropdown-menu {
-			opacity: 1;
-			visibility: visible;
-			max-height: 999px;
-			transform: translate3d(0, 0px, 0);
-		}
-
-		/*drop down menu color background*/
-		.dropdown-menu {
-			padding: 10px !important;
-			margin: 0;
-			font-size: 13px;
-			letter-spacing: 1px;
-			color: #212121;
-			background-color: #1f2029;
-			border: none;
-			border-radius: 3px;
-			box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
-			transition: all 200ms linear;
-		}
-
-		.dropdown-toggle::after {
-			display: none;
-		}
-
-		.dropdown-item {
-			padding: 3px 15px;
-			color: #fff;
-			border-radius: 2px;
-			transition: all 200ms linear;
-		}
-
-		.dropdown-item:hover,
-		.dropdown-item:focus {
-			color: #fff;
-			background-color: rgb(255, 66, 66, 0.6);
-		}
-
-		body.dark {
-			color: #fff;
-			background-color: #1f2029;
-		}
-
-		body.dark h1 {
-			color: #fff;
-		}
-
-		body.dark h1 span {
-			transition-delay: 0ms !important;
-		}
-
-		body.dark p {
-			color: #fff;
-			transition-delay: 0ms !important;
-		}
-
-		body.dark .bg-light {
-			background-color: red !important;
-		}
-
-		body.dark .start-header {
-			box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
-		}
-
-		body.dark .start-header.scroll-on {
-			box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
-		}
-
-		body.dark .nav-link {
-			color: #fff !important;
-		}
-
-		body.dark .nav-item.active .nav-link {
-			color: #999 !important;
-		}
-
-		body.dark .dropdown-menu {
-			color: #fff;
-			background-color: #1f2029;
-			box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
-		}
-
-		body.dark .dropdown-item {
-			color: #fff;
-		}
-
-		body.dark .navbar-light .navbar-toggler-icon {
-			border-bottom: 1px solid #fff;
-		}
-
-		body.dark .navbar-light .navbar-toggler-icon:after,
-		body.dark .navbar-light .navbar-toggler-icon:before {
-			background-color: #fff;
-		}
-
-		body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-			border-color: transparent;
-		}
-
-
-		@media (max-width: 767px) {
-			h1 {
-				font-size: 38px;
-			}
-
-			.nav-item:after {
-				display: none;
-			}
-
-			.nav-item::before {
-				position: absolute;
-				display: block;
-				top: 15px;
-				left: 0;
-				width: 11px;
-				height: 1px;
-				content: "";
-				border: none;
-				background-color: white;
-				vertical-align: 0;
-			}
-
-			.dropdown-toggle::after {
-				position: absolute;
-				display: block;
-				top: 10px;
-				left: -23px;
-				width: 1px;
-				height: 11px;
-				content: "";
-				border: none;
-				background-color: white;
-				vertical-align: 0;
-				transition: all 200ms linear;
-			}
-
-			.dropdown-toggle[aria-expanded="true"]::after {
-				transform: rotate(90deg);
-				opacity: 0;
-			}
-
-			.dropdown-menu {
-				padding: 0 !important;
-				background-color: transparent;
-				box-shadow: none;
-				transition: all 200ms linear;
-			}
-
-			.dropdown-toggle[aria-expanded="true"]+.dropdown-menu {
-				margin-top: 10px !important;
-				margin-bottom: 20px !important;
-			}
-
-			body.dark .nav-item::before {
-				background-color: #fff;
-			}
-
-			body.dark .dropdown-toggle::after {
-				background-color: #fff;
-			}
-
-			body.dark .dropdown-menu {
-				background-color: transparent;
-				box-shadow: none;
-			}
-		}
-
-		/* accordion */
-		.accordion {
-			background-color: #eee;
-			color: #444;
-			cursor: pointer;
-			padding: 18px;
-			width: 100%;
-			border: none;
-			text-align: left;
-			outline: none;
-			font-size: 15px;
-			transition: 0.4s;
-		}
-
-		.active,
-		.accordion:hover {
-			background-color: #ccc;
-			color: rgb(44, 43, 43);
-			font-weight: bold;
-		}
-
-		.accordion:after {
-			content: '\002B';
-			color: #444;
-			font-weight: bold;
-			float: right;
-			margin-left: 5px;
-		}
-
-		.active:after {
-			content: "\2212";
-		}
-
-		.panel {
-			padding: 0 18px;
-			background-color: white;
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.2s ease-out;
-		}
-
-		/* responsive img */
-		.responsive {
-			width: 100%;
-			height: auto;
-		}
-
-		img {
-			border: 1px solid #ddd;
-			border-radius: 4px;
-			padding: 5px;
-			width: 200px;
-		}
-
-		img:hover {
-			box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-		}
-	</style>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
+	<link rel="stylesheet" href="./style.css"> 
+
+<style>
+body
+{
+    font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	background-color: white;
+	
+}
+
+/* responsive img */
+  .responsive {
+	width: 100%;
+	height: auto;
+  }
+  
+  img {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 200px;
+  }
+  
+  img:hover {
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fake 1s infinite;
+}
+
+.worko-tabs {
+  margin: 20px;
+  width: 80%;
+}
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
+}
+.worko-tabs .flex-tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.worko-tabs .flex-tabs .tab {
+  flex-grow: 1;
+  max-height: 40px;
+}
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+  font-size: 14px; /*tab content font size*/
+ 
+}
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
+}
+.worko-tabs .tab:hover {
+  background-color: #D6DBDF ;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #3498DB; /*tab font color when clicked*/
+ font-weight: 600; /*tab font bold when clicked*/
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .flex-tabs {
+    flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    order: 7;
+  }
+  .flex-tabs #tab-five-label {
+    order: 9;
+  }
+  .flex-tabs #tab-six-label {
+    order: 11;
+  }  
+  .flex-tabs #tab-seven-label {
+    order: 13;
+  }
+   .flex-tabs #tab-eight-label {
+    order: 15;
+  }  
+  
+  .flex-tabs #tab-one-panel {
+    order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    order: 8;
+  }
+  .flex-tabs #tab-five-panel {
+    order: 10;
+  }
+  .flex-tabs #tab-six-panel {
+    order: 12;
+  }
+  .flex-tabs #tab-seven-panel {
+    order: 14;
+  }
+  .flex-tabs #tab-eight-panel {
+    order: 16;
+  } 
+  
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+  #tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+    border-bottom: none;
+	
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+</style>
 </head>
+<body> 
+
+	<body class="hero-anime">	 
+	<div class="navigation-wrap bg-light start-header start-style">
+		<div class="container">
+		<div class="row">
+		<div class="col-12">
+		<nav class="navbar navbar-expand-md navbar-light">	
+		
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto py-4 py-md-0">
+			<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+				<a class="nav-link dropdown-toggle"  href="index.html" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+			</li>
+		</ul>
+		</div>	
+		</nav>
+		</div>
+		</div>
+		</div>	
+	</div>
 
 <body>
+<br>
+<br>
+<br>
+<br>
 
-	<body class="hero-anime">
-		<div class="navigation-wrap bg-light start-header start-style">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<nav class="navbar navbar-expand-md navbar-light">
+<div style="padding-left:14px">
 
-
-							<button class="navbar-toggler" type="button" data-toggle="collapse"
-								data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-								aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav ml-auto py-4 py-md-0">
-									<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-										<a class="nav-link dropdown-toggle" href="index.html" role="button"
-											aria-haspopup="true" aria-expanded="false">Home</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<body>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<div style="padding-left:14px">
-
-<font color="#f70040">
-				<h3>Root with Magisk</h3>
+<h3><font color="#f70040">ROOT WITH MAGISK</font></h3>
+<!--<i><font size=2 color="#0074d0">The App Ninjas</i></font>-->
+<hr>
+		<p>Developed by topjohnwu, Magisk is a tool that can help you root your Android device with ease. It is a Systemless root method that modifies the Android system without actually modifying it. In layman’s terms, it is a clever way to fool Google’s SafetyNet.</p>
+		<hr>
+	
+		<font color="#f70040" SIZE=5>CAUTION:</font>
 		</font>
+		<p>What you’re going to read ahead should be tried at your own risk. We are not responsible for any harm caused to your device. Proceed only if you’re willing to take the risk.</p>
 		<hr>
-		<b>What Is Magisk?</b>
-		Developed by topjohnwu, Magisk is a tool that can help you root your Android device with ease. It is a Systemless root method that modifies the Android system without actually modifying it. In layman’s terms, it is a clever way to fool Google’s SafetyNet.
-		<hr>
-		<font color="#f70040">
-		<b>Caution!</b> 
-		</font>
-		What you’re going to read ahead should be tried at your own risk. We are not responsible for any harm caused to your device. Proceed only if you’re willing to take the risk
-		<hr>
-		<font color="#f70040"><b>Warning!</b></font>
-		Rooting a device may void the warranty on the device. It may also make the device unstable or if not
+		 <font color="#f70040" SIZE=5>WARNING:</font>		
+		<p>Rooting a device may void the warranty on the device. It may also make the device unstable or if not
 				done properly, may completely brick the device. Some methods may install additional apps/software on
 				your device. We does not take any responsibility for your device. Root at your own risk and only if you
-				understand what you are doing!
-	<br>
-<br>
-			<font color="#0074d0">
-			<h3>What You’ll Need:</h3>
-			</font>
-			<ul>
-				<li>A device compatible for Pokémon GO</li>
-				<li>Custom Recovery <i>(TWRP, Orangefox, or SHRP)</i></li>
-					<ul>
-						<li>We’ll be using <b>TWRP</b> in this guide</li>
-							<ul>
-								<li> <a href="https://www.droidthunder.com/install-twrp-recovery-on-samsung/" target="_blank"><u>How to Install TWRP Recovery via ODIN</u></a></li>
-								<li> <a href="https://www.getdroidtips.com/install-twrp-recovery-via-fastboot-android/" target="_blank"><u>How to Install TWRP Recovery via Fastboot</u></a></li>
-							</ul>
-					</ul>
-			</ul>
-			
-			<br>
-			<ol>
-			<li><b>Download Magisk:</b></li>
+				understand what you are doing!</p>
+
+<div class="worko-tabs">  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
+	<input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+	<input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
+	   <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+	      <input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
+		     <input class="state" type="radio" title="tab-six" name="tabs-state" id="tab-six" />
+			    <input class="state" type="radio" title="tab-seven" name="tabs-state" id="tab-seven" />
+				   <input class="state" type="radio" title="tab-eight" name="tabs-state" id="tab-eight" />
+
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">WHAT YOU NEED</label>
+        <label for="tab-two" id="tab-two-label" class="tab">STEP 1</label>
+        <label for="tab-three" id="tab-three-label" class="tab">STEP 2</label>
+		<label for="tab-four" id="tab-four-label" class="tab">STEP 3</label>
+		<label for="tab-five" id="tab-five-label" class="tab">STEP 4</label>
+		<label for="tab-six" id="tab-six-label" class="tab">STEP 5</label>
+		<label for="tab-seven" id="tab-seven-label" class="tab">SUPPORT</label>
+
+        <div id="tab-one-panel" class="panel active">
+          <!--<h3><font color="#f70040"></font></h3>-->
+      
+		<li>A device compatible for Pokémon GO</li>
+		<li>Custom Recovery <i>(TWRP, Orangefox, or SHRP)</i></li>
+		<br>		
+		<p>We’ll be using <b>TWRP</b> in this guide:</p>				
+		<li> <a href="https://www.droidthunder.com/install-twrp-recovery-on-samsung/" target="_blank">Install TWRP Recovery via ODIN</a></li>
+		<li> <a href="https://www.getdroidtips.com/install-twrp-recovery-via-fastboot-android/" target="_blank">Install TWRP Recovery via Fastboot</a></li>
+		
+	</div>	
+		
+		
+		<div id="tab-two-panel" class="panel">
+           <h3><font color="#f70040">DOWNLOAD MAGISK</font></h3>
 			<a target="_blank" href="magisk/magisk.jpg"> <img src="magisk/magisk.jpg" alt="image" style="width:250px"></a>
 			<br>
 			<font size="1"><b>tap image to enlarge</b></font>
@@ -607,18 +300,21 @@
 					<li>Manually patch your device’s boot image and flash it, or</li>
 					<li>Use the Direct Install option</li>
 				</ul>
-				<br>
+		
 			Both of which are present in Magisk App/ Manager. However, Flashing Magisk using a custom recovery is the recommended method.
-			<br>
-			<br>
-			<li><b>Flash Magisk:</b></li>
+					
+		
+    </div>
+		
+        <div id="tab-three-panel" class="panel">
+         <h3><font color="#f70040">FLASH MAGISK</font></h3> 
 			<a target="_blank" href="magisk/recovery.jpg"> <img src="magisk/recovery.jpg" alt="image" style="width:150px"></a>
 			<br>
 			<font size="1"><b>tap image to enlarge</b></font>
 			<br>
 			<br>
-			Next, we will go into recovery mode and flash the zip. Find out how to boot into recovery mode on your device <a href="https://www.xda-developers.com/how-to-boot-to-recovery/" target="_blank"><u>with this guide</u></a>. It will usually be some combination of the power button and volume keys. Once you boot into your custom recovery, follow these steps:
-			<br>
+			<p>Next, we will go into recovery mode and flash the zip. Find out how to boot into recovery mode on your device <a href="https://www.xda-developers.com/how-to-boot-to-recovery/" target="_blank"><u>with this guide</u></a>. It will usually be some combination of the power button and volume keys. Once you boot into your custom recovery, follow these steps:</p>
+			
 				<ol>
 					<li>In recovery mode, select the <b>Install</b> button.
 					<li>Find the folder where you download the zip file.
@@ -626,225 +322,76 @@
 					<li>Swipe the slider to install Magisk
 					<li>Tap <b>Reboot System</b>
 				</ol>
-<br>
-			<li><b>Install Magisk Manager App:</b> <font color="#f70040"><i>(skip if you installed Magisk v22+)</i></font></li>
-<a target="_blank" href="magisk/manager.jpg"> <img src="magisk/manager.jpg" alt="image" style="width:250px"></a>
+	
+</div>			
+		
+        <div id="tab-four-panel" class="panel">
+         <h3><font color="#f70040">INSTALL MAGISK MANAGER APP</font></h3>  
+		<p>(skip if your using Magisk v22+)</p>
+		<a target="_blank" href="magisk/manager.jpg"> <img src="magisk/manager.jpg" alt="image" style="width:250px"></a>
 			<br>
 			<font size="1"><b>tap image to enlarge</b></font>
 			<br>
 			<br>
-The Magisk framework is now installed on your device. To manage it, you’ll need the aptly named Magisk Manager. This is what will allow you to install modules. <a href="https://github.com/topjohnwu/Magisk/releases/" target="_blank"><u>Download the latest Magisk Manager APK here</u></a> and make sure you have <a href="https://www.xda-developers.com/sideload-apps-how-to/" target="_blank"><u>“Unknown sources”</u></a> enabled in the Settings. Install the app and open it up.
-<br>
-<br>
-The Manager app allows you to adjust root settings and also install modules, which are installable mods. The app doubles as a repository for a bunch of great modules that can easily extend the functionality of your device. Using the Manager app is an important part of getting the most out of this root method.
-<br>
-<br>
-<li><b>Verify:</b></li>
-<a target="_blank" href="magisk/sncheck.jpg"> <img src="magisk/sncheck.jpg" alt="image" style="width:250px"></a>
-			<br>
-			<font size="1"><b>tap image to enlarge</b></font>
-			<br>
-			<br>
+<p>The Magisk framework is now installed on your device. To manage it, you’ll need the aptly named Magisk Manager. This is what will allow you to install modules. <a href="https://github.com/topjohnwu/Magisk/releases/" target="_blank">Download the latest Magisk Manager APK here</a> and make sure you have <a href="https://www.xda-developers.com/sideload-apps-how-to/" target="_blank">“Unknown sources”</a> enabled in the Settings. Install the app and open it up.</p>
+<p>The Manager app allows you to adjust root settings and also install modules, which are installable mods. The app doubles as a repository for a bunch of great modules that can easily extend the functionality of your device. Using the Manager app is an important part of getting the most out of this root method.</p>
 
-This step is to verify that everything is working properly. Open the newly installed Manager app. We want to see a bunch of green check marks in the app. This means you have successfully obtained root.
-<br>
-<br>
-Next, we want to make sure your device still passes Google’s SafetyNet check. SafetyNet blocks apps like Pokémon GO from working when the system has been modified. Magisk works around this by leaving the system untouched. Select the “Tap to start SafetyNet Check” button. If you see two green checkmarks appear under the button, your device has passed the check. Google will occasionally break this with new Android Security Patch updates, but the Magisk developer will release fixes when that happens. In case, you are on a Custom ROM, your maintainer must work to fix the issues with SafetyNet when they occur. You must also notice the fact that SafetyNet can get broken if you modify your device’s system partition.
-<br>
-<br>
-
-<li><b>Hide Root from Pokémon GO:</b></li>
-<a target="_blank" href="magisk/manager.jpg"> <img src="magisk/manager.jpg" alt="image" style="width:250px"></a>
+		
+</div>
+		
+		
+		<div id="tab-five-panel" class="panel">
+         <h3><font color="#f70040">VERIFY</font></h3> 
+			<a target="_blank" href="magisk/sncheck.jpg"> <img src="magisk/sncheck.jpg" alt="image" style="width:250px"></a>
 			<br>
 			<font size="1"><b>tap image to enlarge</b></font>
 			<br>
 			<br>
 
+<p>This step is to verify that everything is working properly. Open the newly installed Manager app. We want to see a bunch of green check marks in the app. This means you have successfully obtained root.</p>
+<p>Next, we want to make sure your device still passes Google’s SafetyNet check. SafetyNet blocks apps like Pokémon GO from working when the system has been modified. Magisk works around this by leaving the system untouched. Select the “Tap to start SafetyNet Check” button. If you see two green checkmarks appear under the button, your device has passed the check. Google will occasionally break this with new Android Security Patch updates, but the Magisk developer will release fixes when that happens. In case, you are on a Custom ROM, your maintainer must work to fix the issues with SafetyNet when they occur. You must also notice the fact that SafetyNet can get broken if you modify your device’s system partition.</p>
 
 
+</div>
+		
+		
+		<div id="tab-six-panel" class="panel">
+         <h3><font color="#f70040">HIDE ROOT FROM POKÉMON GO</font></h3>   
+		 <a target="_blank" href="magisk/manager.jpg"> <img src="magisk/manager.jpg" alt="image" style="width:250px"></a>
+			<br>
+			<font size="1"><b>tap image to enlarge</b></font>
+			<br>
+			<br>
 Ever since the introduction of Google's SafetyNet feature, it's been an ongoing battle with apps trying to detect root access. For a while, there was a lot of back and forth between Magisk and certain apps. Pokémon GO was a high profile example of an app aggressively checking for anything related to root. Luckily, Magisk has made great strides to keep apps from detecting root for good.  Just follow this <a href="magisk-setup.html" target="_blank"><u>guide to completely hide root</u></a>  from apps in your device like Pokémon GO.
-
-
-
-</ol>
-<br>
-<br>
-
-<font color="#f70040">
-<h3>NOTE:</h3>
-</font>
-If you’re having issues with the installation process, head on over to the <a href="https://forum.xda-developers.com/apps/magisk" target="_blank"><u>official Magisk forum at XDA</u></a>. You’ll find plenty of other people with the same device and problems. The developer is also available in the XDA forum. He’s constantly updating to work around SafetNet and to make sure this method works as best as possible.
-
-			
-<!--			<br>
-			<br>
-			
-			
-
-				<h3>Step 1: Install custom recovery <a href="twrp.html" target="_blank"><u>(TWRP)</u></a> <font color="#f70040" size="3"><i> (phone dependent)</i></font> <font size="3">if it doesn't have one, try </font><a href="twrp.html" target="_blank">Install Magisk w/ o TWRP</a> </h3>
-				<!--
-				<form method="get" action="" target="_blank">
-					<button type="submit">
-						<font color=red>TWRP Guides</font>
-					</button>
-				</form>
-					<br>
-			
-
-				<h3>Step 2: Install <a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445" target="_blank"><u>MAGISK</u></a><font color="#f70040" size="3"><i> (to root)</i></font></h3>
-				<!--
-					<form method="get"
-						action="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445"
-						target="_blank">
-						<button type="submit">
-							<font color=red>XDA: Magisk Download</font>
-						</button>
-					</form>
-					<br>
-					
-					<font color="#f70040">
-					<i>(phone brand dependent. this guide is for samsung variants)</i>
-					</font>
-					
-					<ol>
-						<li>Boot into TWRP recovery. Press and hold <b>“Home + Volume Up + Power”</b> buttons for a few
-							seconds and release as soon as the Samsung logo appears. Now, your device will boot into TWRP recovery mode.
-						</li>
-						
 				
-						<li>You will reach a screen asking you if you want to allow system modifications. Swipe to the
-								right.
-						</li>
-					
-					
-						<li>Tap the "Install" button in TWRP's main menu. From there, navigate to where you saved the
-							magisk .zip file and select it.</li>
-					
-						<li>Swipe the slider at the bottom of the screen to install Magisk, then tap "Reboot System". It
-							may take 2-5 minutes for the device to finish setting itself up.</li>
+</div>
+		
+        <div id="tab-seven-panel" class="panel">
+         <h3><font color="#f70040">HELP!</font></h3>
+<p>If you’re having issues with the installation process, head on over to the <a href="https://forum.xda-developers.com/apps/magisk" target="_blank"><u>official Magisk forum at XDA</u></a>. You’ll find plenty of other people with the same device and problems. The developer is also available in the XDA forum. He’s constantly updating to work around SafetNet and to make sure this method works as best as possible.</p>
+    </div>
 
-						<a target="_blank" href="magisk/twrp-ss.jpg">
-							<img src="magisk/twrp-ss.jpg" alt="image" style="width:300px">
-						</a>
-						<br>
-						<font size="1"><b>tap image to enlarge</b></font>
-						<br>
-					</ol>
-
-				<h3>Step 3: Setting-up Magisk App<font color="#f70040" size="3"><i> (to hide root)</i></font></h3>
-					
-					<font color="#f70040" size="3">
-						<b>NOTE:</b>
-						</font>
-						This guide is based on Magisk App v22.0
-						<br>
-						<br>				
-						
-						<ol>
-							<li>Open Magisk App.</li>
-							<li>Tap <b>Settings</b> icon.</li>
-								<a target="_blank" href="magisk/m1.jpg">
-									<img src="magisk/m1.jpg" alt="image" style="width:250px">
-								</a>
-								<br>
-									<font size="1"><b>tap image to enlarge</b></font>
-								<br>
-								<br>
-							<li>Under Settings, scroll down then enable <b>MagiskHide</b> then tap <b>Hide the Magisk app</b>, put any name you want and wait until it's done.</li>
-								<a target="_blank" href="magisk/m2.jpg">
-									<img src="magisk/m2.jpg" alt="image" style="width:200px">
-								</a>
-								<br>
-									<font size="1"><b>tap image to enlarge</b></font>
-								<br>
-								<br>
-							<li>Open Magisk app again then tap <b>Superuser</b> icon.</li>
-								<a target="_blank" href="magisk/m3.jpg">
-									<img src="magisk/m3.jpg" alt="image" style="width:200px">
-								</a>
-								<br>
-									<font size="1"><b>tap image to enlarge</b></font>
-								<br>
-								<br>
-<li>Tap <b>MagiskHide</b>, then search for and select Pokémon Go app and Google Play services. (app that you want to hide root).</li>
-								<a target="_blank" href="magisk/m4-5.jpg">
-									<img src="magisk/m4-5.jpg" alt="image" style="width:200px">
-								</a>
-								<br>
-									<font size="1"><b>tap image to enlarge</b></font>
-								<br>
-								<br>
-							<li>Check <b>SafetyNet</b>.</li>
-								<a target="_blank" href="magisk/sncheck.jpg">
-									<img src="magisk/sncheck.jpg" alt="image" style="width:200px">
-								</a>
-								<br>
-									<font size="1"><b>tap image to enlarge</b></font>
-								<br>		
-				</ol>
-					
-					<br>
-				<h3>Try to run Pokémon Go. If it can get through, time to set-up your prefered gps mocking app to fly. <a href="gpsjoystick-settings.html" target="_blank"><font size="4"><u>GPS Joystick by Appninja</u></a></font></h3>
-					<br>
-
-					<h3>
-						<font color="#f70040">FAQ:</font>
-					</h3>
-					<button class="accordion">failed safetyNet check!</button>
-					<div class="panel">
-					<br>
-					If you're having trouble passing safetyNet check, download <b>SafetyPatch</b> module by
-							hackintosh5 via Magisk.
-					</div>
+</div>
 
 
+</script>
 
-					<script>
-						var acc = document.getElementsByClassName("accordion");
-						var i;
+        <div class="section mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+<!--
 
-						for (i = 0; i < acc.length; i++) {
-							acc[i].addEventListener("click", function () {
-								this.classList.toggle("active");
-								var panel = this.nextElementSibling;
-								if (panel.style.maxHeight) {
-									panel.style.maxHeight = null;
-								} else {
-									panel.style.maxHeight = panel.scrollHeight + "px";
-								}
-							});
-						}
-					</script>
-					<!-- 
-<font size=5px;>
- <b>official site:</b> <a href="http://www.cydiaimpactor.com/" target="_blank">cydia impactor</a>
-<font color="#f70040"><b>faq:</b></font>
-  <button class="accordion"><b>#</b></button>
-  		<div class="panel">
-   		 ?       
-  		</div>
-</font>
-<hr>-->
-					<div class="section mt-5">
-						<div class="container">
-							<div class="row">
-								<div class="col-12">
+        </div>
+        <div class="my-5 py-5">
+        </div>
+    </body>
 
-								</div>
-							</div>
-						</div>
-					</div>
+-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="function.js"></script>
 
-
-			</div>
-			<div class="my-5 py-5">
-			</div>
-		</body>
-
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-		<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
-		<script src="function.js"></script>
-
-	</body>
+  </body>
 
 </html>

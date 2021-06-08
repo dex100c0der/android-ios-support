@@ -95,7 +95,8 @@ body {
 #tab-five:checked ~ .tabs #tab-five-label,
 #tab-six:checked ~ .tabs #tab-six-label,
 #tab-seven:checked ~ .tabs #tab-seven-label,
-#tab-eight:checked ~ .tabs #tab-eight-label {
+#tab-eight:checked ~ .tabs #tab-eight-label,
+#tab-nine:checked ~ .tabs #tab-nine-label {
   background-color: #fff;
   cursor: default;
   border-left-color: #3498DB; /*tab font color when clicked*/
@@ -109,7 +110,8 @@ body {
 #tab-five:checked ~ .tabs #tab-five-panel,
 #tab-six:checked ~ .tabs #tab-six-panel,
 #tab-seven:checked ~ .tabs #tab-seven-panel,
-#tab-eight:checked ~ .tabs #tab-eight-panel {
+#tab-eight:checked ~ .tabs #tab-eight-panel,
+#tab-nine:checked ~ .tabs #tab-nine-panel {
   display: block;
 }
 
@@ -148,6 +150,12 @@ body {
    .flex-tabs #tab-eight-label {
     order: 15;
   }  
+
+   .flex-tabs #tab-nine-label {
+    order: 17;
+  } 
+  
+  
   
   .flex-tabs #tab-one-panel {
     order: 2;
@@ -173,7 +181,14 @@ body {
   .flex-tabs #tab-eight-panel {
     order: 16;
   } 
-  
+  .flex-tabs #tab-nine-panel {
+    order: 18;
+  } 
+
+
+
+
+
 
   #tab-one:checked ~ .tabs #tab-one-label,
 #tab-two:checked ~ .tabs #tab-two-label,
@@ -182,7 +197,8 @@ body {
 #tab-five:checked ~ .tabs #tab-five-label,
 #tab-six:checked ~ .tabs #tab-six-label,
 #tab-seven:checked ~ .tabs #tab-seven-label,
-#tab-eight:checked ~ .tabs #tab-eight-label {
+#tab-eight:checked ~ .tabs #tab-eight-label,
+#tab-nine:checked ~ .tabs #tab-nine-label {
     border-bottom: none;
 	
   }
@@ -194,7 +210,8 @@ body {
 #tab-five:checked ~ .tabs #tab-five-panel,
 #tab-six:checked ~ .tabs #tab-six-panel,
 #tab-seven:checked ~ .tabs #tab-seven-panel,
-#tab-eight:checked ~ .tabs #tab-eight-panel {
+#tab-eight:checked ~ .tabs #tab-eight-panel,
+#tab-nine:checked ~ .tabs #tab-nine-panel {
     border-bottom: 1px solid #ccc;
   }
 }
@@ -243,10 +260,6 @@ body {
 <b>Sideloading</b> is the process of installing apps on your iDevice (iPhone/ iPad/ iTouch) using .IPA file.
 <br>
 <br>
-<h3>TIP:</h3>
-Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="#f70040">2FA security disabled</font> for these intallation methods. 
-<br>
-<br>
 
 <div class="worko-tabs">  
     <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
@@ -257,19 +270,21 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 		     <input class="state" type="radio" title="tab-six" name="tabs-state" id="tab-six" />
 			    <input class="state" type="radio" title="tab-seven" name="tabs-state" id="tab-seven" />
 				   <input class="state" type="radio" title="tab-eight" name="tabs-state" id="tab-eight" />
+				    <input class="state" type="radio" title="tab-nine" name="tabs-state" id="tab-nine" />
 
     <div class="tabs flex-tabs">
-        <label for="tab-one" id="tab-one-label" class="tab">sideloadly</label>
-        <label for="tab-two" id="tab-two-label" class="tab">altdeploy</label>
-        <label for="tab-three" id="tab-three-label" class="tab">altserver patcher</label>
-		<label for="tab-four" id="tab-four-label" class="tab">xcode</label>
-		<label for="tab-five" id="tab-five-label" class="tab">3utools</label>
-		<label for="tab-six" id="tab-six-label" class="tab">matrix installer</label>
-		<label for="tab-seven" id="tab-seven-label" class="tab">nullximpactor</label>
-		<label for="tab-eight" id="tab-eight-label" class="tab">appDB rickpactor</label>
+        <label for="tab-one" id="tab-one-label" class="tab">SIDELOADLY</label>
+        <label for="tab-two" id="tab-two-label" class="tab">ALTDEPLOY</label>
+        <label for="tab-three" id="tab-three-label" class="tab">ALTSERVER PATCHER</label>
+		<label for="tab-four" id="tab-four-label" class="tab">XCODE</label>
+		<label for="tab-five" id="tab-five-label" class="tab">3UTOOLS</label>
+		<label for="tab-six" id="tab-six-label" class="tab">MATRIX INSTALLER</label>
+		<label for="tab-seven" id="tab-seven-label" class="tab">NULLXIMPACTOR</label>
+		<label for="tab-eight" id="tab-eight-label" class="tab">APPDB RICKPACTOR</label>
+		<label for="tab-nine" id="tab-nine-label" class="tab">TIP</label>
 
         <div id="tab-one-panel" class="panel active">
-          <h3><font color="#f70040">SIDELOADLY (windows)</font></h3>
+          <h3><font color="#f70040">SIDELOADLY</font></h3>
           <p>is an IPA sideload tool that allows users to install IPA files directedly on iDevice with your own free developer account. With this tool you will have a free apple developer account, by using it you can sideload 10 apps but you can activate only 3 apps. Currently Sideloadly works on Windows and macOS operating systems only.</p>
         
 <h3>PRERIQUISITES:</h3>
@@ -332,7 +347,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 		
 		
 		<div id="tab-two-panel" class="panel">
-           <h3><font color="#f70040">ALTDEPLOY (mac/ mac os)</font></h3>
+           <h3><font color="#f70040">ALTDEPLOY</font></h3>
 		<p>is a mac OS solution for signing and sideloading IPA files to your iDevice, including some jailbreak tools, without worrying about app certificates being revoked. With Alt Deploy, you will get a Mail app add-on; this must be enabled in client preferences for the app. Once enabled, AltDeploy will work, but you must ensure your Mail app is open all the time you use AltDeploy.</p>
   
 		 <h3>PRERIQUISITES:</h3>
@@ -370,7 +385,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
     </div>
 		
         <div id="tab-three-panel" class="panel">
-         <h3><font color="#f70040">ALTSERVER PATCHER (windows/ mac os)</font></h3>    
+         <h3><font color="#f70040">ALTSERVER PATCHER</font></h3>    
 		<p>is a utility that patches AltServer to install any IPA from a web URL.</p>	
 			
 		<h3>PRERIQUISITES:</h3>	
@@ -499,7 +514,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 </div>			
 		
         <div id="tab-four-panel" class="panel">
-         <h3><font color="#f70040">XCODE (mac/ mac os)</font></h3>    
+         <h3><font color="#f70040">XCODE</font></h3>    
 		<p>is Apple's integrated development environment (IDE) for macOS, used to develop software for macOS, iOS, iPadOS, watchOS, and tvOS.</p>	   
 			
 		<h3>PRERIQUISITES:</h3>		
@@ -539,7 +554,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 		
 		
 		<div id="tab-five-panel" class="panel">
-         <h3><font color="#f70040">3UTOOLS (windows/ linux/ mac os)</font></h3> 
+         <h3><font color="#f70040">3UTOOLS</font></h3> 
 <p>is a GUI tool that is used to install the IOS IPA file without the need of having your device jailbroken. The advantage of using this method is that you can keep playing the game 24*7 without being revoked.</p>
  
 		<h3>PRERIQUISITES:</h3>	  
@@ -576,7 +591,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 		
 		
 		<div id="tab-six-panel" class="panel">
-         <h3><font color="#f70040">MATRIX INSTALLER (mac/ mac os)</font></h3>    
+         <h3><font color="#f70040">MATRIX INSTALLER</font></h3>    
 		<p>is a desktop tool for sideloading and installing iOS apps.  It makes it possible to install any third- party app on iOS device using .IPA file.
 </p>	
 		<h3>LIMITATIONS:</h3>	
@@ -614,7 +629,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 </div>
 		
         <div id="tab-seven-panel" class="panel">
-         <h3><font color="#f70040">NULLXIMPACTOR (mac/ mac os)</font></h3>
+         <h3><font color="#f70040">NULLXIMPACTOR</font></h3>
 <p>you can sideload IPA files to your iPhone/iPad running on iOS 10, 11, iOS 12, and iOS 13. However, it has to be made sure that the IPA file is hosted on a website. Similar to Cydia Impactor, nullxImpactor also requires you to provide an Apple ID along with its password for signing the IPA. Using this Cydia Impactor alternative for macOS, you can sideload third-party iOS apps and jailbreak tools like Electra, UnC0ver, Chimera, and Checkra1n.
 </p>		 
 
@@ -667,7 +682,7 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 </div>
 		
         <div id="tab-eight-panel" class="panel">
-          <h3><font color="#f70040">APPDB RICKPACTOR (windows/ mac/ mac os)</font></h3> 
+          <h3><font color="#f70040">APPDB RICKPACTOR</font></h3> 
 <p></p>
 <h3>NOTES:</h3>
 <ol>
@@ -705,6 +720,14 @@ Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="
 
 	<strike><font size=5><a href="" >VIDEO GUIDE</a></font></strike>		  
         </div>
+		
+	<div id="tab-nine-panel" class="panel">
+	<h3>
+	<p>Use a new <a href="appleid.html" target="_blank">Apple ID</a> with <font color="#f70040">2FA security disabled</font> for these intallation methods. </p>
+	</h3>
+	
+	
+	 </div>
     </div>
 
 </div>
