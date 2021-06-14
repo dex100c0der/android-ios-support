@@ -1,4 +1,4 @@
-// Code By Webdevtrick ( https://webdevtrick.com )
+
 (function($) { "use strict";
  
 	$(function() {
