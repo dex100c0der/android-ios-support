@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>android/Adventure Sync Apps</title>
+	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
+	<link rel="stylesheet" href="./style.css"> 
+
+<style>
+body
+{
+    font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	background-color: white;
+	
+}
+
+/* responsive img */
+  .responsive {
+	width: 100%;
+	height: auto;
+  }
+  
+  img {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 200px;
+  }
+  
+  img:hover {
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fake 1s infinite;
+}
+
+.worko-tabs {
+  margin: 20px;
+  width: 80%;
+}
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
+}
+.worko-tabs .flex-tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.worko-tabs .flex-tabs .tab {
+  flex-grow: 1;
+  max-height: 40px;
+}
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+  font-size: 14px; /*tab content font size*/
+ 
+}
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
+}
+.worko-tabs .tab:hover {
+  background-color: #D6DBDF ;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #3498DB; /*tab font color when clicked*/
+ font-weight: 600; /*tab font bold when clicked*/
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .flex-tabs {
+    flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    order: 7;
+  }
+  .flex-tabs #tab-five-label {
+    order: 9;
+  }
+  .flex-tabs #tab-six-label {
+    order: 11;
+  }  
+  .flex-tabs #tab-seven-label {
+    order: 13;
+  }
+   .flex-tabs #tab-eight-label {
+    order: 15;
+  }  
+  
+  .flex-tabs #tab-one-panel {
+    order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    order: 8;
+  }
+  .flex-tabs #tab-five-panel {
+    order: 10;
+  }
+  .flex-tabs #tab-six-panel {
+    order: 12;
+  }
+  .flex-tabs #tab-seven-panel {
+    order: 14;
+  }
+  .flex-tabs #tab-eight-panel {
+    order: 16;
+  } 
+  
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+  #tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label {
+    border-bottom: none;
+	
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+</style>
+</head>
+<body> 
+
+	<body class="hero-anime">	 
+	<div class="navigation-wrap bg-light start-header start-style">
+		<div class="container">
+		<div class="row">
+		<div class="col-12">
+		<nav class="navbar navbar-expand-md navbar-light">	
+		
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto py-4 py-md-0">
+			<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+				<a class="nav-link dropdown-toggle"  href="index.html" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+			</li>
+		</ul>
+		</div>	
+		</nav>
+		</div>
+		</div>
+		</div>	
+	</div>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+
+<div style="padding-left:14px">
+
+<h3><font color="#f70040">POKÉMON GO: ADVENTURE SYNC</font></h3>
+<!--<font size=2 color="#0074d0">/xda/ veez21</font>-->
+<hr>
+
+
+<div class="worko-tabs">  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
+	<input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+	<input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
+	   <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+	      <input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
+		     <input class="state" type="radio" title="tab-six" name="tabs-state" id="tab-six" />
+			    <input class="state" type="radio" title="tab-seven" name="tabs-state" id="tab-seven" />
+				   <input class="state" type="radio" title="tab-eight" name="tabs-state" id="tab-eight" />
+
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">WHAT IS ADVENTURE SYNC</label>
+        <label for="tab-two" id="tab-two-label" class="tab">HOW TO ACTIVATE</label>
+        <label for="tab-three" id="tab-three-label" class="tab">FITEST</label>			
+		<label for="tab-four" id="tab-four-label" class="tab">DEFIT</label>	
+		<!--<label for="tab-five" id="tab-five-label" class="tab">3utools</label>
+		<label for="tab-six" id="tab-six-label" class="tab">matrix installer</label>
+		<label for="tab-seven" id="tab-seven-label" class="tab">nullximpactor</label>
+		<label for="tab-eight" id="tab-eight-label" class="tab">appDB rickpactor</label>
+		-->
+        <div id="tab-one-panel" class="panel active">
+          <h3><font color="#f70040">Adventure Sync</font></h3>
+		<p>Track your distance traveled, earn Buddy Candy, and hatch Eggs while your phone is in your pocke.</p>
+		<p>Adventure Sync is an optional mode that will allow you to record your kilometers traveled even when the Pokémon GO app isn’t open. You’ll be able to stay active and earn Buddy Candy or hatch Eggs without significantly impacting your device’s battery life. When your Buddy Pokémon has found Candy or when an Egg is about to hatch, you can enable to receive a push notification. As an added bonus, you’ll get weekly fitness reports to track your progress as well as earn rewards for reaching weekly milestones.</p>
+		
+		<h3>Note:</h3> Adventure Sync is only available for Trainer Levels 5 and above!
+		
+		</div> 
+			 
+	<div id="tab-two-panel" class="panel">
+          <h3><font color="#f70040">How to activate Adventure Sync</font></h3>
+		
+To use this feature, you’ll have to always enable location permissions and connect to either Apple Health or Google Fit.
+<br>
+<br>
+<ol>
+<li>Tap the  Main Menu  button.
+<li>Tap the  Settings button.
+<li>Tap on  Adventure Sync. You’ll also be prompted to grant permissions for Pokémon GO to access your Apple Health or Google Fit data.
+</ol>
+To disable Adventure Sync, just revisit the settings page and uncheck  Adventure Sync.
+	
+	</div>	
+		
+		<div id="tab-three-panel" class="panel">
+		<h3><font color="#f70040">FITEST</font></h3>  
+		<a href="https://play.google.com/store/apps/details?id=com.seolfit.datatester&hl=en&gl=US" target="_blank">Download Link</a>
+	
+
+        
+		</div>
+			
+
+			
+		<div id="tab-four-panel" class="panel">
+		<h3><font color="#f70040">DeFit - Debugger of Fitness Apps</font></h3>
+   
+		  
+		<a href=" https://play.google.com/store/apps/details?id=com.fitness.debugger&hl=en&gl=US" target="_blank">Download Link</a>  
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		
+		 
+		</div>        
+	</div>
+</div>
+
+
+</script>
+
+        <div class="section mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+<!--
+
+        </div>
+        <div class="my-5 py-5">
+        </div>
+    </body>
+
+-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="function.js"></script>
+
+  </body>
+
+</html>
