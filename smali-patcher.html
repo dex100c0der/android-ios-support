@@ -1,764 +1,474 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Smali Patcher</title>
+	<title>android/Smali Patcher</title>
 	<link rel="icon" href="icon/android.png" type="image/png" sizes="32x32">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-	<link rel='stylesheet'
-		href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
-	<link rel="stylesheet" href="./style.css">
-	<style>
-		body {
-			font-family: 'Poppins', sans-serif;
-			font-size: 16px;
-			line-height: 24px;
-			font-weight: 400;
-			color: #212112;
-			background-size: 7%;
-			background-color: white !important;
-			overflow-x: hidden;
-			transition: all 200ms linear;
-
-		}
-
-		::selection {
-			color: #fff;
-			background-color: #ff4242;
-		}
-
-		::-moz-selection {
-			color: #fff;
-			background-color: #ff4242;
-		}
-
-		.start-header {
-			opacity: 1;
-			transform: translateY(0);
-			padding: 10px 0;
-			box-shadow: 0 10px 30px 0 rgb(33, 33, 33, 0.15);
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.start-header.scroll-on {
-			box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
-			padding: 5px 0;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.start-header.scroll-on .navbar-brand img {
-			height: 28px;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.navigation-wrap {
-			position: fixed;
-			width: 100%;
-			top: 0;
-			left: 0;
-			z-index: 1000;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.navbar {
-			padding: 0;
-		}
-
-		.navbar-brand img {
-			height: 52px;
-			width: auto;
-			display: block;
-			-webkit-transition: all 0.3s ease-out;
-			transition: all 0.3s ease-out;
-		}
-
-		.navbar-toggler {
-			float: right;
-			border: none;
-			padding-right: 0;
-		}
-
-		.navbar-toggler:active,
-		.navbar-toggler:focus {
-			outline: none;
-		}
-
-		/*menu icon for phone color*/
-		.navbar-light .navbar-toggler-icon {
-			width: 24px;
-			height: 17px;
-			background-image: none;
-			position: relative;
-			border-bottom: 1px solid white;
-			transition: all 300ms linear;
-		}
-
-		.navbar-light .navbar-toggler-icon:after,
-		.navbar-light .navbar-toggler-icon:before {
-			width: 24px;
-			position: absolute;
-			height: 1px;
-			background-color: white;
-			top: 0;
-			left: 0;
-			content: '';
-			z-index: 2;
-			transition: all 300ms linear;
-		}
-
-		.navbar-light .navbar-toggler-icon:after {
-			top: 8px;
-		}
-
-		.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-			transform: rotate(45deg);
-		}
-
-		.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-			transform: translateY(8px) rotate(-45deg);
-		}
-
-		.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-			border-color: transparent;
-		}
-
-		/*navbar menu text color (ipa download, android etc*/
-		.nav-link {
-			color: #fff !important;
-			font-weight: 400;
-			transition: all 200ms linear;
-		}
-
-		.nav-item:hover .nav-link {
-			color: #ff4242 !important;
-		}
-
-		/*navbar "home" menu hover color*/
-		.nav-item.active .nav-link {
-			color: #ff4242 !important;
-		}
-
-		.nav-link {
-			position: relative;
-			padding: 5px 0 !important;
-			display: inline-block;
-		}
-
-		.nav-item:after {
-			position: absolute;
-			bottom: -5px;
-			left: 0;
-			width: 100%;
-			height: 2px;
-			content: '';
-			background-color: #ff4242;
-			opacity: 0;
-			transition: all 200ms linear;
-		}
-
-		.nav-item:hover:after {
-			bottom: 0;
-			opacity: 1;
-		}
-
-		.nav-item.active:hover:after {
-			opacity: 0;
-		}
-
-		.nav-item {
-			position: relative;
-			transition: all 200ms linear;
-		}
-
-		/*navbar background color*/
-		.bg-light {
-			background-color: #0E0E0E !important;
-			transition: all 200ms linear;
-		}
-
-		.section {
-			position: relative;
-			width: 100%;
-			display: block;
-		}
-
-		.full-height {
-			height: 100vh;
-		}
-
-		.over-hide {
-			overflow: hidden;
-		}
-
-		.absolute-center {
-			position: absolute;
-			top: 50%;
-			left: 0;
-			width: 100%;
-			margin-top: 40px;
-			transform: translateY(-50%);
-			z-index: 20;
-		}
-
-		/* announcement text*/
-		h1 {
-			font-size: 48px;
-			line-height: 1.2;
-			font-weight: 700;
-			color: whitesmoke;
-			text-align: center;
-		}
-
-		p {
-			text-align: center;
-			margin: 0;
-			padding-top: 10px;
-			opacity: 1;
-			transform: translate(0);
-			transition: all 300ms linear;
-			transition-delay: 1700ms;
-		}
-
-		body.hero-anime p {
-			opacity: 0;
-			transform: translateY(40px);
-			transition-delay: 1700ms;
-		}
-
-		#switch,
-		#circle {
-			cursor: pointer;
-			-webkit-transition: all 300ms linear;
-			transition: all 300ms linear;
-		}
-
-		#switch {
-			width: 60px;
-			height: 8px;
-			border: 2px solid #ff4242;
-			border-radius: 27px;
-			background: #ff4242;
-			position: relative;
-			display: block;
-			margin: 0 auto;
-			text-align: center;
-			opacity: 1;
-			transform: translate(0);
-			transition: all 300ms linear;
-			transition-delay: 1900ms;
-		}
-
-		body.hero-anime #switch {
-			opacity: 0;
-			transform: translateY(40px);
-			transition-delay: 1900ms;
-		}
-
-		#circle {
-			position: absolute;
-			top: -11px;
-			left: -13px;
-			width: 26px;
-			height: 26px;
-			border-radius: 50%;
-			background: #000;
-		}
-
-		.switched {
-			border-color: #000 !important;
-			background: #ff4242 !important;
-		}
-
-		.switched #circle {
-			left: 43px;
-			box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25), 0 0 0 1px rgba(26, 53, 71, 0.07);
-			background: #fff;
-		}
-
-		.nav-item .dropdown-menu {
-			transform: translate3d(0, 10px, 0);
-			visibility: hidden;
-			opacity: 0;
-			max-height: 0;
-			display: block;
-			padding: 0;
-			margin: 0;
-			transition: all 200ms linear;
-		}
-
-		.nav-item.show .dropdown-menu {
-			opacity: 1;
-			visibility: visible;
-			max-height: 999px;
-			transform: translate3d(0, 0px, 0);
-		}
-
-		/*drop down menu color background*/
-		.dropdown-menu {
-			padding: 10px !important;
-			margin: 0;
-			font-size: 13px;
-			letter-spacing: 1px;
-			color: #212121;
-			background-color: #1f2029;
-			border: none;
-			border-radius: 3px;
-			box-shadow: 0 5px 10px 0 rgb(33, 33, 33, 0.15);
-			transition: all 200ms linear;
-		}
-
-		.dropdown-toggle::after {
-			display: none;
-		}
-
-		.dropdown-item {
-			padding: 3px 15px;
-			color: #fff;
-			border-radius: 2px;
-			transition: all 200ms linear;
-		}
-
-		.dropdown-item:hover,
-		.dropdown-item:focus {
-			color: #fff;
-			background-color: rgb(255, 66, 66, 0.6);
-		}
-
-		body.dark {
-			color: #fff;
-			background-color: #1f2029;
-		}
-
-		body.dark h1 {
-			color: #fff;
-		}
-
-		body.dark h1 span {
-			transition-delay: 0ms !important;
-		}
-
-		body.dark p {
-			color: #fff;
-			transition-delay: 0ms !important;
-		}
-
-		body.dark .bg-light {
-			background-color: red !important;
-		}
-
-		body.dark .start-header {
-			box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
-		}
-
-		body.dark .start-header.scroll-on {
-			box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
-		}
-
-		body.dark .nav-link {
-			color: #fff !important;
-		}
-
-		body.dark .nav-item.active .nav-link {
-			color: #999 !important;
-		}
-
-		body.dark .dropdown-menu {
-			color: #fff;
-			background-color: #1f2029;
-			box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
-		}
-
-		body.dark .dropdown-item {
-			color: #fff;
-		}
-
-		body.dark .navbar-light .navbar-toggler-icon {
-			border-bottom: 1px solid #fff;
-		}
-
-		body.dark .navbar-light .navbar-toggler-icon:after,
-		body.dark .navbar-light .navbar-toggler-icon:before {
-			background-color: #fff;
-		}
-
-		body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-			border-color: transparent;
-		}
-
-
-		@media (max-width: 767px) {
-			h1 {
-				font-size: 38px;
-			}
-
-			.nav-item:after {
-				display: none;
-			}
-
-			.nav-item::before {
-				position: absolute;
-				display: block;
-				top: 15px;
-				left: 0;
-				width: 11px;
-				height: 1px;
-				content: "";
-				border: none;
-				background-color: white;
-				vertical-align: 0;
-			}
-
-			.dropdown-toggle::after {
-				position: absolute;
-				display: block;
-				top: 10px;
-				left: -23px;
-				width: 1px;
-				height: 11px;
-				content: "";
-				border: none;
-				background-color: white;
-				vertical-align: 0;
-				transition: all 200ms linear;
-			}
-
-			.dropdown-toggle[aria-expanded="true"]::after {
-				transform: rotate(90deg);
-				opacity: 0;
-			}
-
-			.dropdown-menu {
-				padding: 0 !important;
-				background-color: transparent;
-				box-shadow: none;
-				transition: all 200ms linear;
-			}
-
-			.dropdown-toggle[aria-expanded="true"]+.dropdown-menu {
-				margin-top: 10px !important;
-				margin-bottom: 20px !important;
-			}
-
-			body.dark .nav-item::before {
-				background-color: #fff;
-			}
-
-			body.dark .dropdown-toggle::after {
-				background-color: #fff;
-			}
-
-			body.dark .dropdown-menu {
-				background-color: transparent;
-				box-shadow: none;
-			}
-		}
-
-		/* accordion */
-		.accordion {
-			background-color: #eee;
-			color: #444;
-			cursor: pointer;
-			padding: 18px;
-			width: 100%;
-			border: none;
-			text-align: left;
-			outline: none;
-			font-size: 15px;
-			transition: 0.4s;
-		}
-
-		.active,
-		.accordion:hover {
-			background-color: #ccc;
-			color: rgb(44, 43, 43);
-			font-weight: bold;
-		}
-
-		.accordion:after {
-			content: '\002B';
-			color: #444;
-			font-weight: bold;
-			float: right;
-			margin-left: 5px;
-		}
-
-		.active:after {
-			content: "\2212";
-		}
-
-		.panel {
-			padding: 0 18px;
-			background-color: white;
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.2s ease-out;
-		}
-
-		/* responsive img */
-		.responsive {
-			width: 100%;
-			height: auto;
-		}
-
-		img {
-			border: 1px solid #ddd;
-			border-radius: 4px;
-			padding: 5px;
-			width: 200px;
-		}
-
-		img:hover {
-			box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-		}
-	</style>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext'>
+	<link rel="stylesheet" href="./style.css"> 
+
+<style>
+body
+{
+    font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	background-color: white;
+	
+}
+
+/* responsive img */
+  .responsive {
+	width: 100%;
+	height: auto;
+  }
+  
+  img {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 200px;
+  }
+  
+  img:hover {
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  animation: fake 1s infinite;
+}
+
+.worko-tabs {
+  margin: 20px;
+  width: 80%;
+}
+.worko-tabs .state {
+  position: absolute;
+  left: -10000px;
+}
+.worko-tabs .flex-tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.worko-tabs .flex-tabs .tab {
+  flex-grow: 1;
+  max-height: 40px;
+}
+.worko-tabs .flex-tabs .panel {
+  background-color: #fff;
+  padding: 20px;
+  height: auto;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+  font-size: 14px; /*tab content font size*/
+ 
+}
+.worko-tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #eee;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 10px solid #ccc;
+}
+.worko-tabs .tab:hover {
+  background-color: #D6DBDF ;
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label,
+#tab-nine:checked ~ .tabs #tab-nine-label {
+  background-color: #fff;
+  cursor: default;
+  border-left-color: #3498DB; /*tab font color when clicked*/
+ font-weight: 600; /*tab font bold when clicked*/
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel,
+#tab-nine:checked ~ .tabs #tab-nine-panel {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .flex-tabs {
+    flex-direction: column;
+  }
+  .flex-tabs .tab {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .flex-tabs #tab-one-label {
+    order: 1;
+  }
+  .flex-tabs #tab-two-label {
+    order: 3;
+  }
+  .flex-tabs #tab-three-label {
+    order: 5;
+  }
+  .flex-tabs #tab-four-label {
+    order: 7;
+  }
+  .flex-tabs #tab-five-label {
+    order: 9;
+  }
+  .flex-tabs #tab-six-label {
+    order: 11;
+  }  
+  .flex-tabs #tab-seven-label {
+    order: 13;
+  }
+   .flex-tabs #tab-eight-label {
+    order: 15;
+  }  
+
+   .flex-tabs #tab-nine-label {
+    order: 17;
+  } 
+  
+  
+  
+  .flex-tabs #tab-one-panel {
+    order: 2;
+  }
+  .flex-tabs #tab-two-panel {
+    order: 4;
+  }
+  .flex-tabs #tab-three-panel {
+    order: 6;
+  }
+  .flex-tabs #tab-four-panel {
+    order: 8;
+  }
+  .flex-tabs #tab-five-panel {
+    order: 10;
+  }
+  .flex-tabs #tab-six-panel {
+    order: 12;
+  }
+  .flex-tabs #tab-seven-panel {
+    order: 14;
+  }
+  .flex-tabs #tab-eight-panel {
+    order: 16;
+  } 
+  .flex-tabs #tab-nine-panel {
+    order: 18;
+  } 
+
+
+
+
+
+
+  #tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+  #tab-four:checked ~ .tabs #tab-four-label,
+#tab-five:checked ~ .tabs #tab-five-label,
+#tab-six:checked ~ .tabs #tab-six-label,
+#tab-seven:checked ~ .tabs #tab-seven-label,
+#tab-eight:checked ~ .tabs #tab-eight-label,
+#tab-nine:checked ~ .tabs #tab-nine-label {
+    border-bottom: none;
+	
+  }
+
+  #tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel,
+#tab-five:checked ~ .tabs #tab-five-panel,
+#tab-six:checked ~ .tabs #tab-six-panel,
+#tab-seven:checked ~ .tabs #tab-seven-panel,
+#tab-eight:checked ~ .tabs #tab-eight-panel,
+#tab-nine:checked ~ .tabs #tab-nine-panel {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+
+</style>
 </head>
+<body> 
+
+	<body class="hero-anime">	 
+	<div class="navigation-wrap bg-light start-header start-style">
+		<div class="container">
+		<div class="row">
+		<div class="col-12">
+		<nav class="navbar navbar-expand-md navbar-light">	
+		
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto py-4 py-md-0">
+			<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+				<a class="nav-link dropdown-toggle"  href="index.html" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+			</li>
+		</ul>
+		</div>	
+		</nav>
+		</div>
+		</div>
+		</div>	
+	</div>
 
 <body>
+<br>
+<br>
+<br>
+<br>
 
-	<body class="hero-anime">
-		<div class="navigation-wrap bg-light start-header start-style">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<nav class="navbar navbar-expand-md navbar-light">
+<div style="padding-left:14px">
+
+<h3><font color="#f70040">SMALI PATCHER [MAGISK MODULE]</font></h3>
+<font size=2 color="#0074d0">xda/fOmey</font>
+<hr>
 
 
-							<button class="navbar-toggler" type="button" data-toggle="collapse"
-								data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-								aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+<div class="worko-tabs">  
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" />
+	<input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
+	<input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
+	   <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+	      <input class="state" type="radio" title="tab-five" name="tabs-state" id="tab-five" />
+		     <input class="state" type="radio" title="tab-six" name="tabs-state" id="tab-six" />
+			    <input class="state" type="radio" title="tab-seven" name="tabs-state" id="tab-seven" />
+				   <input class="state" type="radio" title="tab-eight" name="tabs-state" id="tab-eight" />
+				    <input class="state" type="radio" title="tab-nine" name="tabs-state" id="tab-nine" />
 
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav ml-auto py-4 py-md-0">
-									<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-										<a class="nav-link dropdown-toggle" href="index.html" role="button"
-											aria-haspopup="true" aria-expanded="false">Home</a>
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
+    <div class="tabs flex-tabs">
+        <label for="tab-one" id="tab-one-label" class="tab">WHAT IS SMALI?</label>
+        <label for="tab-two" id="tab-two-label" class="tab">PATCHES</label>
+        <label for="tab-three" id="tab-three-label" class="tab">NOTES</label>
+		<label for="tab-four" id="tab-four-label" class="tab">PRECAUTIONS</label>
+		<label for="tab-five" id="tab-five-label" class="tab">WHAT YOU NEED</label>
+		<label for="tab-six" id="tab-six-label" class="tab">ADB METHOD (AUTOMATED)</label>
+		<label for="tab-seven" id="tab-seven-label" class="tab">ALTERNATIVE METHOD</label>
+		<label for="tab-eight" id="tab-eight-label" class="tab">UPDATING</label>
+		<label for="tab-nine" id="tab-nine-label" class="tab">FAQ/ OFFICIAL XDA</label>
+		
+
+        <div id="tab-one-panel" class="panel active">
+          <h3><font color="#f70040">SMALI PATCHER</font></h3>
+          <p><b>Smali patcher</b> is an application that pulls the android framework from your device, applies what is considered useful patches to the sourced files and then finally generates a magisk module applying the patches system-lessly.</p>
+		  <p>The unique thing about Smali Patcher is it sources the framework files from your device, in an attempt to provide maximum compatibility across the entire android device family. The project has evolved over time, originating from very humble roots.</p>
+        </div>	
+		
+		
+		<div id="tab-two-panel" class="panel">
+           <h3><font color="#f70040">PATCHES:</font></h3>
+			<ul>
+				<li>Mock locations – Hide mock locations status, allowing apps like Pokemon GO to treat them as genuine location updates.
+				<li>Secure flag – Allow screenshots/screensharing in secure apps.
+				<li>Signature verification – Disable signature verification allowing modification/execution of signed system apps.
+				<li>Signature spoofing – Enable signature spoofing app permission.
+				<li>Recovery reboot – Reboot directly back into recovery from the power menu.
+				<li>Samsung Knox – Bypass Samsung Knox trip protection, only confirmed working for secure folder.
+				<li>High volume warning – Disable high volume popup dialog.</li>
+			</ul>			
 		</div>
-
-		<body>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<div style="padding-left:14px">
-
-				<h2>Smali Patcher</h2>
-				<b>Smali patcher</b> is a utility program designed to patch services.jar on an android system to spoof
-				location, disable signature verification, signature spoofing and allow screenshots in secure apps. It is
-				developed by XDA user fOmey. This tool works on all versions of Android and all android phones.
-				<hr>
-
-				<h3>PATCHES:</h3>
-				<ul>
-					<li><b>Mock locations</b> - Hide mock locations status, allowing apps like Pokemon GO to treat them
-						as genuine location updates.</li>
-					<li><b>Secure flag</b> - Allow screenshots/screensharing in secure apps.</li>
-					<li><b>Signature verification</b> - Disable signature verification allowing modification/execution
-						of signed system apps.</li>
-					<li><b>Signature spoofing</b> - Enable signature spoofing app permission.</li>
-					<li><b>Magisk reboot (Galaxy S10)</b> - Reboot directly back into magisk from powermenu.</li>
-					<li><b>High volume warning</b> - Disable high volume popup dialog.</li>
-				</ul>
-
-				<h3>NOTE:</h3>
-				<b> GPS SPOOFERS / FUSEDLOCATION / RUBBERBANDING:</b>
-				<br>
-
-				FusedLocation API GPS spoofers are NOT compatible with the mock location patch.You are required to use a
-				traditional GPS spoofer! Spoofed location updates will be fed into fusedlocation all the same, meaning
-				you don't need to disable the service.. which means while your not spoofing you still gain the benefit
-				of fusedlocation which is all around more accurate location updates!
-				<br>
-				<br>
-				<h3>REQUIREMENTS:</h3>
-				<ul>
-					<li>PC with at least 3GB+ of RAM.</li>
-					<br>
-					<li>Framework 4.7.1 or later installed.</li>
-					<form method="get" action="http://bit.ly/2TrvQaq" target="_blank">
-						<button type="submit">
-							<font color=red>Get Here</font>
-						</button>
-					</form>
-					<br>
-					<li>Java installed.</li>
-					<form method="get" action="http://bit.ly/2TrvQaq" target="_blank">
-						<button type="submit">
-							<font color=red>Get Here</font>
-						</button>
-					</form>
-					<br>
-					<li>Android device running 6.0 or above.</li>
-				</ul>
-
-				<h3>INSTRUCTIONS (ADB METHOD/AUTOMATED - RECOMMENDED!)</h3>
-				<ol>
-					<li>Backup device.. safety first kids.<br></li>
-					<li>Enable USB debugging in <a href="https://developer.android.com/studio/debug/dev-options"
-							target="_blank">DEVELOPER SETTINGS</a> on your device and connect via USB to your PC.<br>
-					</li>
-					<li>Run "SmaliPatcher.exe", First startup will automatically download the latest necessary
-						binary's.<br></li>
-					<li>Select your desired patches, but certainly check <b>[Mock locations]</b>.<br></li>
-					<li>Hit "ADB PATCH" button.<br></li>
-					<li>Once the process has completed, magisk module will be generated in the same directory as
-						<b>"SmaliPatcher.exe"</b> named: <b>"SmaliPatcherModule-X.X.X.X-fOmey@XDA.zip"</b>.<br></li>
-					<li>Install the generated zip file as a module in Magisk Manager.<br></li>
-					<li>Reboot after that.<br></li>
-				</ol>
-
-				<h3>Official XDA: <a
-						href="https://forum.xda-developers.com/apps/magisk/module-smali-patcher-0-7-t3680053"
-						target="_blank">SMALI Patcher</a>
-					<br>
-					<br>
-					GUIDE: <a href="https://www.youtube.com/watch?v=H9sakb26Juw" target="_blank">Video</a></h3>
-
-
-
-
-
-
-				<hr>
-				<h3>
-					<font color="#f70040">FAQ:</font>
-				</h3>
-				<button class="accordion"><b>bootloop after flashing the module</b></button>
-				<div class="panel">
-					<br>
-					<ol>
-						<LI>Boot into TWRP</LI>
-						<li>Go to the Menu <b>"Advanced"</b>><b>"File Manager</b>".</li>
-						<li>Navigate to: <b>data -> adb -> modules</b> select module directory (in this case
-							<b>"fomey.smalipatcher"</b>) -> Folder icon (bottom right) -> Delete</li>
-						<li>Reboot.</li>
-					</ol>
-					Alternatively you can just uninstall/ reinstall magisk to clear all your modules.
-				</div>
-				
-				<button class="accordion"><b>ERROR: Mock location class not found</b></button>
-				<div class="panel">
-				<br>
-					<ol>
-						<li>This means that the patcher cannot find core android classes... this usually means your service.jar is not deodexed properly.. or you didnt allow for USB debugging.</li>
-						</ol>
-				
-				</div>
-				
-				<button class="accordion"><b>ERROR: BASE DIRECTORY NOT FOUND</b></button>
-				<div class="panel">
-				<br>
-					<ol>
-						<li>You did not accept the USB debugging permission popup on your phone.. the patcher can't do anything without this permission.</li>
-						<li>The permission popup should be displayed after hitting the "ADB PATCH" button.. or as soon as you connect your phone to your PC.</li>
-						<li>If you can't see the permission popup: go to settings -> developer options -> revoke usb debugging authorizations.. disconnect and reconnect your phone and try again.</li>
-						<li>Make sure you tick "always allow from this computer".. otherwise you may have to confirm the popup multiple times during a single patch.</li>
-					</ol>				
-				</div>
-				
-				<button class="accordion"><b>UNSUPPORTED MAJOR.MINOR VERSION XX.X</b></button>
-				<div class="panel">
-				<br>
-				<ol>
-					<li>Use the Java Uninstall Tool to clean up out-of-date java versions and reinstall the latest java release.</li>
-					
-					</ol>
-				</div>
-				
-				<button class="accordion"><b>COULD NOT FIND RESOURCES</b></button>
-				<div class="panel">
-				<br>
-				<ol>
-					<li>This is a harmless warning, you can safely ignore it.</li>
-					</ol>
-				</div>
-				
-				<button class="accordion"><b>ERROR: BASE DIRECTORY NOT FOUND</b></button>
-				<div class="panel">
-				<br>
-				<ol>
-					<li>You did not accept the USB debugging permission popup on your phone.. the patcher can't do anything without this permission.</li>
-					<li>The permission popup should be displayed after hitting the "ADB PATCH" button.. or as soon as you connect your phone to your PC.</li>
-					<li>If you can't see the permission popup: go to settings -> developer options -> revoke usb debugging authorizations.. disconnect and reconnect your phone and try again.</li>
-					<li>Make sure you tick "always allow from this computer".. otherwise you may have to confirm the popup multiple times during a single patch.</li>
-					</ol>
-				</div>
-				
-				<button class="accordion"><b>COULD NOT FIND RESOURCES</b></button>
-				<div class="panel">
-				<br>
-				<ol>
-					<li>This is a harmless warning, you can safely ignore it.</li>
-					</ol>
-				</div>				
-				
-
-				<button class="accordion"><b>ERROR: XYZ CLASS NOT FOUND</b></button>
-				<div class="panel">
-					<br>
-					<ol>
-						<li>f you are browsing for a services.jar - it's most likely not deodexed.</li>						
-					</ol>
-				</div>
-				
-				<button class="accordion"><b>smali won't install/ random errors/ etc. </b></button>
-				<div class="panel">
-				<br>
-					Use Taichi.Magisk. click <a href="taichi.html" target="_blank">HERE</a>
-				</div>
+		
+        <div id="tab-three-panel" class="panel">
+        <h3><font color="#f70040">NOTES:</font></h3>
+			<ul>
+				<li>CERTAIN PATCHES WILL NOT WORK WITH ANDROID 10, ANDROID 10 SUPPORT IS CONSIDERED ALPHA.</li>
+				<li>YOU ARE REQUIRED TO HAVE A DEVICE CONNECTED TO YOUR PC IF YOU USE THIS METHOD.. THE PATCHER WILL NOT PROGRESS OTHERWISE.</li>
+				<li>An ADB DEVICE IS REQUIRED TO EXTRACT CDEX FILES.. IF YOU’RE PARANOID/ SAVY ENOUGH, YOU CAN USE A ANDROID EMULATOR.</li>
+			</ul>	
+				<h3>GPS SPOOFERS / FUSEDLOCATION / RUBBERBANDING NOTICE:</h3>
+				<p>FusedLocation API GPS spoofers are NOT compatible with the mock location patch.. your required to use a traditional GPS spoofer! Spoofed location updates will be fed into fused location, all the same, meaning you don’t need to disable the service.. which means while your not spoofing you still gain the benefit of fused location which is all around more accurate location updates!</p>
+			
+		</div>			
+		
+        <div id="tab-four-panel" class="panel">
+        <h3><font color="#f70040">PRECAUTIONS/ TERMS OF USE:</font></h3> 
+		You must back up your device prior to flashing the module, we are responsible or providing support to recover any devices stuck in bootloops.. if for whatever reason you find yourself in this situation, simply uninstall magisk and reinstall.. doing this will reset your installed modules.
+		</div>
+		
+		
+		<div id="tab-five-panel" class="panel">
+        <h3><font color="#f70040">REQUIREMENTS:</font></h3>
+			<ul>
+				<li>PC with at least 3GB+ of RAM.
+				<li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=55170" target="_blank">.NET Framework 4.7.1</a> or later installed.
+				<li><a href="https://www.java.com/" target="_blank">Java</a> installed.
+				<li>Android device running 6.0 or above.
+				<li>Stable Internet connection.
+			</ul>
+		</div>
+		
+		
+		<div id="tab-six-panel" class="panel">
+        <h3><font color="#f70040">ADB METHOD/ AUTOMATED – RECOMMENDED!</font></h3>    
+		<p>SMALI PATCHER COMPATIBLE WITH BOTH ODEX & DEODEXED ROMS! WILL AUTOMATICALLY DEODEX REQUIRED FILES IF NECESSARY.</p>	
+			<ol>
+				<li>Backup device.. safety first kids.
+				<li>Enable USB debugging in developer settings on your device and connect via USB to your PC.
+				<li>Authorise USB debugging connection on your phone.. example of popup.
+				<li>Run “SmaliPatcher.exe”, First startup will automatically download the latest necessary binary’s.
+				<li>Select your desired patches.
+				<li>Hit “ADB PATCH” button (yes without browsing for a .jar file).
+				<li>Once the process has completed, SMALI PATCHER magisk module will be generated in the same directory as “SmaliPatcher.exe” named: “SmaliPatcherModule-X.X.X.X-fOmey@XDA.zip”.
+				<li>Install the generated magisk module either in recovery mode or from the magisk app.
+				<li>Enable smali patcher module in magisk manager app.
+			</ol>
+		</div>
+		
+        <div id="tab-seven-panel" class="panel">
+        <h3><font color="#f70040">ALTERNATIVE METHOD - FOLLOW ONLY IF ADB METHOD FAILS!</font></h3>
+			<ol>
+		<li>Backup device.
+		<li>Enable USB debugging in developer settings on your device and connect via USB to your PC.
+		<li>Authorise USB debugging connection on your phone.. example of the popup.
+		<li>Run “SmaliPatcher.exe”, First startup will download the latest necessary binary’s.
+		<li>Browse to your “/system/framework” directory. The easiest way to obtain these files is from your ROM img/zip.
+		<li>Select your desired patches.
+		<li>Hit the “PATCH” button.
+		<li>Once the process has completed, magisk module will be generated in the same directory as “SmaliPatcher.exe”.
+		<li>Install the generated magisk module either in recovery mode or from the magisk app.
+		<li>Enable smali patcher module in magisk.
+			</ol>
+		</div>
+		
+        <div id="tab-eight-panel" class="panel">
+          <h3><font color="#f70040">UPDATING MODULE INSTRUCTIONS</font></h3> 
+		<p>Disable/uninstall any active smali patcher modules before generating a new one! If you generate a module with an older version active there’s a chance the outdated patches will carry over to the new module. I do my best efforts to prevent this, but it may still happen. Before reporting issues, make sure you have tried this.</p>			  
+        </div>
+		
+	<div id="tab-nine-panel" class="panel">
+	<h3><font color="#f70040">FREQUENTLY ASKED QUESTIONS:</font></h3> 
+	<b>BEFORE REPORTING ANY ISSUES:</b>
+		
+			<li>You have tried running the patcher as administrator.</li>
+			<li>You have accepted the USB debugging connection & ticked “Always allow from this computer”.</li>
+			<li>You have tried running the smali patcher with phone booted in recovery mode with /system mounted.</li>
+	<br>
+	
+<ol>
+		<li><b>HELP! I’M STUCK IN A BOOTLOOP, HOW DO I UNINSTALL:</b>
+		<ul>
+		<li>Boot into TWRP
+		<li>Advanced -> File Manager
+		<li>Navigate to: data -> adb -> modules -> select the module directory (in this case “fomey.smalipatcher”) -> Folder icon (bottom right of screen) -> Delete
+		<li>Alternatively, you can just uninstall/reinstall magisk to clear all your modules.
+		</ul>
+<br>
+		<li><b>MAGISK TEMPLATE DOWNLOAD FAILED:</b>
+		<ul>
+		<li>Run the patcher as an administrator, may not have read/write access to drive.
+		<li>Verify you have an active internet connection.
+		<li>Verify the firewall is not blocking the patcher.
+		<li>Verify your not running an outdated .NET framework.
+		</ul>
+<br>
+	<li><b>MOCK LOCATION RUBBER BANDS TO REAL LOCATION:</b>
+	<ul>
+	<li>Set device only in location method settings (Settings -> Location -> Location method).
+	<li>Disable improve location accuracy settings (Settings -> Location -> Improve accuracy).
+	<li>If you are still experiencing rubber banding after trying everything above, try a different spoofer.
+	</ul>
+<br>
+	<li><b>INVALID OR CORRUPT JAR FILE BIN:</b>
+	<ul>
+	<li>Delete the “bin” directory and restart the patcher to re-download the binary files.
+	<li>Corruption is caused by a unreliable internet connection.	
+	</ul>
+<br>
+	<li><b>HOW DO I CLEAR A MOCK LOCATION WHILE USING A GPS SPOOFER:</b>
+	<ul>
+	<li>Exit the app by pressing the “back” key, you may have to press this a few times. Any good spoofer should clean up after itself, by removing any mock providers on exit.
+	</ul>
+<br>
+	<li><b>MAGISK TEMPLATE FAILED TO DOWNLOAD:</b>
+	<ul>
+	<li>Make sure you’re using the LATEST release of the patcher.
+	<li>If you are using the latest version already.. an update will be available shortly to fix this issue.
+	</ul>
+<br>	
+<li><b>UNSUPPORTED MAJOR.MINOR VERSION XX.X:</b>
+	<ul>
+	<li>Use the Java Uninstall Tool to clean up out-of-date java versions and reinstall the latest java release.
+	</ul>
+<br>
+	<li><b>W: COULD NOT FIND RESOURCES:</b>
+	<ul>
+	<li>This is a harmless warning, you can safely ignore it.
+	</ul>
+<br>
+	<li><b>!!! ERROR: BASE DIRECTORY NOT FOUND:</b>
+	<ul>	
+	<li>You did not accept the USB debugging permission popup on your phone.. the patcher can’t do anything without this permission (example of popup).
+	<li>The permission popup should be displayed after hitting the “ADB PATCH” button.. or as soon as you connect your phone to your PC.
+	<li>If you can’t see the permission popup: go to settings -> developer options -> revoke usb debugging authorisations.. disconnect and reconnect your phone and try again.
+	<li>Make sure you tick “always allow from this computer”.. otherwise you may have to confirm the popup multiple times during a single patch.
+	</ul>
+<br>
+	<li><b>!!! ERROR: XYZ CLASS NOT FOUND:</b>
+	<ul>
+	<li>If you are browsing for a services.jar – it’s most likely not deodexed.. try the “ADB METHOD”.
+	<li>If you are using the “ADB METHOD” and you receive this error, post a reply to this thread including as much information as you can. Useful information: android version, patcher log and the directory named “adb” in the smali patcher folder (upload this directory to google drive).
+	</ul>
+</ol>	
+<br>
+<h3>OFFICIAL XDA THREAD: <a href="https://forum.xda-developers.com/t/module-smali-patcher-7-3.3680053/" target="_blank">Smali Patcher</a>
+</h3>
+	 </div>
+    </div>
+</div>
 
 
-				<script>
-					var acc = document.getElementsByClassName("accordion");
-					var i;
+</script>
 
-					for (i = 0; i < acc.length; i++) {
-						acc[i].addEventListener("click", function () {
-							this.classList.toggle("active");
-							var panel = this.nextElementSibling;
-							if (panel.style.maxHeight) {
-								panel.style.maxHeight = null;
-							} else {
-								panel.style.maxHeight = panel.scrollHeight + "px";
-							}
-						});
-					}
-				</script>
+        <div class="section mt-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+<!--
 
-				<div class="section mt-5">
-					<div class="container">
-						<div class="row">
-							<div class="col-12">
+        </div>
+        <div class="my-5 py-5">
+        </div>
+    </body>
 
-							</div>
-						</div>
-					</div>
+-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="function.js"></script>
 
-
-				</div>
-				<div class="my-5 py-5">
-				</div>
-		</body>
-
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-		<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
-		<script src="function.js"></script>
-
-	</body>
+  </body>
 
 </html>
